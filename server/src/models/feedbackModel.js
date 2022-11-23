@@ -3,11 +3,11 @@ const mongoose = require('mongoose');
 const feedbackSchema = new mongoose.Schema({
     text: {
        type: String,
-       required: [true, 'Text is required!']
+      //  required: [true, 'Text is required!']
     },
     rating: {
       type:  Number,
-      required: [true, 'Rating is required!']
+      // required: [true, 'Rating is required!']
     },
 });
 
