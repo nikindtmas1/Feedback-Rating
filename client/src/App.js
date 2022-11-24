@@ -1,6 +1,8 @@
 // import logo from './logo.svg';
 import './App.css';
 import RatingBar from './Components/RatingBar';
+import TextCometn from './Components/TextCometn';
+import CatalogFeedback from './Components/CatalogFeedback';
 
 function App() {
   return (
@@ -8,6 +10,8 @@ function App() {
       <header className="App-header">
         <p>Feedback App</p>
         <RatingBar />
+        <TextCometn />
+        <CatalogFeedback />
         {/* <img src={logo} className="App-logo" alt="logo" />
         <p>
           Edit <code>src/App.js</code> and save to reload.
