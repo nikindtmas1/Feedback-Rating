@@ -60,10 +60,6 @@
 .catalog-container{
   background-color: azure;
   margin-top: 10px;
-  /* color: #fff; */
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
 }
 
 .num-display {
