@@ -4,7 +4,7 @@ import FeedbackItem from "./FeedbackItem";
 const CatalogFeedback = () => {
   return (
     <div className="catalog-container">
-      <div>CatalogFeedback</div>
+      {/* <div>CatalogFeedback</div> */}
       <FeedbackItem />
     </div>
   );
