@@ -1,9 +1,16 @@
 import React from 'react'
 
-const RatingBar = () => {
+ const 
+RatingBar = () => {
   return (
-    <div>RatingBar</div>
+    <div className='rating-container'>
+
+    <div className='rating-bar'>
+
+        RatingBar</div>
+    </div>
   )
 }
 
-export default RatingBar
+ export default 
+RatingBar
