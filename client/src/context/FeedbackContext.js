@@ -2,7 +2,7 @@ import { createContext, useEffect, useState } from "react";
 
 const host = "http://localhost:5000";
 
-const FeedbackContext = createContext();
+export const FeedbackContext = createContext();
 
 export const FeedbackProvider = ({ children }) => {
   const [isLoading, setIsLoading] = useState(true);
