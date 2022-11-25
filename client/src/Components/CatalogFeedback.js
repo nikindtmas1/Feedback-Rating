@@ -5,7 +5,7 @@ import FeedbackItem from "./FeedbackItem";
 
 const CatalogFeedback = () => {
   let value = useContext(FeedbackContext);
-  console.log(value);
+  console.log(value.feedback);
   return (
     <div className="catalog-container">
       {/* <div>CatalogFeedback</div> */}
