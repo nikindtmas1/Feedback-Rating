@@ -23,7 +23,7 @@ async function request(url, options) {
     alert(error.message);
     throw error;
   }
-}
+};
 
 function getOptions(method = "get", body) {
   const options = {
@@ -37,8 +37,12 @@ function getOptions(method = "get", body) {
   }
 
   return options;
-}
+};
 
 export async function get(url) {
   return await request(url, getOptions());
-}
+};
+
+export async function post(url, data) {
+    return await request(url, getOptions("post", data));
+};
