@@ -28,6 +28,10 @@ export const FeedbackProvider = ({ children }) => {
     // setIsLoading(false);
   };
 
+  const addFeedback = () => {
+    services.createFeedback()
+  };
+
   return (
     <FeedbackContext.Provider value={{ feedback, isLoading }}>
       {children}
