@@ -1,6 +1,6 @@
 import { createContext, useEffect, useState } from "react";
-
-const host = "http://localhost:5000";
+import * as services from '../Components/services/data';
+//const host = "http://localhost:5000";
 
 export const FeedbackContext = createContext();
 
@@ -13,14 +13,19 @@ export const FeedbackProvider = ({ children }) => {
     fetchFeedback();
   }, []);
 
-  const fetchFeedback = async () => {
-    const respons = await fetch(host + "/feedbacks");
-    const data = respons.json();
+  const fetchFeedback =  () => {
+    
+    services.getAll()
+    .then((result) => setFeedback(result))
+    .then(() => setIsLoading(false))
+    .then((err) => alert(err.massage))
+    // const respons = await fetch(host + "/feedbacks");
+    // const data = respons.json();
 
-    console.log(data);
+    // console.log(data);
 
-    setFeedback(data);
-    setIsLoading(false);
+    // setFeedback(data);
+    // setIsLoading(false);
   };
 
   return (
