@@ -9,4 +9,8 @@ export async function getAll() {
   let result = Object.values(feedbacks);
 
   return result;
-}
+};
+
+export async function createFeedback(data) {
+    return await service.post(host + '/feedbacks', data);
+};
