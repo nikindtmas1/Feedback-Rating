@@ -28,12 +28,14 @@ export const FeedbackProvider = ({ children }) => {
     // setIsLoading(false);
   };
 
-  const addFeedback = () => {
-    services.createFeedback()
+  const addFeedback = (data) => {
+   
+    services.createFeedback(data)
+    .then((err) => alert(err.massage))
   };
 
   return (
-    <FeedbackContext.Provider value={{ feedback, isLoading }}>
+    <FeedbackContext.Provider value={{ feedback, isLoading, addFeedback }}>
       {children}
     </FeedbackContext.Provider>
   );
