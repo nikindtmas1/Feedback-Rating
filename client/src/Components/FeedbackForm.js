@@ -1,6 +1,9 @@
 import React from 'react';
 import { useContext, useEffect, useState } from 'react';
 import { FeedbackContext } from '../context/FeedbackContext';
+import Card from './shared/Card';
+import Button from './shared/Button';
+import RatingSelect from './RatingSelect';
 
 const FeedbackForm = () => {
     const {addFeedback} = useContext(FeedbackContext);
@@ -23,12 +26,24 @@ const FeedbackForm = () => {
             setBtnDisabled(false);
         }
     }, [text]);
+
+    const handleSubmit = () => {
+
+    };
+
+    const handleTextChange = (e) => {
+        setText(e.target.value);
+    };
+
+
+
   return (
+    <Card>
     <div className="text-container">
     <div className="text-content">
     <form onSubmit={handleSubmit}>
                 <h2>How would you rate your service with us?</h2>
-                <RatingSelect selected={rating} select={(rating: number) => setRating(rating)} />
+                <RatingSelect selected={rating} select={() => setRating(rating)} />
                 <div className="input-group">
                     <input type="text" placeholder="Write a review" value={text} onChange={handleTextChange} />
                     <Button type="submit" isDisabled={btnDisabled}>
@@ -40,6 +55,7 @@ const FeedbackForm = () => {
             </form>
     </div>
   </div>
+  </Card>
   )
 }
 
