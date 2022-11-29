@@ -5,7 +5,7 @@ import * as services from '../Components/services/data';
 export const FeedbackContext = createContext();
 
 export const FeedbackProvider = ({ children }) => {
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoadding, setIsLoading] = useState(true);
   const [feedback, setFeedback] = useState([]);
   const [feedbackEdit, setFeedbackEdit] = useState(false);
 
@@ -35,7 +35,7 @@ export const FeedbackProvider = ({ children }) => {
   };
 
   return (
-    <FeedbackContext.Provider value={{ feedback, isLoading, addFeedback }}>
+    <FeedbackContext.Provider value={{ feedback, isLoadding, addFeedback }}>
       {children}
     </FeedbackContext.Provider>
   );
