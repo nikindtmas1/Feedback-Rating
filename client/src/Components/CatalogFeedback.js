@@ -7,7 +7,7 @@ const CatalogFeedback = () => {
   let value = useContext(FeedbackContext);
   console.log(value.feedback);
   return (
-    <div className="catalog-container">
+    <div className="feedback-list">
       {/* <div>CatalogFeedback</div> */}
       <FeedbackItem />
     </div>
