@@ -1,7 +1,7 @@
 // import logo from './logo.svg';
 import "./App.css";
-import RatingBar from "./Components/RatingBar";
-import TextCometn from "./Components/TextCometn";
+//import RatingBar from "./Components/RatingBar";
+//import TextCometn from "./Components/TextCometn";
 import CatalogFeedback from "./Components/CatalogFeedback";
 import FeedbackForm from "./Components/FeedbackForm";
 import { FeedbackProvider } from "./context/FeedbackContext";
@@ -12,9 +12,9 @@ function App() {
       <div className="App">
         <header className="App-header">
           <p>Feedback App</p>
-          <RatingBar />
+          {/* <RatingBar /> */}
           <FeedbackForm />
-          <TextCometn />
+          {/* <TextCometn /> */}
           <CatalogFeedback />
           {/* <img src={logo} className="App-logo" alt="logo" />
         <p>
