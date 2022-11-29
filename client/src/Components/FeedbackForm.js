@@ -27,8 +27,17 @@ const FeedbackForm = () => {
         }
     }, [text]);
 
-    const handleSubmit = () => {
+    const handleSubmit = (e) => {
+        e.preventDefault();
 
+        let formData = new FormData(e.currentTarget);
+        let text = formData.get('text').trim();
+        let newFeedback = {
+            text,
+            rating,
+        };
+
+        addFeedback(newFeedback);
     };
 
     const handleTextChange = (e) => {
@@ -45,7 +54,7 @@ const FeedbackForm = () => {
                 <h2>How would you rate your service with us?</h2>
                 <RatingSelect selected={rating} select={(rating) => setRating(rating)} />
                 <div className="input-group">
-                    <input type="text" placeholder="Write a review" value={text} onChange={handleTextChange} />
+                    <input type="text" name='text' placeholder="Write a review" value={text} onChange={handleTextChange} />
                     <Button type="submit" isDisabled={btnDisabled}>
                         Send
                     </Button>
