@@ -13,6 +13,7 @@ function App() {
         <header className="App-header">
           <p>Feedback App</p>
           <RatingBar />
+          <FeedbackForm />
           <TextCometn />
           <CatalogFeedback />
           {/* <img src={logo} className="App-logo" alt="logo" />
