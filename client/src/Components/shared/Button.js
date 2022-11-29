@@ -1,6 +1,12 @@
 import React from "react";
 
-const Button = () => {
+const Button = ({ children, version = 'primary', type, isDisabled = false }) => {
+
+    return(
+        <button type={type} disabled={isDisabled} className={`btn btn-${version}`}>
+            {children}
+        </button>
+    );
 
 };
 
