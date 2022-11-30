@@ -11,7 +11,7 @@ const FeedbackItem = ({item}) => {
     <Card>
     <div className="num-display">{item.rating}</div>
         <button type='button' onClick={() => removeFeedback(item._id)} className='close'>
-            <FaTimes color='purple' />
+            <FaTimes color='red' />
         </button>
         <button type='button' onClick='' className='edit'>
             <FaEdit color='purple'/>
