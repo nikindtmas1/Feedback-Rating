@@ -14,3 +14,12 @@ export async function getAll() {
 export async function createFeedback(data) {
     return await service.post(host + '/feedbacks', data);
 };
+
+export async function deleteFeedback(id) {
+  return await service.del(host + `/feedbacks/${id}`);
+};
+
+export async function editFeedback(id, data) {
+  const respons = await service.put(host + `/feedbacks/${id}`, data);
+  return respons;
+};
