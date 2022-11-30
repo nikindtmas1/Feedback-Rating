@@ -34,8 +34,24 @@ export const FeedbackProvider = ({ children }) => {
     .then((err) => alert(err.massage))
   };
 
+  const removeFeedback = (id) => {
+    if(window.confirm('Are you sure you want to delete?')){
+      services.deleteFeedback(id)
+      .then(() => {
+        const newFeedback = feedback.filter((item) => item._id !== id)
+
+        setFeedback(newFeedback);
+      })
+      .then((err) => alert(err.massage))
+      // .then((result) => setFeedback(result))
+
+      // const newFeedback = feedback.filter((item) => item.id !== id);
+
+    }
+  };
+
   return (
-    <FeedbackContext.Provider value={{ feedback, isLoadding, addFeedback }}>
+    <FeedbackContext.Provider value={{ feedback, isLoadding, addFeedback, removeFeedback }}>
       {children}
     </FeedbackContext.Provider>
   );
