@@ -46,3 +46,11 @@ export async function get(url) {
 export async function post(url, data) {
     return await request(url, getOptions("post", data));
 };
+
+export async function put(url, data) {
+    return await request(url, getOptions("put", data));
+};
+
+export async function del(url) {
+  return await request(url, getOptions("delete"));
+};
