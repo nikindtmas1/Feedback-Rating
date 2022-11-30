@@ -7,6 +7,7 @@ import CatalogFeedback from "./Components/CatalogFeedback";
 import FeedbackForm from "./Components/FeedbackForm";
 import { FeedbackProvider } from "./context/FeedbackContext";
 import AboutIconLink from "./Components/AboutIconLink";
+import FeedbackStats from "./Components/FeedbackStats";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
             {/* <RatingBar /> */}
             <FeedbackForm />
             {/* <TextCometn /> */}
+            <FeedbackStats />
             <CatalogFeedback />
             {/* <img src={logo} className="App-logo" alt="logo" />
         <p>
