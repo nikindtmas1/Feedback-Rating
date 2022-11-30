@@ -38,6 +38,9 @@ const FeedbackForm = () => {
         };
 
         addFeedback(newFeedback);
+        setBtnDisabled(true);
+        setRating(10);
+        setText('');
     };
 
     const handleTextChange = (e) => {
