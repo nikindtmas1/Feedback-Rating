@@ -54,7 +54,7 @@ const FeedbackForm = () => {
     <div className="text-container">
     <div className="text-content">
     <form onSubmit={handleSubmit}>
-                <h2>How would you rate us?</h2>
+                <h2>How would you rate Gosho?</h2>
                 <RatingSelect selected={rating} select={(rating) => setRating(rating)} />
                 <div className="input-group">
                     <input type="text" name='text' placeholder="Write a review" value={text} onChange={handleTextChange} />
