@@ -31,6 +31,11 @@ export const FeedbackProvider = ({ children }) => {
   const addFeedback = (data) => {
    
     services.createFeedback(data)
+    .then(() => {
+      services.getAll()
+      .then((result) => setFeedback(result))
+     
+    })
     .then((err) => alert(err.massage))
   };
 
