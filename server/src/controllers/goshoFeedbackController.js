@@ -1,10 +1,10 @@
 const express = require('express');
 const router = express.Router();
 
-const services = require('../services/feedbackService');
+const services = require('../services/goshoFeedbackService');
 
 router.get('/', async (req, res) => {
-    let goshoFeedbacks = await services.getAllFeedback();
+    const goshoFeedbacks = await services.getAllGoshoFeedback();
 
     res.json(goshoFeedbacks);
 });
