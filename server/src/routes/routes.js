@@ -4,6 +4,6 @@ const feedbackController = require('../controllers/feedbackController');
 const goshoFeedbackController = require("../controllers/goshoFeedbackController");
 
 router.use('/feedbacks', feedbackController);
-router.use('/goshoFeedbacks', goshoFeedbackController);
+router.use('/goshofeedbacks', goshoFeedbackController);
 
 module.exports = router;
