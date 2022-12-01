@@ -4,6 +4,7 @@ import { FeedbackContext } from '../context/FeedbackContext';
 import Card from './shared/Card';
 import Button from './shared/Button';
 import RatingSelect from './RatingSelect';
+import SelectPeople from './PeopleSelect';
 
 const FeedbackForm = () => {
     const {addFeedback} = useContext(FeedbackContext);
@@ -54,7 +55,7 @@ const FeedbackForm = () => {
     <div className="text-container">
     <div className="text-content">
     <form onSubmit={handleSubmit}>
-                <h2>How would you rate therapist <select style={{width: 110}} placeholder='Select Name...'>Select Name</select> Gosho?</h2>
+                <h2>How would you rate therapist <SelectPeople /> ?</h2>
                 <RatingSelect selected={rating} select={(rating) => setRating(rating)} />
                 <div className="input-group">
                     <input type="text" name='text' placeholder="Write a review" value={text} onChange={handleTextChange} />
