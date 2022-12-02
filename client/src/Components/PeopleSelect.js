@@ -1,25 +1,21 @@
-import React, {useContext, useState} from "react";
+import React, {useContext} from "react";
 import { FeedbackContext } from "../context/FeedbackContext";
 
 
 
 const SelectPeople = () => {
 
-    const {addName, fetchFeedback} = useContext(FeedbackContext);
+    const {feedbackByName} = useContext(FeedbackContext);
 
+    
 
     const onOptionChangeHandler = (e) => {
-        console.log(e.target.value);
-        // let currentName = e.target.value;
-        // addName(currentName);
-
+   
+        let currentName = e.target.value;
+        feedbackByName(currentName);
+      
     }
-//    const onClick = (e) => {
-//     addName('gosho')
-//     fetchFeedback();
-   
-   
-//    };
+
 
 
     return (
