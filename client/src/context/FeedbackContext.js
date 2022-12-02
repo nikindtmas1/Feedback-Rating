@@ -8,7 +8,6 @@ export const FeedbackContext = createContext();
 export const FeedbackProvider = ({ children }) => {
   const [isLoadding, setIsLoading] = useState(true);
   const [feedback, setFeedback] = useState([]);
-  const [peopleName, setPeopleName] = useState('');
   const [feedbackEdit, setFeedbackEdit] = useState(false);
 
   useEffect(() => {
@@ -16,25 +15,23 @@ export const FeedbackProvider = ({ children }) => {
   }, []);
 
   const fetchFeedback =  () => {
-    if(peopleName === 'gosho'){
-      console.log(peopleName);
-      goshoServices.getAll()
-      // services.getAll()
-      .then((result) => setFeedback(result))
-      .then(() => setIsLoading(false))
-      .then((err) => alert(err.massage))
-    }else{
-      console.log(peopleName);
+
       services.getAll()
       .then((result) => setFeedback(result))
       .then(() => setIsLoading(false))
+   
       .then((err) => alert(err.massage))
-    }
+    
   
   };
 
-  const addName = (name) => {
-    setPeopleName(name);
+  const feedbackByName = (name) => {
+
+    if(name === 'gosho'){
+      goshoServices.getAll()
+      .then((result) => setFeedback(result))
+      .then((err) => alert(err.massage))
+    }
   };
 
   const addFeedback = (data) => {
@@ -65,7 +62,7 @@ export const FeedbackProvider = ({ children }) => {
   };
 
   return (
-    <FeedbackContext.Provider value={{ feedback, isLoadding, addFeedback, removeFeedback, addName, fetchFeedback }}>
+    <FeedbackContext.Provider value={{ feedback, isLoadding, addFeedback, removeFeedback, feedbackByName, fetchFeedback }}>
       {children}
     </FeedbackContext.Provider>
   );
