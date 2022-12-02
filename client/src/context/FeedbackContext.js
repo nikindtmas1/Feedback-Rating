@@ -1,6 +1,7 @@
 import { createContext, useEffect, useState } from "react";
 import * as services from '../Components/services/data';
 import * as goshoServices from '../Components/services/goshoData';
+import * as toshoServices from '../Components/services/toshoData';
 //const host = "http://localhost:5000";
 
 export const FeedbackContext = createContext();
@@ -29,6 +30,10 @@ export const FeedbackProvider = ({ children }) => {
 
     if(name === 'gosho'){
       goshoServices.getAll()
+      .then((result) => setFeedback(result))
+      .then((err) => alert(err.massage))
+    }else if(name === 'tosho'){
+      toshoServices.getAll()
       .then((result) => setFeedback(result))
       .then((err) => alert(err.massage))
     }
