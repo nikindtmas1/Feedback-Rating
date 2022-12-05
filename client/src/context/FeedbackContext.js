@@ -68,6 +68,17 @@ export const FeedbackProvider = ({ children }) => {
 
   const removeFeedback = (id) => {
     if(window.confirm('Are you sure you want to delete?')){
+      // if(peopleName === 'gosho'){
+      //   goshoServices.deleteGoshoFeedback(id)
+      //   .then(() => {
+      //     const newFeedback = feedback.filter((item) => item._id !== id )
+
+      //     setFeedback(newFeedback);
+      //   })
+      //   .then((err) => alert(err.massage));
+      // }else{
+
+      // }
       services.deleteFeedback(id)
       .then(() => {
         const newFeedback = feedback.filter((item) => item._id !== id)
@@ -75,10 +86,7 @@ export const FeedbackProvider = ({ children }) => {
         setFeedback(newFeedback);
       })
       .then((err) => alert(err.massage))
-      // .then((result) => setFeedback(result))
-
-      // const newFeedback = feedback.filter((item) => item.id !== id);
-
+      
     }
   };
 
