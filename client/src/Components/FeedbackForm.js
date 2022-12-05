@@ -7,7 +7,7 @@ import RatingSelect from './RatingSelect';
 import SelectPeople from './PeopleSelect';
 
 const FeedbackForm = () => {
-    const {addFeedback} = useContext(FeedbackContext);
+    const {addFeedback, feedbackByName} = useContext(FeedbackContext);
 
     const [text, setText] = useState('');
     const [rating, setRating] = useState(10);
@@ -38,6 +38,9 @@ const FeedbackForm = () => {
             rating,
         };
 
+        if(feedbackByName === 'gosho'){
+            
+        }
         addFeedback(newFeedback);
         setBtnDisabled(true);
         setRating(10);
