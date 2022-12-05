@@ -50,6 +50,10 @@ export const FeedbackProvider = ({ children }) => {
     .then((err) => alert(err.massage))
   };
 
+  const addGoshoFeedback = () => {
+    
+  }
+
   const removeFeedback = (id) => {
     if(window.confirm('Are you sure you want to delete?')){
       services.deleteFeedback(id)
