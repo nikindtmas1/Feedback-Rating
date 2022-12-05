@@ -9,5 +9,10 @@ router.get('/', async (req, res) => {
     res.json(goshoFeedbacks);
 });
 
+router.post('/', async (req, res) => {
+    await services.createGoshoFeedback({...req.body});
+
+    res.json({ ok: true })
+});
 
 module.exports = router;
