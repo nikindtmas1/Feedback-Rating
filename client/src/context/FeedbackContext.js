@@ -50,8 +50,13 @@ export const FeedbackProvider = ({ children }) => {
     .then((err) => alert(err.massage))
   };
 
-  const addGoshoFeedback = () => {
-    
+  const addGoshoFeedback = (data) => {
+    goshoServices.createGoshoFeedback(data)
+    .then(() => {
+      goshoServices.getAll()
+      .then((result) => setFeedback(result))
+    })
+    .then((err) => alert(err.massage));
   }
 
   const removeFeedback = (id) => {
@@ -71,7 +76,15 @@ export const FeedbackProvider = ({ children }) => {
   };
 
   return (
-    <FeedbackContext.Provider value={{ feedback, isLoadding, addFeedback, removeFeedback, feedbackByName, fetchFeedback }}>
+    <FeedbackContext.Provider value={{ 
+      feedback, 
+      isLoadding, 
+      addFeedback, 
+      addGoshoFeedback, 
+      removeFeedback, 
+      feedbackByName, 
+      fetchFeedback 
+      }}>
       {children}
     </FeedbackContext.Provider>
   );
