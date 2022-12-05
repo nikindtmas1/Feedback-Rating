@@ -10,6 +10,8 @@ export const FeedbackProvider = ({ children }) => {
   const [isLoadding, setIsLoading] = useState(true);
   const [feedback, setFeedback] = useState([]);
   const [feedbackEdit, setFeedbackEdit] = useState(false);
+  const [peopleName, setPeopleName] = useState('');
+
 
   useEffect(() => {
     fetchFeedback();
@@ -31,6 +33,7 @@ export const FeedbackProvider = ({ children }) => {
     if(name === 'gosho'){
       goshoServices.getAll()
       .then((result) => setFeedback(result))
+      .then(() => setPeopleName(name))
       .then((err) => alert(err.massage))
     }else if(name === 'tosho'){
       toshoServices.getAll()
@@ -39,25 +42,29 @@ export const FeedbackProvider = ({ children }) => {
     }
   };
 
+  
+
   const addFeedback = (data) => {
-   
-    services.createFeedback(data)
-    .then(() => {
-      services.getAll()
-      .then((result) => setFeedback(result))
-     
-    })
-    .then((err) => alert(err.massage))
+    if(peopleName === 'gosho'){
+      goshoServices.createGoshoFeedback(data)
+      .then(() => {
+        goshoServices.getAll()
+        .then((result) => setFeedback(result))
+      })
+      .then((err) => alert(err.massage));
+    }else{
+
+      services.createFeedback(data)
+      .then(() => {
+        services.getAll()
+        .then((result) => setFeedback(result))
+       
+      })
+      .then((err) => alert(err.massage))
+    }
   };
 
-  const addGoshoFeedback = (data) => {
-    goshoServices.createGoshoFeedback(data)
-    .then(() => {
-      goshoServices.getAll()
-      .then((result) => setFeedback(result))
-    })
-    .then((err) => alert(err.massage));
-  }
+ 
 
   const removeFeedback = (id) => {
     if(window.confirm('Are you sure you want to delete?')){
@@ -80,7 +87,6 @@ export const FeedbackProvider = ({ children }) => {
       feedback, 
       isLoadding, 
       addFeedback, 
-      addGoshoFeedback, 
       removeFeedback, 
       feedbackByName, 
       fetchFeedback 
