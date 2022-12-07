@@ -97,6 +97,7 @@ export const FeedbackProvider = ({ children }) => {
       addFeedback, 
       removeFeedback, 
       feedbackByName, 
+      peopleName,
       fetchFeedback 
       }}>
       {children}
