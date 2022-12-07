@@ -17,6 +17,7 @@ const FeedbackItem = ({item}) => {
             <FaEdit color='purple'/>
         </button>
         <div className="text-display">{item.text}</div>
+        {/* <div className='text-display'>{name.peopleName}</div> */}
         </Card>
   )
 }
