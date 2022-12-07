@@ -68,24 +68,25 @@ export const FeedbackProvider = ({ children }) => {
 
   const removeFeedback = (id) => {
     if(window.confirm('Are you sure you want to delete?')){
-      // if(peopleName === 'gosho'){
-      //   goshoServices.deleteGoshoFeedback(id)
-      //   .then(() => {
-      //     const newFeedback = feedback.filter((item) => item._id !== id )
+      console.log(peopleName);
+      if(peopleName === 'gosho'){
+        goshoServices.deleteGoshoFeedback(id)
+        .then(() => {
+          const newFeedback = goshoServices.getAll()
+          .then((newFeedback) => newFeedback.filter((item) => item._id !== id ))
+          .then(() => setFeedback(newFeedback))
+        })
+        .then((err) => alert(err.message));
+      }else{
 
-      //     setFeedback(newFeedback);
-      //   })
-      //   .then((err) => alert(err.massage));
-      // }else{
-
-      // }
+      }
       services.deleteFeedback(id)
       .then(() => {
         const newFeedback = feedback.filter((item) => item._id !== id)
 
         setFeedback(newFeedback);
       })
-      .then((err) => alert(err.massage))
+      .then((err) => alert(err.message))
       
     }
   };
