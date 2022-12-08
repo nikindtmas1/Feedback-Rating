@@ -7,7 +7,7 @@ import RatingSelect from './RatingSelect';
 import SelectPeople from './PeopleSelect';
 
 const FeedbackForm = () => {
-    const {addFeedback, feedbackByName, } = useContext(FeedbackContext);
+    const {addFeedback, feedbackByName, peopleName} = useContext(FeedbackContext);
 
     const [text, setText] = useState('');
     const [rating, setRating] = useState(10);
@@ -36,6 +36,7 @@ const FeedbackForm = () => {
         let newFeedback = {
             text,
             rating,
+            peopleName
         };
 
      
