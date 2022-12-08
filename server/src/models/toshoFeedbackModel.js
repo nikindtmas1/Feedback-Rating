@@ -6,7 +6,10 @@ const toshoSchema = new mongoose.Schema({
     },
     rating: {
         type: Number
-    }
+    },
+    peopleName: {
+        type: String
+    },
 });
 
 module.exports = mongoose.model("ToshoFeedback", toshoSchema);
