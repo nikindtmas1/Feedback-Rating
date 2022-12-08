@@ -22,8 +22,8 @@ const SelectPeople = () => {
         <>
         <select onChange={onOptionChangeHandler} style={{width: 140, color: 'blue', borderRadius: "10px", padding: "3px"}}>
             <option style={{textAlign: "center"}}>Select Therapist</option>
-            <option value='gosho' style={{textAlign: "center"}}>Gosho</option>
-            <option value='tosho' style={{textAlign: "center"}}>Tosho</option>
+            <option value='Gosho' style={{textAlign: "center"}}>Gosho</option>
+            <option value='Tosho' style={{textAlign: "center"}}>Tosho</option>
             <option value='pesho' style={{textAlign: "center"}}>Pesho</option>
             <option value='tomi' style={{textAlign: "center"}}>Tomi</option>
             
