@@ -7,6 +7,9 @@ const goshoSchema = new mongoose.Schema({
     rating: {
         type: Number
     },
+    peopleName: {
+        type: String
+    },
 });
 
 module.exports = mongoose.model('GoshoFeedback', goshoSchema);
