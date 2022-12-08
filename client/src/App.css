@@ -14,7 +14,8 @@
 } */
 
 .App-header {
-  background-color: #282c34;
+  /* background-color: #282c34; */
+  background-color: rgb(105, 179, 206);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -81,7 +82,7 @@ ul {
   position: absolute;
   bottom: 0px;
   left: 0px;
-  background: rgb(244, 244, 146);
+  background: rgb(224, 253, 255);
   border-radius: 10px;
   padding: 2px;
   color: #ff6a95;
