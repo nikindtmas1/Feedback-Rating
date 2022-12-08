@@ -26,20 +26,20 @@ export const FeedbackProvider = ({ children }) => {
   };
 
   const feedbackByName = (name) => {
-    if (name === "gosho") {
+    if (name === "Gosho") {
       goshoServices
         .getAll()
         .then((result) => setFeedback(result))
         .then(() => setPeopleName(name))
         .then((err) => alert(err.massage));
-    } else if (name === "tosho") {
+    } else if (name === "Tosho") {
       toshoServices
         .getAll()
         .then((result) => setFeedback(result))
         .then((err) => alert(err.massage));
     } else if (
-      name !== "gosho" &&
-      name !== "tosho" &&
+      name !== "Gosho" &&
+      name !== "Tosho" &&
       name !== "pesho" &&
       name !== "tomi"
     ) {
@@ -48,7 +48,7 @@ export const FeedbackProvider = ({ children }) => {
   };
 
   const addFeedback = (data) => {
-    if (peopleName === "gosho") {
+    if (peopleName === "Gosho") {
       goshoServices
         .createGoshoFeedback(data)
         .then(() => {
@@ -67,7 +67,7 @@ export const FeedbackProvider = ({ children }) => {
 
   const removeFeedback = (id) => {
     if (window.confirm("Are you sure you want to delete?")) {
-      if (peopleName === "gosho") {
+      if (peopleName === "Gosho") {
         goshoServices
           .deleteGoshoFeedback(id)
           .then(() => {
