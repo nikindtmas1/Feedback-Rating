@@ -27,7 +27,7 @@ const FeedbackForm = () => {
     } else if(text !== '' && text.trim().length >= 75){
         setMessage('Text must be maximum 75 characters');
         setBtnDisabled(true);
-    } else if (userName !== "" && userName.trim().length < 3) {
+    } else if ((userName !== "" && userName.trim().length < 3) || (userName !== "" && userName.trim().length > 25)) {
       setUserMessage("Write corect name pleas!");
       setBtnDisabled(true);
     } else {
