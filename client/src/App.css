@@ -87,6 +87,17 @@ ul {
   padding: 2px;
   color: #ff6a95;
 }
+
+.name-user {
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+  background-color: rgb(224, 253, 255);
+  border-radius: 10px;
+  padding: 2px;
+  color:#ff6a95;
+}
+
 .close,
 .edit {
     /* position: absolute; */
