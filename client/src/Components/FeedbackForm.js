@@ -10,6 +10,7 @@ const FeedbackForm = () => {
     const {addFeedback, feedbackByName, peopleName} = useContext(FeedbackContext);
 
     const [text, setText] = useState('');
+    const [userName, setUserName] = useState('');
     const [rating, setRating] = useState(10);
     const [btnDisabled, setBtnDisabled] = useState(true);
     const [message, setMessage] = useState('');
@@ -19,7 +20,7 @@ const FeedbackForm = () => {
         if(text.length === 0 ){
             setBtnDisabled(true);
             setMessage('');
-        }else if(text !== '' && text.trim().length <= 10){
+        }else if(text !== '' && text.trim().length <= 10 && userName !== ''){
             setMessage('Text must be at least 10 characters');
             setBtnDisabled(true);
         }else{
@@ -33,10 +34,12 @@ const FeedbackForm = () => {
 
         let formData = new FormData(e.currentTarget);
         let text = formData.get('text').trim();
+        let userName = formData.get('userName').trim();
         let newFeedback = {
             text,
             rating,
-            peopleName
+            peopleName,
+            userName,
         };
 
      
@@ -44,13 +47,16 @@ const FeedbackForm = () => {
         setBtnDisabled(true);
         setRating(10);
         setText('');
+        setUserName('');
     };
 
     const handleTextChange = (e) => {
         setText(e.target.value);
     };
 
-
+    const handleUserChange = (e) => {
+        setUserName(e.target.value);
+    }
 
   return (
     <Card>
@@ -59,6 +65,9 @@ const FeedbackForm = () => {
     <form onSubmit={handleSubmit}>
                 <h2>How would you rate therapist ?<SelectPeople /> </h2>
                 <RatingSelect selected={rating} select={(rating) => setRating(rating)} />
+                    <div className="input-group">
+                        <input type='text' name='userName' placeholder='Write your name pleas!' value={userName} onChange={handleUserChange} />
+                    </div>
                 <div className="input-group">
                     <input type="text" name='text' placeholder="Write a review" value={text} onChange={handleTextChange} />
                     <Button type="submit" isDisabled={btnDisabled}>
