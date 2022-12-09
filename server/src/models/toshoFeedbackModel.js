@@ -10,6 +10,9 @@ const toshoSchema = new mongoose.Schema({
     peopleName: {
         type: String
     },
+    userName: {
+        type: String
+    },
 });
 
 module.exports = mongoose.model("ToshoFeedback", toshoSchema);
