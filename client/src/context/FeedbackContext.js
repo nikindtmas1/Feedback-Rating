@@ -36,6 +36,7 @@ export const FeedbackProvider = ({ children }) => {
       toshoServices
         .getAll()
         .then((result) => setFeedback(result))
+        .then(() => setPeopleName(name))
         .then((err) => alert(err.massage));
     } else if (
       name !== "Gosho" &&
