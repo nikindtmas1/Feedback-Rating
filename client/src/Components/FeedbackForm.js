@@ -7,7 +7,7 @@ import RatingSelect from "./RatingSelect";
 import SelectPeople from "./PeopleSelect";
 
 const FeedbackForm = () => {
-  const { addFeedback, feedbackByName, peopleName } =
+  const { addFeedback, peopleName } =
     useContext(FeedbackContext);
 
   const [text, setText] = useState("");
@@ -29,7 +29,7 @@ const FeedbackForm = () => {
       setMessage("");
       setBtnDisabled(false);
     }
-  }, [text]);
+  }, [text, userName]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
