@@ -7,26 +7,32 @@ import RatingSelect from "./RatingSelect";
 import SelectPeople from "./PeopleSelect";
 
 const FeedbackForm = () => {
-  const { addFeedback, peopleName } =
-    useContext(FeedbackContext);
+  const { addFeedback, peopleName } = useContext(FeedbackContext);
 
   const [text, setText] = useState("");
   const [userName, setUserName] = useState("");
   const [rating, setRating] = useState(10);
   const [btnDisabled, setBtnDisabled] = useState(true);
   const [message, setMessage] = useState("");
-//   const [userMessage, setUserMessage] = useState("");
+  const [userMessage, setUserMessage] = useState("");
 
   useEffect(() => {
     if (text.length === 0 || userName.length === 0) {
       setBtnDisabled(true);
       setMessage("");
-    //   setUserMessage("");
+      setUserMessage("");
     } else if (text !== "" && text.trim().length <= 10) {
       setMessage("Text must be at least 10 characters");
       setBtnDisabled(true);
+    } else if(text !== '' && text.trim().length >= 75){
+        setMessage('Text must be maximum 75 characters');
+        setBtnDisabled(true);
+    } else if (userName !== "" && userName.trim().length < 3) {
+      setUserMessage("Write corect name pleas!");
+      setBtnDisabled(true);
     } else {
       setMessage("");
+      setUserMessage("");
       setBtnDisabled(false);
     }
   }, [text, userName]);
@@ -94,7 +100,7 @@ const FeedbackForm = () => {
             </div>
 
             {message && <div className="message">{message}</div>}
-            {/* {userMessage && <div className="message">{userMessage}</div>} */}
+            {userMessage && <div className="message">{userMessage}</div>}
           </form>
         </div>
       </div>
