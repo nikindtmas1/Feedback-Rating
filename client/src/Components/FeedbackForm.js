@@ -18,13 +18,10 @@ const FeedbackForm = () => {
 //   const [userMessage, setUserMessage] = useState("");
 
   useEffect(() => {
-    if (text.length === 0) {
+    if (text.length === 0 || userName.length === 0) {
       setBtnDisabled(true);
       setMessage("");
     //   setUserMessage("");
-    } else if(userName.length === 0) {
-      setBtnDisabled(true);
-      setMessage("");
     } else if (text !== "" && text.trim().length <= 10) {
       setMessage("Text must be at least 10 characters");
       setBtnDisabled(true);
