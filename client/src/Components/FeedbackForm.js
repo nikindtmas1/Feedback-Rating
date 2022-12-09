@@ -39,7 +39,8 @@ const FeedbackForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
+    console.log(peopleName);
+    if(peopleName === 'start'){ return alert('Select therapist pleas!')}
     let formData = new FormData(e.currentTarget);
     let text = formData.get("text").trim();
     let userName = formData.get("userName").trim();
