@@ -38,6 +38,8 @@ export const FeedbackProvider = ({ children }) => {
         .then((result) => setFeedback(result))
         .then(() => setPeopleName(name))
         .then((err) => alert(err.massage));
+    }else if(name === 'start'){ 
+      setPeopleName(name);
     } else if (
       name !== "Gosho" &&
       name !== "Tosho" &&
