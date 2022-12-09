@@ -21,6 +21,7 @@ const FeedbackItem = ({ item }) => {
       </button>
       <div className="text-display">{item.text}</div>
       <div className="name-text">{item.peopleName}</div>
+      <div className="name-user">{item.userName}</div>
     </Card>
   );
 };
