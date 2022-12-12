@@ -14,3 +14,7 @@ export async function getAll() {
 export async function createToshoFeedback(data) {
    return await service.post(host + '/toshofeedbacks', data);
 };
+
+export async function deleteToshoFeedback(id) {
+    return await service.del(host + `/toshofeedbacks/${id}`);
+};
