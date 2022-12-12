@@ -9,4 +9,8 @@ export async function getAll() {
     let result = Object.values(toshoFeedbacks);
 
     return result;
-}
+};
+
+export async function createToshoFeedback(data) {
+   return await service.post(host + '/toshofeedbacks', data);
+};
