@@ -15,7 +15,7 @@ function App() {
       <BrowserRouter>
         <div className="App">
           <header className="App-header">
-            <p>SPA Feedbacks</p>
+            <p>Health&Relax Center Feedbacks</p>
             {/* <RatingBar /> */}
             <FeedbackForm />
             {/* <TextCometn /> */}
