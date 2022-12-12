@@ -3,6 +3,7 @@ import * as services from "../Components/services/data";
 import * as goshoServices from "../Components/services/goshoData";
 import * as toshoServices from "../Components/services/toshoData";
 import * as peshoServices from "../Components/services/peshoData";
+import * as fetchService from "../Components/fetchFeedback/fetchFeedbacks";
 
 //const host = "http://localhost:5000";
 
@@ -29,37 +30,35 @@ export const FeedbackProvider = ({ children }) => {
   };
 
   const feedbackByName = (name) => {
-    if (name === "Gosho") {
-      goshoServices
-        .getAll()
-        .then((result) => setFeedback(result))
-        .then(() => setPeopleName(name))
-        .then((err) => alert(err.massage));
-    } else if (name === "Tosho") {
-      toshoServices
-        .getAll()
-        .then((result) => setFeedback(result))
-        .then(() => setPeopleName(name))
-        .then((err) => alert(err.massage));
-    } else if(name === 'Pesho'){
-      peshoServices
-        .getAll()
-        .then((result) => setFeedback(result))
-        .then(() => setPeopleName(name))
-        .then((err) => alert(err.message));
-    }
-    else if(name === 'start'){ 
-       setPeopleName(name);
-       fetchFeedback();
-    } 
-    // else if (
-    //   name !== "Gosho" &&
-    //   name !== "Tosho" &&
-    //   name !== "pesho" &&
-    //   name !== "tomi"
-    // ) {
-    //   fetchFeedback();
+
+    fetchService.fetchByName(name)
+    .then((result) => setFeedback(result))
+    .then(() => setPeopleName(name))
+    .then((err) => alert(err.message))
+    // if (name === "Gosho") {
+    //   goshoServices
+    //     .getAll()
+    //     .then((result) => setFeedback(result))
+    //     .then(() => setPeopleName(name))
+    //     .then((err) => alert(err.massage));
+    // } else if (name === "Tosho") {
+    //   toshoServices
+    //     .getAll()
+    //     .then((result) => setFeedback(result))
+    //     .then(() => setPeopleName(name))
+    //     .then((err) => alert(err.massage));
+    // } else if(name === 'Pesho'){
+    //   peshoServices
+    //     .getAll()
+    //     .then((result) => setFeedback(result))
+    //     .then(() => setPeopleName(name))
+    //     .then((err) => alert(err.message));
     // }
+    // else if(name === 'start'){ 
+    //    setPeopleName(name);
+    //    fetchFeedback();
+    // } 
+ 
   };
 
   const addFeedback = (data) => {
