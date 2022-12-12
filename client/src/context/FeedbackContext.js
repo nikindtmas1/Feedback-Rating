@@ -58,8 +58,17 @@ export const FeedbackProvider = ({ children }) => {
         .then(() => {
           goshoServices.getAll().then((result) => setFeedback(result));
         })
-        .then((err) => alert(err.massage));
-    } else {
+        .then((err) => alert(err.message));
+    } else if(peopleName === 'Tosho'){
+      toshoServices
+      .createToshoFeedback(data)
+      .then(() => {
+        toshoServices.getAll()
+        .then((result) => setFeedback(result))
+      })
+      .then((err) => alert(err.message))
+    } 
+    else {
       services
         .createFeedback(data)
         .then(() => {
