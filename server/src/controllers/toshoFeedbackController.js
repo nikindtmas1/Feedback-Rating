@@ -9,4 +9,10 @@ router.get('/', async (req, res) => {
     res.json(toshoFeedbacks);
 });
 
+router.post('/', async (req, res) => {
+   await services.createToshoFeedback({...req.body});
+
+    res.json({ok: true});
+});
+
 module.exports = router;
