@@ -24,8 +24,8 @@ const SelectPeople = () => {
             <option value='start' style={{textAlign: "center"}}>Select Therapist</option>
             <option value='Gosho' style={{textAlign: "center"}}>Gosho</option>
             <option value='Tosho' style={{textAlign: "center"}}>Tosho</option>
-            <option value='pesho' style={{textAlign: "center"}}>Pesho</option>
-            <option value='tomi' style={{textAlign: "center"}}>Tomi</option>
+            <option value='Pesho' style={{textAlign: "center"}}>Pesho</option>
+            <option value='Tomi' style={{textAlign: "center"}}>Tomi</option>
             
         </select>
         {/* <button style={{borderRadius: '5px'}} type="button" onClick={onClick}>Submit</button> */}
