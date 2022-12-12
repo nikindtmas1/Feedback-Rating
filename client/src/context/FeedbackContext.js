@@ -39,16 +39,17 @@ export const FeedbackProvider = ({ children }) => {
         .then(() => setPeopleName(name))
         .then((err) => alert(err.massage));
     }else if(name === 'start'){ 
-      console.log(name);
        setPeopleName(name);
-    } else if (
-      name !== "Gosho" &&
-      name !== "Tosho" &&
-      name !== "pesho" &&
-      name !== "tomi"
-    ) {
-      fetchFeedback();
-    }
+       fetchFeedback();
+    } 
+    // else if (
+    //   name !== "Gosho" &&
+    //   name !== "Tosho" &&
+    //   name !== "pesho" &&
+    //   name !== "tomi"
+    // ) {
+    //   fetchFeedback();
+    // }
   };
 
   const addFeedback = (data) => {
@@ -89,7 +90,16 @@ export const FeedbackProvider = ({ children }) => {
             setFeedback(newFeedback);
           })
           .then((err) => alert(err.message));
-      } else {
+      } else if(peopleName === "Tosho"){
+        toshoServices.deleteToshoFeedback(id)
+        .then(() => {
+          const newFeedback = feedback.filter((item) => item._id !== id);
+
+          setFeedback(newFeedback);
+        })
+        .then((err) => alert(err.message));
+      } 
+      else {
       }
       services
         .deleteFeedback(id)
