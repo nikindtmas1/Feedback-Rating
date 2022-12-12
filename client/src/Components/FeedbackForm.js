@@ -50,9 +50,7 @@ const FeedbackForm = () => {
       userName,
     };
 
-    if(peopleName === 'start'){ 
-      return alert('Select therapist pleas!') 
-    }
+    if(peopleName === 'start'){ return alert('Select therapist pleas!')}
 
     addFeedback(newFeedback);
     setBtnDisabled(true);
