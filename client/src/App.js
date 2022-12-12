@@ -6,7 +6,7 @@ import { BrowserRouter } from "react-router-dom";
 import CatalogFeedback from "./Components/CatalogFeedback";
 import FeedbackForm from "./Components/FeedbackForm";
 import { FeedbackProvider } from "./context/FeedbackContext";
-import AboutIconLink from "./Components/AboutIconLink";
+// import AboutIconLink from "./Components/AboutIconLink";
 import FeedbackStats from "./Components/FeedbackStats";
 
 function App() {
@@ -35,7 +35,7 @@ function App() {
         </a> */}
           </header>
         </div>
-        <AboutIconLink />
+        {/* <AboutIconLink /> */}
       </BrowserRouter>
     </FeedbackProvider>
   );
