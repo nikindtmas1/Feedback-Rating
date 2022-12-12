@@ -15,4 +15,10 @@ router.post('/', async (req, res) => {
     res.json({ok: true});
 });
 
+router.delete('/:id', async (req,res) => {
+    await services.deleteToshoFeedback(req.params.id);
+
+    res.json({ ok: true })
+});
+
 module.exports = router;
