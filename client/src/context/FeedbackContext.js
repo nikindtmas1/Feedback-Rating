@@ -13,6 +13,7 @@ export const FeedbackProvider = ({ children }) => {
   const [peopleName, setPeopleName] = useState("");
 
   useEffect(() => {
+    setPeopleName('start');
     fetchFeedback();
   }, []);
 
