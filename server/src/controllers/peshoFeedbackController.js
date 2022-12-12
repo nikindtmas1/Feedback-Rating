@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+
 const services = require('../services/peshoFeedbackService');
 
 router.get('/', async (req, res) => {
@@ -7,3 +8,5 @@ router.get('/', async (req, res) => {
     
     res.json(peshoFeedbacks);
 });
+
+module.exports = router;
