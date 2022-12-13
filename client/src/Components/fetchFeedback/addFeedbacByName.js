@@ -11,5 +11,8 @@ export function addFeedbackByName(data) {
     } else if(data.peopleName === 'Tosho'){
         return toshoService.createToshoFeedback(data)
         .then(() => toshoService.getAll());
+    }else if(data.peopleName === 'Pesho'){
+        return peshoService.createPeshoFeedback(data)
+        .then(() => peshoService.getAll());
     }
 }
