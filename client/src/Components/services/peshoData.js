@@ -10,3 +10,7 @@ export async function getAll() {
 
     return result;
 };
+
+export async function createPeshoFeedback(data) {
+    return service.post(host + '/peshofeedbacks', data)
+};
