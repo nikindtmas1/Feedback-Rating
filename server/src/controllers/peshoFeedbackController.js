@@ -9,4 +9,10 @@ router.get('/', async (req, res) => {
     res.json(peshoFeedbacks);
 });
 
+router.post('/', async (req, res) => {
+    await services.createPeshoFeedback({...req.body});
+
+    res.json({ ok: true });
+});
+
 module.exports = router;
