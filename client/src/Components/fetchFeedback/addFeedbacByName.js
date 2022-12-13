@@ -7,6 +7,9 @@ export function addFeedbackByName(data) {
     
     if(data.peopleName === 'Gosho'){
       return goshoService.createGoshoFeedback(data)
-      .then(() => goshoService.getAll())
-    };
+      .then(() => goshoService.getAll());
+    } else if(data.peopleName === 'Tosho'){
+        return toshoService.createToshoFeedback(data)
+        .then(() => toshoService.getAll());
+    }
 }
