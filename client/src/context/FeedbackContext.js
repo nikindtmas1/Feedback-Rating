@@ -65,7 +65,8 @@ export const FeedbackProvider = ({ children }) => {
   const addFeedback = (data) => {
 
     addFeedbackService.addFeedbackByName(data)
-    .then((result) => setFeedback(result));
+    .then((result) => setFeedback(result))
+    .then((err) => alert(err.message))
 
     // if (peopleName === "Gosho") {
     //   goshoServices
