@@ -4,6 +4,7 @@ import * as goshoServices from "../Components/services/goshoData";
 import * as toshoServices from "../Components/services/toshoData";
 import * as peshoServices from "../Components/services/peshoData";
 import * as fetchService from "../Components/fetchFeedback/fetchFeedbacks";
+import * as addFeedbackService from '../Components/fetchFeedback/addFeedbacByName';
 
 //const host = "http://localhost:5000";
 
@@ -62,30 +63,34 @@ export const FeedbackProvider = ({ children }) => {
   };
 
   const addFeedback = (data) => {
-    if (peopleName === "Gosho") {
-      goshoServices
-        .createGoshoFeedback(data)
-        .then(() => {
-          goshoServices.getAll().then((result) => setFeedback(result));
-        })
-        .then((err) => alert(err.message));
-    } else if(peopleName === 'Tosho'){
-      toshoServices
-      .createToshoFeedback(data)
-      .then(() => {
-        toshoServices.getAll()
-        .then((result) => setFeedback(result))
-      })
-      .then((err) => alert(err.message))
-    } 
-    else {
-      services
-        .createFeedback(data)
-        .then(() => {
-          services.getAll().then((result) => setFeedback(result));
-        })
-        .then((err) => alert(err.massage));
-    }
+
+    addFeedbackService.addFeedbackByName(data)
+    .then((result) => setFeedback(result));
+
+    // if (peopleName === "Gosho") {
+    //   goshoServices
+    //     .createGoshoFeedback(data)
+    //     .then(() => {
+    //       goshoServices.getAll().then((result) => setFeedback(result));
+    //     })
+    //     .then((err) => alert(err.message));
+    // } else if(peopleName === 'Tosho'){
+    //   toshoServices
+    //   .createToshoFeedback(data)
+    //   .then(() => {
+    //     toshoServices.getAll()
+    //     .then((result) => setFeedback(result))
+    //   })
+    //   .then((err) => alert(err.message))
+    // } 
+    // else {
+    //   services
+    //     .createFeedback(data)
+    //     .then(() => {
+    //       services.getAll().then((result) => setFeedback(result));
+    //     })
+    //     .then((err) => alert(err.massage));
+    // }
   };
 
   const removeFeedback = (id) => {
