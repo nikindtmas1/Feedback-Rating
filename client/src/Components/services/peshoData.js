@@ -12,5 +12,9 @@ export async function getAll() {
 };
 
 export async function createPeshoFeedback(data) {
-    return service.post(host + '/peshofeedbacks', data)
+    return await service.post(host + '/peshofeedbacks', data)
+};
+
+export async function deletePeshoFeedback(id) {
+    return await service.del(host + `/peshofeedbacks/${id}`)
 };
