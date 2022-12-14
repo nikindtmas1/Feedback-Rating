@@ -4,7 +4,7 @@ import  {Link} from 'react-router-dom';
 const AboutIconLink = () => {
     return (
         <div className='about-link'>
-            <Link to = {'/'}>
+            <Link to = {'/login'}>
                 <FaQuestion size={30} />            
             </Link>
         </div>
