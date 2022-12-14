@@ -23,7 +23,7 @@ export const FeedbackProvider = ({ children }) => {
       .getAll()
       .then((result) => setFeedback(result))
       .then(() => setIsLoading(false))
-      .then((err) => alert(err.massage));
+      .then((err) => alert(err.message));
   };
 
   const feedbackByName = (name) => {
