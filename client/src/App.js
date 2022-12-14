@@ -1,12 +1,10 @@
-// import logo from './logo.svg';
 import "./App.css";
 import { BrowserRouter } from "react-router-dom";
-//import RatingBar from "./Components/RatingBar";
-//import TextCometn from "./Components/TextCometn";
+
 import CatalogFeedback from "./Components/CatalogFeedback";
 import FeedbackForm from "./Components/FeedbackForm";
 import { FeedbackProvider } from "./context/FeedbackContext";
-// import AboutIconLink from "./Components/AboutIconLink";
+import AboutIconLink from "./Components/AboutIconLink";
 import FeedbackStats from "./Components/FeedbackStats";
 
 function App() {
@@ -16,26 +14,12 @@ function App() {
         <div className="App">
           <header className="App-header">
             <p>Health&Relax Center Feedbacks</p>
-            {/* <RatingBar /> */}
             <FeedbackForm />
-            {/* <TextCometn /> */}
             <FeedbackStats />
             <CatalogFeedback />
-            {/* <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a> */}
           </header>
         </div>
-        {/* <AboutIconLink /> */}
+        <AboutIconLink />
       </BrowserRouter>
     </FeedbackProvider>
   );
