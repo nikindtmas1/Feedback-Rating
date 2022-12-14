@@ -10,7 +10,7 @@ router.get('/', async (req, res) => {
 });
 
 router.post('/', async (req, res) => {
-    await services.createTomiFeedback({...req.bosy});
+    await services.createTomiFeedback({...req.body});
 
     res.json({ ok: true });
 });
