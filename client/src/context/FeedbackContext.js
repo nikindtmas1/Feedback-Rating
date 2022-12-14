@@ -1,14 +1,9 @@
 import { createContext, useEffect, useState } from "react";
+
 import * as services from "../Components/services/data";
-import * as goshoServices from "../Components/services/goshoData";
-import * as toshoServices from "../Components/services/toshoData";
-import * as peshoServices from "../Components/services/peshoData";
 import * as fetchService from "../Components/fetchFeedback/fetchFeedbacks";
-import * as addFeedbackService from '../Components/fetchFeedback/addFeedbacByName';
-import * as removeFeedbackService from '../Components/fetchFeedback/removeFeedbackByName';
-
-
-//const host = "http://localhost:5000";
+import * as addFeedbackService from "../Components/fetchFeedback/addFeedbacByName";
+import * as removeFeedbackService from "../Components/fetchFeedback/removeFeedbackByName";
 
 export const FeedbackContext = createContext();
 
@@ -19,7 +14,7 @@ export const FeedbackProvider = ({ children }) => {
   const [peopleName, setPeopleName] = useState("");
 
   useEffect(() => {
-    setPeopleName('start');
+    setPeopleName("start");
     fetchFeedback();
   }, []);
 
@@ -28,108 +23,30 @@ export const FeedbackProvider = ({ children }) => {
       .getAll()
       .then((result) => setFeedback(result))
       .then(() => setIsLoading(false))
-
       .then((err) => alert(err.massage));
   };
 
   const feedbackByName = (name) => {
-
-    fetchService.fetchByName(name)
-    .then((result) => setFeedback(result))
-    .then(() => setPeopleName(name))
-    .then((err) => alert(err.message))
-    // if (name === "Gosho") {
-    //   goshoServices
-    //     .getAll()
-    //     .then((result) => setFeedback(result))
-    //     .then(() => setPeopleName(name))
-    //     .then((err) => alert(err.massage));
-    // } else if (name === "Tosho") {
-    //   toshoServices
-    //     .getAll()
-    //     .then((result) => setFeedback(result))
-    //     .then(() => setPeopleName(name))
-    //     .then((err) => alert(err.massage));
-    // } else if(name === 'Pesho'){
-    //   peshoServices
-    //     .getAll()
-    //     .then((result) => setFeedback(result))
-    //     .then(() => setPeopleName(name))
-    //     .then((err) => alert(err.message));
-    // }
-    // else if(name === 'start'){ 
-    //    setPeopleName(name);
-    //    fetchFeedback();
-    // } 
- 
+    fetchService
+      .fetchByName(name)
+      .then((result) => setFeedback(result))
+      .then(() => setPeopleName(name))
+      .then((err) => alert(err.message));
   };
 
   const addFeedback = (data) => {
-
-    addFeedbackService.addFeedbackByName(data)
-    .then((result) => setFeedback(result))
-    .then((err) => alert(err.message))
-
-    // if (peopleName === "Gosho") {
-    //   goshoServices
-    //     .createGoshoFeedback(data)
-    //     .then(() => {
-    //       goshoServices.getAll().then((result) => setFeedback(result));
-    //     })
-    //     .then((err) => alert(err.message));
-    // } else if(peopleName === 'Tosho'){
-    //   toshoServices
-    //   .createToshoFeedback(data)
-    //   .then(() => {
-    //     toshoServices.getAll()
-    //     .then((result) => setFeedback(result))
-    //   })
-    //   .then((err) => alert(err.message))
-    // } 
-    // else {
-    //   services
-    //     .createFeedback(data)
-    //     .then(() => {
-    //       services.getAll().then((result) => setFeedback(result));
-    //     })
-    //     .then((err) => alert(err.massage));
-    // }
+    addFeedbackService
+      .addFeedbackByName(data)
+      .then((result) => setFeedback(result))
+      .then((err) => alert(err.message));
   };
 
   const removeFeedback = (id) => {
     if (window.confirm("Are you sure you want to delete?")) {
-
-      removeFeedbackService.deleteFeedbackByName(id, peopleName, feedback)
-      .then((result) => setFeedback(result))
-      .then((err) => alert(err.message));
-      // if (peopleName === "Gosho") {
-      //   goshoServices
-      //     .deleteGoshoFeedback(id)
-      //     .then(() => {
-      //       const newFeedback = feedback.filter((item) => item._id !== id);
-
-      //       setFeedback(newFeedback);
-      //     })
-      //     .then((err) => alert(err.message));
-      // } else if(peopleName === "Tosho"){
-      //   toshoServices.deleteToshoFeedback(id)
-      //   .then(() => {
-      //     const newFeedback = feedback.filter((item) => item._id !== id);
-
-      //     setFeedback(newFeedback);
-      //   })
-      //   .then((err) => alert(err.message));
-      // } 
-      // else {
-      // }
-      // services
-      //   .deleteFeedback(id)
-      //   .then(() => {
-      //     const newFeedback = feedback.filter((item) => item._id !== id);
-
-      //     setFeedback(newFeedback);
-      //   })
-      //   .then((err) => alert(err.message));
+      removeFeedbackService
+        .deleteFeedbackByName(id, peopleName, feedback)
+        .then((result) => setFeedback(result))
+        .then((err) => alert(err.message));
     }
   };
 
