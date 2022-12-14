@@ -14,6 +14,7 @@ export function deleteFeedbackByName(id, peopleName, feedback) {
     return toshoService.deleteToshoFeedback(id)
     .then(() => feedback.filter((item) => item._id !== id))
    }else if(peopleName === 'Pesho'){
-    
+    return peshoService.deletePeshoFeedback(id)
+    .then(() => feedback.filter((item) => item._id !== id))
    }
 }
