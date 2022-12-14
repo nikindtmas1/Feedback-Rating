@@ -5,6 +5,8 @@ import * as toshoServices from "../Components/services/toshoData";
 import * as peshoServices from "../Components/services/peshoData";
 import * as fetchService from "../Components/fetchFeedback/fetchFeedbacks";
 import * as addFeedbackService from '../Components/fetchFeedback/addFeedbacByName';
+import * as removeFeedbackService from '../Components/fetchFeedback/removeFeedbackByName';
+
 
 //const host = "http://localhost:5000";
 
@@ -96,34 +98,38 @@ export const FeedbackProvider = ({ children }) => {
 
   const removeFeedback = (id) => {
     if (window.confirm("Are you sure you want to delete?")) {
-      if (peopleName === "Gosho") {
-        goshoServices
-          .deleteGoshoFeedback(id)
-          .then(() => {
-            const newFeedback = feedback.filter((item) => item._id !== id);
 
-            setFeedback(newFeedback);
-          })
-          .then((err) => alert(err.message));
-      } else if(peopleName === "Tosho"){
-        toshoServices.deleteToshoFeedback(id)
-        .then(() => {
-          const newFeedback = feedback.filter((item) => item._id !== id);
+      removeFeedbackService.deleteFeedbackByName(id, peopleName, feedback)
+      .then((result) => setFeedback(result))
+      .then((err) => alert(err.message));
+      // if (peopleName === "Gosho") {
+      //   goshoServices
+      //     .deleteGoshoFeedback(id)
+      //     .then(() => {
+      //       const newFeedback = feedback.filter((item) => item._id !== id);
 
-          setFeedback(newFeedback);
-        })
-        .then((err) => alert(err.message));
-      } 
-      else {
-      }
-      services
-        .deleteFeedback(id)
-        .then(() => {
-          const newFeedback = feedback.filter((item) => item._id !== id);
+      //       setFeedback(newFeedback);
+      //     })
+      //     .then((err) => alert(err.message));
+      // } else if(peopleName === "Tosho"){
+      //   toshoServices.deleteToshoFeedback(id)
+      //   .then(() => {
+      //     const newFeedback = feedback.filter((item) => item._id !== id);
 
-          setFeedback(newFeedback);
-        })
-        .then((err) => alert(err.message));
+      //     setFeedback(newFeedback);
+      //   })
+      //   .then((err) => alert(err.message));
+      // } 
+      // else {
+      // }
+      // services
+      //   .deleteFeedback(id)
+      //   .then(() => {
+      //     const newFeedback = feedback.filter((item) => item._id !== id);
+
+      //     setFeedback(newFeedback);
+      //   })
+      //   .then((err) => alert(err.message));
     }
   };
 
