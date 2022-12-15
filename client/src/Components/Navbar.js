@@ -7,10 +7,10 @@ const Navbar = () => {
         color: "blue",
         textAlign: "center"
     }}>
-        <h3 style={{ margin: "0"}}>
+        <h2 style={{ margin: "0"}}>
 
         Health & Relax Center
-        </h3>
+        </h2>
     </div>
   )
 }
