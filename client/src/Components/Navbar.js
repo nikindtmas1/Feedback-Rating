@@ -5,7 +5,8 @@ const Navbar = () => {
     <div style={{
         backgroundColor: "rgb(45, 179, 206)",
         color: "blue",
-        textAlign: "center"
+        textAlign: "center",
+        padding: '4px'
     }}>
         <h2 style={{ margin: "0"}}>
 
