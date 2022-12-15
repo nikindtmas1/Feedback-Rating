@@ -4,7 +4,6 @@ import Card from "../shared/Card";
 import { FeedbackContext } from "../../context/FeedbackContext";
 
 const LoginPage = () => {
-
   const history = useHistory();
   const { feedbackByName } = useContext(FeedbackContext);
   const peopleName = "start";
@@ -26,9 +25,13 @@ const LoginPage = () => {
       <div className="text-container">
         <div className="text-content">
           <form onSubmit={handleSubmit}>
-            <h2   style={{
-            color: 'rgb(45, 179, 206)'
-          }}>Login</h2>
+            <h2
+              style={{
+                color: "rgb(45, 179, 206)",
+              }}
+            >
+              Login
+            </h2>
             <div className="input-group">
               <input type="text" name="userLogin" placeholder="User Name" />
             </div>
@@ -36,7 +39,7 @@ const LoginPage = () => {
               <input type="password" name="password" placeholder="Password" />
             </div>
             <div className="button-login">
-              <button 
+              <button
                 type="submit"
                 style={{
                   padding: "10px",
@@ -51,13 +54,17 @@ const LoginPage = () => {
                 Submit
               </button>
             </div>
+            <Link
+              onClick={onClick}
+              to="/"
+              style={{
+                color: "rgb(45, 179, 206)",
+              }}
+            >
+              Back To Home
+            </Link>
           </form>
         </div>
-          <Link onClick={onClick} to='/'
-          style={{
-            color: 'rgb(45, 179, 206)'
-          }}
-          >Back To Home</Link>
       </div>
     </Card>
   );
