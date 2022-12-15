@@ -1,11 +1,19 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, {useContext} from "react";
+import { useHistory } from "react-router-dom";
 import Card from "../shared/Card";
-import Button from "../shared/Button";
+import { FeedbackContext } from "../../context/FeedbackContext";
 
-const loginPage = () => {
+
+const LoginPage = () => {
+
+  const history = useHistory();
+  const {feedbackByName} = useContext(FeedbackContext);
+  const peopleName = 'start';
+
   const handleSubmit = (e) => {
     e.preventDefault();
+    feedbackByName(peopleName);
+    history.push('/');
   };
 
   return (
@@ -20,10 +28,19 @@ const loginPage = () => {
             <div className="input-group">
               <input type="password" name="password" placeholder="Password" />
             </div>
-            <Button type="submit" isDisabled={false}>
-              Submit
-            </Button>
-            <Link to="/">Home Page</Link>
+            <div className="input-group">
+              <button 
+              type="submit"
+              style={{
+                padding: '10px',
+                margin: '10px',
+                width: '500px',
+                backgroundColor: 'rgb(45, 179, 206)',
+                color: 'white',
+                borderRadius: '10px'
+              }}
+              >Submit</button>
+            </div>
           </form>
         </div>
       </div>
@@ -31,4 +48,4 @@ const loginPage = () => {
   );
 };
 
-export default loginPage;
+export default LoginPage;
