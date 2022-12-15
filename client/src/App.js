@@ -9,8 +9,8 @@ import Dashboard from "./Components/pages/Dashboard";
 function App() {
   return (
     <FeedbackProvider>
-      <Header />
       <div className="App">
+      <Header />
         <header className="App-header">
           <Route path="/" exact component={Dashboard} />
           <Route path="/login" component={LoginPage} />
