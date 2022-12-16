@@ -22,9 +22,6 @@ const Login = () => {
           Submit
         </Button>
       </div>
-      <Button type="submit" version="secondary">
-        Back
-      </Button>
     </>
   );
 };
