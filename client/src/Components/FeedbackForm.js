@@ -57,7 +57,7 @@ const FeedbackForm = () => {
       return alert('Select therapist pleas!')
     };
 
-    if(!userName.match(/([a-zA-Z]+)(\s+)([a-zA-Z]+)/)){
+    if(!userName.match(/^([a-zA-Z]+\s[a-zA-Z]+$)/)){
       setText('');
       setUserName('');
       setRating(10);
