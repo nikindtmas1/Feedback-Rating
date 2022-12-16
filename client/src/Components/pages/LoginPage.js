@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { useHistory, Link } from "react-router-dom";
 import Card from "../shared/Card";
 import { FeedbackContext } from "../../context/FeedbackContext";
+import Button from "../shared/Button";
 
 const LoginPage = () => {
   const history = useHistory();
@@ -39,30 +40,21 @@ const LoginPage = () => {
               <input type="password" name="password" placeholder="Password" />
             </div>
             <div className="button-login">
-              <button
-                type="submit"
+              <Button type="submit" disabled="false" version="tertiary">
+                Submit
+              </Button>
+            </div>
+            <Button type="submit" version="secondary">
+              <Link
+                onClick={onClick}
+                to="/"
                 style={{
-                  padding: "10px",
-                  margin: "10px",
-                  width: "500px",
-                  backgroundColor: "rgb(105, 179, 206)",
-                  color: "white",
-                  borderRadius: "10px",
-                  cursor: "pointer",
+                  color: "blue",
                 }}
               >
-                Submit
-              </button>
-            </div>
-            <Link
-              onClick={onClick}
-              to="/"
-              style={{
-                color: "rgb(45, 179, 206)",
-              }}
-            >
-              Back To Home
-            </Link>
+                Back
+              </Link>
+            </Button>
           </form>
         </div>
       </div>
