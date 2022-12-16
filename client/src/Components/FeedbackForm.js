@@ -57,9 +57,12 @@ const FeedbackForm = () => {
       return alert('Select therapist pleas!')
     };
 
-    // if(!text.match(/([a-zA-Z]+)(\s+)([a-zA-Z]+)/)){
-    //     alert('User name have to be only string!')
-    // }
+    if(!userName.match(/([a-zA-Z]+)(\s+)([a-zA-Z]+)/)){
+      setText('');
+      setUserName('');
+      setRating(10);
+       return alert('User name have to be only string!')
+    }
 
     addFeedback(newFeedback);
     setBtnDisabled(true);
