@@ -61,7 +61,7 @@ const FeedbackForm = () => {
       setText('');
       setUserName('');
       setRating(10);
-       return alert('User name have to be only string!')
+       return alert('User name is not corect!')
     }
 
     addFeedback(newFeedback);
