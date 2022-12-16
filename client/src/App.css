@@ -15,7 +15,8 @@
 
 .App-header {
   /* background-color: #282c34; */
-  background-color: rgb(105, 179, 206);
+  /* background-color: rgb(105, 179, 206); */
+  background-image: url('../public/images/view-1-1.jpg');
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -205,6 +206,11 @@ input:focus {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  background-color:rgb(69, 201, 253);
+  border-radius: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  
 }
 
 .num-display {
