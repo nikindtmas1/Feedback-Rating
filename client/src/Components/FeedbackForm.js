@@ -62,7 +62,14 @@ const FeedbackForm = () => {
       setUserName('');
       setRating(10);
        return alert('User name is not corect!')
-    }
+    };
+
+    if(!text.match(/^(([a-zA-Z]+\s+[a-zA-Z]+)+$)/)){
+      setText('');
+      setUserName('');
+      setRating(10);
+       return alert('Review is not corect!')
+    };
 
     addFeedback(newFeedback);
     setBtnDisabled(true);
