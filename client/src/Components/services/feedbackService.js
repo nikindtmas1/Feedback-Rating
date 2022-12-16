@@ -54,3 +54,15 @@ export async function put(url, data) {
 export async function del(url) {
   return await request(url, getOptions("delete"));
 };
+
+
+export async function login(username, password) {
+  const result = await post(settings.host + '/users/login', {
+    username,
+    password
+  });
+
+  sessionStorage.setItem('username', result.username);
+
+  return result;
+};
