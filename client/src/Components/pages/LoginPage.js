@@ -23,6 +23,13 @@ const LoginPage = () => {
     history.push("/");
   };
 
+  const onClick = (e) => {
+    e.preventDefault();
+
+    feedbackByName(peopleName);
+    history.push("/");
+  };
+
   return (
     <Card>
       <div className="text-container">
@@ -30,7 +37,7 @@ const LoginPage = () => {
           <form onSubmit={handleSubmit}>
             <Login />
           </form>
-          <Link type="button" to="/" style={{ textDecoration: "none" }}>
+          <Link onClick={onClick} to="/" style={{ textDecoration: "none" }}>
             <Button version="secondary">Back</Button>
           </Link>
         </div>
