@@ -115,6 +115,7 @@ ul {
 }
 
 .card {
+  /* background-image: url('../public/images/view-1-1.jpg'); */
   background-color: #fff;
   color: #333;
   border-radius: 15px;
