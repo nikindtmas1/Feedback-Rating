@@ -9,7 +9,7 @@ const CatalogFeedback = () => {
  
   return !isLoadding && feedback.length === 0 ? 
   (
-    <p>No Feedback Yet</p>
+    <p><h4 style={{color: 'white'}}>No Feedback Yet</h4></p>
   ) : isLoadding ? (
     <Spinner />
   ): (
