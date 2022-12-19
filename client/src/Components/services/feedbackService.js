@@ -66,3 +66,11 @@ export async function login(username, password) {
 
   return result;
 };
+
+export async function logout(token) {
+  const result = await get(settings.host + '/users/logout');
+
+  sessionStorage.removeItem('username');
+
+  return result;
+}
