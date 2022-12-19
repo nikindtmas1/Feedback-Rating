@@ -3,7 +3,8 @@ import React from 'react'
 const Navbar = () => {
   return (
     <div style={{
-        backgroundColor: "rgb(45, 179, 206)",
+        // backgroundColor: "rgb(45, 179, 206)",
+        backgroundColor:"rgb(69, 201, 253)",
         color: "blue",
         textAlign: "center",
         padding: '4px'
