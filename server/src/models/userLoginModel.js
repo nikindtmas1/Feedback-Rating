@@ -14,4 +14,4 @@ userSchema.static('findByUsername', function (username) {
    return this.findOne({username});
 });
 
-module.exports = mongoose.model("UserLogin", userSchema);
+module.exports = mongoose.model("User", userSchema);
