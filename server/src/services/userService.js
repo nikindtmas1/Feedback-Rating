@@ -16,11 +16,10 @@ exports.login = async ({username, password}) => {
     if(user.password !== currPass) throw new Error("Invalid password!");
 
     if(user.username === currUser){
-        const accessToken = createAccessToken(user);
-        const refreshToken = await jwt.sign({ _id: user._id }, "MOGYSHTSECRET2", {
-            expiresIn: "1d",
-          });
+        const accessToken = await createAccessToken(user);
+        const refreshToken = await createRefreshToken(user);
 
+          user.accessToken = accessToken;
           user.refreshToken = refreshToken;
           await user.save();
       
