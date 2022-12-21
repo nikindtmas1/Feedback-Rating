@@ -1,20 +1,8 @@
-import React, { useContext } from 'react';
-import { Link, useHistory } from 'react-router-dom';
-import * as service from './services/data';
-import { FeedbackContext } from '../context/FeedbackContext';
+import React from 'react';
+import { Link } from 'react-router-dom';
+
 
 const Navbar = () => {
-  const history = useHistory();
-  const { feedbackByName } = useContext(FeedbackContext);
-  const peopleName = "start";
-
-  const onClick = (e) => {
-    e.preventDefault();
-
-    service.logout();
-    feedbackByName(peopleName);
-    history.push('/');
-  };
 
   return (
     <div style={{
@@ -28,7 +16,7 @@ const Navbar = () => {
 
         Health & Relax Center
         </h2>
-        <Link  onClick={onClick} to='/' style={{
+        <Link to='/logout' style={{
           display: 'flex',
           textDecoration: 'none'
           }}>Logout</Link>
