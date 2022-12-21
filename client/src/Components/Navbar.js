@@ -6,7 +6,7 @@ import { FeedbackContext } from '../context/FeedbackContext';
 const Navbar = () => {
   const history = useHistory();
   const { feedbackByName } = useContext(FeedbackContext);
-  const peopleName = 'start';
+  const peopleName = "start";
 
   const onClick = (e) => {
     e.preventDefault();
@@ -14,7 +14,6 @@ const Navbar = () => {
     service.logout();
     feedbackByName(peopleName);
     history.push('/');
-
   };
 
   return (
@@ -29,7 +28,10 @@ const Navbar = () => {
 
         Health & Relax Center
         </h2>
-        <Link to='/' onClick={onClick} style={{display: 'flex'}}>Logout</Link>
+        <Link  onClick={onClick} to='/' style={{
+          display: 'flex',
+          textDecoration: 'none'
+          }}>Logout</Link>
     </div>
   )
 }
