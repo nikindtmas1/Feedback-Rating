@@ -5,6 +5,7 @@ const host = "http://localhost:5000";
 service.settings.host = host;
 
 export const login = service.login;
+export const logout = service.logout;
 
 export async function getAll() {
   let feedbacks = await service.get(host + "/feedbacks");
