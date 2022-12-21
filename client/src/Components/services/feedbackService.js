@@ -73,4 +73,4 @@ export async function logout(token) {
   sessionStorage.removeItem('username');
 
   return result;
-}
+};
