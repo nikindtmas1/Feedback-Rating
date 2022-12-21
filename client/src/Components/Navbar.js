@@ -1,6 +1,10 @@
-import React from 'react'
+import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
+  const onClick = (e) => {
+
+  };
   return (
     <div style={{
         // backgroundColor: "rgb(45, 179, 206)",
@@ -13,6 +17,7 @@ const Navbar = () => {
 
         Health & Relax Center
         </h2>
+        <Link to='/' onClick={onClick} style={{display: 'flex'}}>Logout</Link>
     </div>
   )
 }
