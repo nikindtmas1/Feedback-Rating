@@ -63,6 +63,8 @@ export async function login(username, password) {
   });
 
   sessionStorage.setItem('username', result.username);
+  sessionStorage.setItem('authToken', result.accessToken);
+  sessionStorage.setItem('refreshToken', result.refreshToken);
 
   return result;
 };
@@ -71,6 +73,8 @@ export async function logout(token) {
   const result = await get(settings.host + '/users/logout');
 
   sessionStorage.removeItem('username');
+  sessionStorage.removeItem('authToken');
+  sessionStorage.removeItem('refreshToken');
 
   return result;
 };
