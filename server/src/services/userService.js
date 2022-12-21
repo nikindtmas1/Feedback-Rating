@@ -13,6 +13,7 @@ exports.login = async ({username, password}) => {
     if (!user) throw new Error("Invalid username!");
     // const valide = await bcrypt.compare(currPass, user.password);
     // if (!valide) throw new Error("Invalid password!");
+    if(user.password !== currPass) throw new Error("Invalid password!");
 
     if(user.username === currUser){
         const accessToken = createAccessToken(user);
