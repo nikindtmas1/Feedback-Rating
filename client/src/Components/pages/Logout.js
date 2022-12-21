@@ -15,7 +15,7 @@ const Logout = () => {
         .then(() => 
         history.push('/')
         )
-    },[]);
+    },[peopleName,history, feedbackByName]);
 
   return null;
 }
