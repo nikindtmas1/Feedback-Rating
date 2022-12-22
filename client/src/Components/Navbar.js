@@ -1,8 +1,12 @@
 import React from 'react';
+import { useContext } from 'react';
+import { FeedbackContext } from '../context/FeedbackContext';
 import { Link } from 'react-router-dom';
 
 
 const Navbar = () => {
+
+  const {isAuth} = useContext(FeedbackContext);
 
   return (
     <div style={{
@@ -16,10 +20,13 @@ const Navbar = () => {
 
         Health & Relax Center
         </h2>
-        <Link to='/logout' style={{
-          display: 'flex',
-          textDecoration: 'none'
-          }}>Logout</Link>
+        {isAuth ? (
+          <Link to='/logout' style={{
+            display: 'flex',
+            textDecoration: 'none'
+            }}>Logout</Link>
+
+        ) : (null)}
     </div>
   )
 }
