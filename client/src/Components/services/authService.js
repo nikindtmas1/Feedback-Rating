@@ -1,26 +1,26 @@
 export const getUser = () => {
-    let username = sessionStorage.getItem('username');
-  
-    let userData = { username }
+  let username = sessionStorage.getItem("username");
 
-    return userData;
+  let userData = { username };
+
+  return userData;
 };
 
 export const userInfoDate = {
-    isAuthenticated: false,
-    username: "",
-    authToken: '',
+  isAuthenticated: false,
+  username: "",
+  authToken: "",
 };
 
-export  const logInIvent = (logDate) => {
-    let user = logDate.username;
-    let authToken = logDate.accessToken;
+export const logInIvent = (logDate) => {
+  let user = logDate.username;
+  let authToken = logDate.accessToken;
 
-    let userDate = {
-        user: user, 
-        authToken: authToken,
-        isAuthenticated: true,
-    }
+  let userDate = {
+    user: user,
+    authToken: authToken,
+    isAuthenticated: true,
+  };
 
-    return userDate;
+  return userDate;
 };
