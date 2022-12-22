@@ -7,7 +7,7 @@ const Navbar = () => {
   const { isAuth } = useContext(FeedbackContext);
 
   return (
-    <div
+    <div className="navbar"
       style={{
         // backgroundColor: "rgb(45, 179, 206)",
         backgroundColor: "rgb(69, 201, 253)",
