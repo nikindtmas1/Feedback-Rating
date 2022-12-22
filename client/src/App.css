@@ -203,7 +203,8 @@ input:focus {
 }
 
 .feedback-stats {
-  color: #fff;
+  /* color: #fff; */
+  color: rgb(238, 219, 219);
   display: flex;
   justify-content: space-between;
   align-items: center;
