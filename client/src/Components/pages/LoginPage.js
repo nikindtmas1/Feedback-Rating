@@ -8,7 +8,7 @@ import * as service from "../services/data";
 
 const LoginPage = () => {
   const history = useHistory();
-  const { feedbackByName } = useContext(FeedbackContext);
+  const { feedbackByName, onLogin } = useContext(FeedbackContext);
   const peopleName = "start";
 
   const handleSubmit = (e) => {
@@ -17,10 +17,13 @@ const LoginPage = () => {
     let nameUser = formData.get("userLogin").trim();
     let password = formData.get("password").trim();
 
-    service.login(nameUser, password);
+    service.login(nameUser, password)
+    .then((logDate) => onLogin(logDate))
+    .then(() => feedbackByName(peopleName))
+    .then(() => history.push("/"))
 
-    feedbackByName(peopleName);
-    history.push("/");
+    // feedbackByName(peopleName);
+    // history.push("/");
   };
 
   const onClick = (e) => {
