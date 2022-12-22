@@ -11,12 +11,14 @@ function App() {
   return (
     <FeedbackProvider>
       <div className="App">
-      <Header />
         <header className="App-header">
+          <Header />
+        </header>
+        <body className="App-body">
           <Route path="/" exact component={Dashboard} />
           <Route path="/login" component={LoginPage} />
           <Route path="/logout" component={Logout} />
-        </header>
+        </body>
       </div>
     </FeedbackProvider>
   );
