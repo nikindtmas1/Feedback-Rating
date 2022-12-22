@@ -17,13 +17,11 @@ const LoginPage = () => {
     let nameUser = formData.get("userLogin").trim();
     let password = formData.get("password").trim();
 
-    service.login(nameUser, password)
-    .then((logDate) => onLogin(logDate))
-    .then(() => feedbackByName(peopleName))
-    .then(() => history.push("/"))
-
-    // feedbackByName(peopleName);
-    // history.push("/");
+    service
+      .login(nameUser, password)
+      .then((logDate) => onLogin(logDate))
+      .then(() => feedbackByName(peopleName))
+      .then(() => history.push("/"));
   };
 
   const onClick = (e) => {
