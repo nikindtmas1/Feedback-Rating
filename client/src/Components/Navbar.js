@@ -21,8 +21,11 @@ const Navbar = () => {
         <Link
           to="/logout"
           style={{
-            display: "flex",
+            display: "inline",
             textDecoration: "none",
+            backgroundColor: "#ff6a95",
+            borderRadius: "10px",
+            padding: "3px"
           }}
         >
           Logout
