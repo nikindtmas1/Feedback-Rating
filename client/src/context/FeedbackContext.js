@@ -54,6 +54,17 @@ export const FeedbackProvider = ({ children }) => {
     }
   };
 
+ const onLogin = (logDate) => {
+ let result =  userServices.logInIvent(logDate)
+
+ setUserInfo(result);
+ setIsAuth(true);
+ };
+
+ const onLogout = () => {
+  
+ }
+
   return (
     <FeedbackContext.Provider
       value={{
@@ -64,6 +75,9 @@ export const FeedbackProvider = ({ children }) => {
         feedbackByName,
         peopleName,
         fetchFeedback,
+        user: userInfo,
+        onLogin,
+        isAuth,
       }}
     >
       {children}
