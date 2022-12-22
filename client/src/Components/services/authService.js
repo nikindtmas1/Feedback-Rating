@@ -9,4 +9,18 @@ export const getUser = () => {
 export const userInfoDate = {
     isAuthenticated: false,
     username: "",
+    authToken: '',
+};
+
+export  const logInIvent = (logDate) => {
+    let user = logDate.username;
+    let authToken = logDate.accessToken;
+
+    let userDate = {
+        user: user, 
+        authToken: authToken,
+        isAuthenticated: true,
+    }
+
+    return userDate;
 };
