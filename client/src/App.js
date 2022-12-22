@@ -6,14 +6,16 @@ import Header from "./Components/Header";
 import LoginPage from "./Components/pages/LoginPage";
 import Dashboard from "./Components/pages/Dashboard";
 import Logout from "./Components/pages/Logout";
+import Navbar from "./Components/Navbar";
 
 function App() {
   return (
     <FeedbackProvider>
       <div className="App">
-        <header className="App-header">
+        <header >
           <Header />
         </header>
+          <Navbar />
         <body className="App-body">
           <Route path="/" exact component={Dashboard} />
           <Route path="/login" component={LoginPage} />
