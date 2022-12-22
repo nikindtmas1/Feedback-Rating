@@ -16,7 +16,6 @@ const Navbar = () => {
         padding: "4px",
       }}
     >
-      <h2 style={{ margin: "0" }}>Health & Relax Center</h2>
       {isAuth ? (
         <Link
           to="/logout"
