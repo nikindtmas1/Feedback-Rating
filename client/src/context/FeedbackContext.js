@@ -4,6 +4,8 @@ import * as services from "../Components/services/data";
 import * as fetchService from "../Components/fetchFeedback/fetchFeedbacks";
 import * as addFeedbackService from "../Components/fetchFeedback/addFeedbacByName";
 import * as removeFeedbackService from "../Components/fetchFeedback/removeFeedbackByName";
+import * as userServices from '../Components/services/authService';
+
 
 export const FeedbackContext = createContext();
 
@@ -12,6 +14,8 @@ export const FeedbackProvider = ({ children }) => {
   const [feedback, setFeedback] = useState([]);
   const [feedbackEdit, setFeedbackEdit] = useState(false);
   const [peopleName, setPeopleName] = useState("");
+  const [userInfo, setUserInfo] = useState(userServices.userInfoDate);
+  const [isAuth, setIsAuth] = useState(false);
 
   useEffect(() => {
     setPeopleName("start");
