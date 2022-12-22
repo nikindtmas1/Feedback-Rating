@@ -5,7 +5,7 @@ import * as service from '../services/data';
 
 const Logout = () => {
     const history = useHistory();
-    const { feedbackByName } = useContext(FeedbackContext);
+    const { feedbackByName, onLogout } = useContext(FeedbackContext);
     const peopleName = "start";
 
     useEffect(() => {
@@ -13,9 +13,10 @@ const Logout = () => {
         service.logout()
         .then(() => feedbackByName(peopleName))
         .then(() => 
+        onLogout(),
         history.push('/')
         )
-    },[peopleName,history, feedbackByName]);
+    },[peopleName,history, feedbackByName, onLogout]);
 
   return null;
 }
