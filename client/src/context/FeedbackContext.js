@@ -55,7 +55,6 @@ export const FeedbackProvider = ({ children }) => {
 
   const onLogin = (logDate) => {
     let result = userServices.logInIvent(logDate);
-
     setUserInfo(result);
     setIsAuth(true);
   };
