@@ -5,6 +5,7 @@ import * as fetchService from "../Components/fetchFeedback/fetchFeedbacks";
 import * as addFeedbackService from "../Components/fetchFeedback/addFeedbacByName";
 import * as removeFeedbackService from "../Components/fetchFeedback/removeFeedbackByName";
 import * as userServices from "../Components/services/authService";
+import * as editFeedbackService from '../Components/fetchFeedback/editFeedbackById';
 
 export const FeedbackContext = createContext();
 
@@ -60,8 +61,8 @@ export const FeedbackProvider = ({ children }) => {
       });
   };
 
-  const updateFeedback = () => {
-
+  const updateFeedback = (id, data) => {
+    editFeedbackService.editFeedbackById(id, data, peopleName)
   }
 
   const onLogin = (logDate) => {
