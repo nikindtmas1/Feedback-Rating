@@ -11,7 +11,7 @@ export const FeedbackContext = createContext();
 export const FeedbackProvider = ({ children }) => {
   const [isLoadding, setIsLoading] = useState(true);
   const [feedback, setFeedback] = useState([]);
-  //const [feedbackEdit, setFeedbackEdit] = useState(false);
+  const [feedbackEdit, setFeedbackEdit] = useState({edit:false});
   const [peopleName, setPeopleName] = useState("");
   const [userInfo, setUserInfo] = useState(userServices.userInfoDate);
   const [isAuth, setIsAuth] = useState(false);
@@ -53,6 +53,17 @@ export const FeedbackProvider = ({ children }) => {
     }
   };
 
+  const editFeedback = (data) => {
+      setFeedbackEdit({
+        item: data.item,
+        edit: true
+      });
+  };
+
+  const updateFeedback = () => {
+
+  }
+
   const onLogin = (logDate) => {
     let result = userServices.logInIvent(logDate);
     setUserInfo(result);
@@ -78,6 +89,7 @@ export const FeedbackProvider = ({ children }) => {
         onLogin,
         onLogout,
         isAuth,
+        editFeedback,
       }}
     >
       {children}
