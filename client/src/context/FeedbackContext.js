@@ -55,7 +55,7 @@ export const FeedbackProvider = ({ children }) => {
 
   const editFeedback = (data) => {
       setFeedbackEdit({
-        item: data.item,
+        item: data,
         edit: true
       });
   };
@@ -91,6 +91,7 @@ export const FeedbackProvider = ({ children }) => {
         isAuth,
         editFeedback,
         updateFeedback,
+        feedbackEdit
       }}
     >
       {children}
