@@ -90,6 +90,7 @@ export const FeedbackProvider = ({ children }) => {
         onLogout,
         isAuth,
         editFeedback,
+        updateFeedback,
       }}
     >
       {children}
