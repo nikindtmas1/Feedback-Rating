@@ -5,9 +5,10 @@ import Card from "./shared/Card";
 import Button from "./shared/Button";
 import RatingSelect from "./RatingSelect";
 import SelectPeople from "./PeopleSelect";
+import { editFeedback } from "./services/data";
 
 const FeedbackForm = () => {
-  const { addFeedback, peopleName, feedbackEdit } = useContext(FeedbackContext);
+  const { addFeedback, peopleName, feedbackEdit, updateFeedback } = useContext(FeedbackContext);
 
   const [text, setText] = useState("");
   const [userName, setUserName] = useState("");
@@ -78,12 +79,19 @@ const FeedbackForm = () => {
       setRating(10);
        return alert('Review is not corect!')
     };
+      
+    if(editFeedback.edit === true){
+       updateFeedback(feedbackEdit.item._id, newFeedback)
+      }else{
 
-    addFeedback(newFeedback);
-    setBtnDisabled(true);
-    setRating(10);
-    setText("");
-    setUserName("");
+        addFeedback(newFeedback);
+        setBtnDisabled(true);
+        setRating(10);
+        setText("");
+        setUserName("");
+      }
+    
+
   };
 
   const handleTextChange = (e) => {
