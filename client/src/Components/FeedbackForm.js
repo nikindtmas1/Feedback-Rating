@@ -7,7 +7,7 @@ import RatingSelect from "./RatingSelect";
 import SelectPeople from "./PeopleSelect";
 
 const FeedbackForm = () => {
-  const { addFeedback, peopleName } = useContext(FeedbackContext);
+  const { addFeedback, peopleName, feedbackEdit } = useContext(FeedbackContext);
 
   const [text, setText] = useState("");
   const [userName, setUserName] = useState("");
@@ -36,6 +36,14 @@ const FeedbackForm = () => {
       setBtnDisabled(false);
     }
   }, [text, userName]);
+
+  useEffect(() => {
+    if(feedbackEdit.edit === true){
+      setBtnDisabled(false);
+      setText(feedbackEdit.item.text);
+      setRating(feedbackEdit.item.rating);
+    }
+  },[feedbackEdit]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
