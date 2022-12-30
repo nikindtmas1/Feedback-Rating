@@ -14,17 +14,23 @@ const Navbar = () => {
         color: "blue",
         textAlign: "center",
         padding: "4px",
+        display: 'inline',
+       
       }}
     >
       {isAuth ? (
         <Link
           to="/logout"
           style={{
-            display: "inline",
+            // display: "inline",
+            // display: 'inline-block',
             textDecoration: "none",
             backgroundColor: "#ff6a95",
             borderRadius: "10px",
-            padding: "3px"
+            paddingLeft: '3px',
+            paddingRight: '3px',
+            fontSize: '20px'
+            // padding: "3px",
           }}
         >
           Logout
