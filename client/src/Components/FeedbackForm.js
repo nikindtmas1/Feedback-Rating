@@ -8,7 +8,7 @@ import SelectPeople from "./PeopleSelect";
 
 
 const FeedbackForm = () => {
-  const { addFeedback, peopleName, feedbackEdit, updateFeedback, editFeedback } = useContext(FeedbackContext);
+  const { addFeedback, peopleName, feedbackEdit, updateFeedback } = useContext(FeedbackContext);
 
   const [text, setText] = useState("");
   const [userName, setUserName] = useState("");
@@ -81,8 +81,12 @@ const FeedbackForm = () => {
        return alert('Review is not corect!')
     };
       
-    if(editFeedback.edit === true){
-       updateFeedback(feedbackEdit.item._id, newFeedback)
+    if(feedbackEdit.edit === true){
+     updateFeedback(feedbackEdit.item._id, newFeedback)
+       setBtnDisabled(true);
+       setRating(10);
+       setText("");
+       setUserName("");
       }else{
 
         addFeedback(newFeedback);
