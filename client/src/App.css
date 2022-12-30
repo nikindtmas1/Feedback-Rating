@@ -193,16 +193,12 @@ input:focus {
 }
 
 .feedback-stats {
-  /* color: #fff; */
   color: rgb(117, 107, 107);
-  /* color: rgb(238, 219, 219); */
   display: flex;
   justify-content: space-between;
   align-items: center;
-  /* background-color:rgb(69, 201, 253); */
   background-color:rgb(190, 235, 254);
-  /* background-color:#fff; */
-  border-radius: 8px;
+  border-radius: 12px;
   padding-left: 5px;
   padding-right: 5px;
   height: 70px;
