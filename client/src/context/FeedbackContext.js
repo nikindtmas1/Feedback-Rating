@@ -64,7 +64,7 @@ export const FeedbackProvider = ({ children }) => {
   const updateFeedback = (id, data) => {
     if(window.confirm("Are you sure you want to edit feedback?")){
       editFeedbackService
-      .editFeedbackById(id, data, peopleName)
+      .editFeedbackById(id, peopleName, data)
       .then((result) => setFeedback(result))
       .then((err) => alert(err.message));
     }
