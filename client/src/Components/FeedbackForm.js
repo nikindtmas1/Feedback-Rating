@@ -5,10 +5,10 @@ import Card from "./shared/Card";
 import Button from "./shared/Button";
 import RatingSelect from "./RatingSelect";
 import SelectPeople from "./PeopleSelect";
-import { editFeedback } from "./services/data";
+
 
 const FeedbackForm = () => {
-  const { addFeedback, peopleName, feedbackEdit, updateFeedback } = useContext(FeedbackContext);
+  const { addFeedback, peopleName, feedbackEdit, updateFeedback, editFeedback } = useContext(FeedbackContext);
 
   const [text, setText] = useState("");
   const [userName, setUserName] = useState("");
