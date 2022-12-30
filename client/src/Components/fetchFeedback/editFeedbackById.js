@@ -1,8 +1,9 @@
 import * as goshoServices from '../services/goshoData';
 
-export function editFeedbackById(id, peopleName, feedback) {
+export function editFeedbackById(id, peopleName, data) {
     if(peopleName === 'Gosho'){
-        goshoServices.editGoshoFeedback(id, feedback)
-        
+      return  goshoServices
+        .editGoshoFeedback(id, data)
+        .then(() => goshoServices.getAll())
     }
 }
