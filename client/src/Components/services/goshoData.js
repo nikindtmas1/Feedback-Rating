@@ -18,3 +18,7 @@ export async function createGoshoFeedback(data) {
 export async function deleteGoshoFeedback(id) {
     return await service.del(host + `/goshofeedbacks/${id}`);
 };
+
+export async function editGoshoFeedback(id, data) {
+   return await service.put(host + `/goshofeedbacks/${id}`, data)
+};
