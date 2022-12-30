@@ -1,4 +1,5 @@
 import React from "react";
+import Navbar from "./Navbar";
 
 const Header = () => {
   return (
@@ -11,7 +12,8 @@ const Header = () => {
       textAlign: "center",
       padding: "4px",
        }}
-       >Health & Relax Center</h2>
+       >Health & Relax Center <Navbar /></h2>
+       
     </div>
   );
 };
