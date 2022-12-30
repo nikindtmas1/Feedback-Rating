@@ -43,6 +43,7 @@ const FeedbackForm = () => {
       setBtnDisabled(false);
       setText(feedbackEdit.item.text);
       setRating(feedbackEdit.item.rating);
+      setUserName(feedbackEdit.item.userName);
     }
   },[feedbackEdit]);
 
