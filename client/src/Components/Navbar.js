@@ -27,8 +27,8 @@ const Navbar = () => {
             textDecoration: "none",
             backgroundColor: "#ff6a95",
             borderRadius: "10px",
-            paddingLeft: '3px',
-            paddingRight: '3px',
+            paddingLeft: '7px',
+            paddingRight: '7px',
             fontSize: '20px'
             // padding: "3px",
           }}
