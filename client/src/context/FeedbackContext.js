@@ -62,7 +62,12 @@ export const FeedbackProvider = ({ children }) => {
   };
 
   const updateFeedback = (id, data) => {
-    editFeedbackService.editFeedbackById(id, data, peopleName)
+    if(window.confirm("Are you sure you want to edit feedback?")){
+      editFeedbackService
+      .editFeedbackById(id, data, peopleName)
+      .then((result) => setFeedback(result))
+      .then((err) => alert(err.message));
+    }
   }
 
   const onLogin = (logDate) => {
