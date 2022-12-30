@@ -17,7 +17,8 @@
 }
 
 .App-body {
-  background-image: url('../public/images/view-1-1.jpg');
+  /* background-image: url('../public/images/view-1-1.jpg'); */
+  background-color:rgb(69, 201, 253);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -193,11 +194,14 @@ input:focus {
 
 .feedback-stats {
   /* color: #fff; */
-  color: rgb(238, 219, 219);
+  color: rgb(115, 112, 112);
+  /* color: rgb(238, 219, 219); */
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color:rgb(69, 201, 253);
+  /* background-color:rgb(69, 201, 253); */
+  background-color:rgb(224, 253, 255);
+  /* background-color:#fff; */
   border-radius: 8px;
   padding-left: 5px;
   padding-right: 5px;
