@@ -15,6 +15,11 @@ router.post('/', async (req, res) => {
     res.json({ok: true});
 });
 
+router.put('/:id', async (req, res) => {
+    await services.updateToshoFeedback(req.params.id, req.body);
+    res.json({ ok: true });
+});
+
 router.delete('/:id', async (req,res) => {
     await services.deleteToshoFeedback(req.params.id);
 
