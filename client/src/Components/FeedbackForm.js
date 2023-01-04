@@ -8,7 +8,7 @@ import SelectPeople from "./PeopleSelect";
 
 
 const FeedbackForm = () => {
-  const { addFeedback, peopleName, feedbackEdit, updateFeedback } = useContext(FeedbackContext);
+  const { addFeedback, peopleName, feedbackEdit, updateFeedback, isAuth } = useContext(FeedbackContext);
 
   const [text, setText] = useState("");
   const [userName, setUserName] = useState("");
@@ -46,6 +46,15 @@ const FeedbackForm = () => {
       setUserName(feedbackEdit.item.userName);
     }
   },[feedbackEdit]);
+
+  useEffect(() => {
+    if(isAuth === false || isAuth === true){
+      setText("");
+      setUserName("");
+      setRating(10);
+      setBtnDisabled(true);
+    }
+  },[isAuth]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
