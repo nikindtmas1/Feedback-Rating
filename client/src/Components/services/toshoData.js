@@ -15,6 +15,11 @@ export async function createToshoFeedback(data) {
    return await service.post(host + '/toshofeedbacks', data);
 };
 
+export async function editToshoFeedback(id, data) {
+    const respons = await service.put(host + `/toshofeedbacks/${id}`, data);
+    return respons;
+}
+
 export async function deleteToshoFeedback(id) {
     return await service.del(host + `/toshofeedbacks/${id}`);
 };
