@@ -79,6 +79,7 @@ export const FeedbackProvider = ({ children }) => {
   const onLogout = () => {
     setUserInfo(userServices.userInfoDate);
     setIsAuth(false);
+    setFeedbackEdit({item: {} ,edit:false});
   };
 
   return (
