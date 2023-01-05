@@ -15,6 +15,11 @@ export async function createPeshoFeedback(data) {
     return await service.post(host + '/peshofeedbacks', data)
 };
 
+export async function editPeshoFeedback(id, data) {
+   const respons = await service.put(host + `/peshofeedbacks/${id}`, data);
+   return respons;
+}
+
 export async function deletePeshoFeedback(id) {
     return await service.del(host + `/peshofeedbacks/${id}`)
 };
