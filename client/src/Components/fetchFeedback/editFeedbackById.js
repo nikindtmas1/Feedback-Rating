@@ -1,6 +1,7 @@
 import * as goshoServices from '../services/goshoData';
 import * as toshoServices from '../services/toshoData';
 import * as peshoServices from '../services/peshoData';
+import * as tomiServices from '../services/tomiData';
 
 
 export function editFeedbackById(id, peopleName, data) {
@@ -16,5 +17,9 @@ export function editFeedbackById(id, peopleName, data) {
       return peshoServices
       .editPeshoFeedback(id, data)
       .then(() => peshoServices.getAll());
+    }else if(peopleName === 'Tomi'){
+      return tomiServices
+      .editTomiFeedback(id, data)
+      .then(() => tomiServices.getAll());
     }
 }
