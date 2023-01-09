@@ -15,6 +15,11 @@ export async function createTomiFeedback(data) {
     return await services.post(host + '/tomifeedbacks', data);
 };
 
+export async function editTomiFeedback(id, data) {
+    const respons = await services.put(host + `/tomifeedbacks/${id}`, data);
+    return respons;
+};
+
 export async function deleteTomiFeedback(id) {
     return await services.del(host + `/tomifeedbacks/${id}`);
 };
