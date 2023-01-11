@@ -4,6 +4,14 @@ const router = express.Router();
 const service = require('../services/userService');
 const { isGuest } = require('../middleware/authMidd');
 
+router.post('/register', async (req, res) => {
+    const {username, password} = req.body;
+
+   const hash = await service.register({username, password});
+
+   console.log(hash);
+   res.json({ok : true})
+});
 
 router.post('/login',isGuest, async (req, res) => {
     let {username, password} = req.body;
