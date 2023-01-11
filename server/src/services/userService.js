@@ -1,7 +1,7 @@
 const User = require("../models/userLoginModel");
 
 const { createAccessToken, createRefreshToken } = require("../utils/jwtUtils");
-const {genHashPassword, verifyPass} = require('../utils/bcriptUtils');
+const { genHashPassword, verifyPass } = require("../utils/bcriptUtils");
 
 exports.login = async ({ username, password }) => {
   const currUser = username;
@@ -44,7 +44,5 @@ exports.register = async ({ username, password }) => {
     user.refreshToken = refreshToken;
     await user.save();
     return { user, accessToken, refreshToken };
-  } else {
-    throw new Error("User name already exists!");
   }
 };
