@@ -1,7 +1,7 @@
 const User = require("../models/userLoginModel");
 
 const { createAccessToken, createRefreshToken } = require("../utils/jwtUtils");
-const bcriptUtils = require("../utils/bcriptUtils");
+const {genHashPassword, verifyPass} = require('../utils/bcriptUtils');
 
 exports.login = async ({ username, password }) => {
   const currUser = username;
@@ -10,7 +10,7 @@ exports.login = async ({ username, password }) => {
   const user = await User.findByUsername(currUser);
 
   if (!user) throw new Error("Invalid username!");
-  const valide = await bcriptUtils.verifyPass(currPass, user.password);
+  const valide = await verifyPass(currPass, user.password);
   if (!valide) throw new Error("Invalid password!");
   // if(user.password !== currPass) throw new Error("Invalid password!");
 
@@ -33,7 +33,7 @@ exports.register = async ({ username, password }) => {
   const user = await User.findByUsername(currUser);
 
   if (!user) {
-    const hashPassword = await bcriptUtils.genHashPassword(currPass);
+    const hashPassword = await genHashPassword(currPass);
     const username = currUser;
     const password = hashPassword;
     const user = new User({ username, password });
