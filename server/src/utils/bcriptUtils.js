@@ -8,11 +8,11 @@ async function genHashPassword(password) {
     .then((salt) => {
         return bcript.hash(currentPass, salt)
     })
-}
+};
 
-async function verifyPass(password) {
-    
-}
+async function verifyPass(currPassword, password) {
+   return await bcript.compare(currPassword, password);
+};
 
 module.exports = {
     genHashPassword,
