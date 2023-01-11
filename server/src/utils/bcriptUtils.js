@@ -1,9 +1,20 @@
 const bcript = require('bcrypt');
 
-async function makeHashPassword(params) {
+async function genHashPassword(password) {
+    const saltRound = 10;
+    const currentPass = password;
+
+   return bcript.genSalt(saltRound)
+    .then((salt) => {
+         bcript.hash(currentPass, salt)
+    })
+}
+
+async function verifyPass(password) {
     
 }
 
 module.exports = {
-    makeHashPassword,
+    genHashPassword,
+    verifyPass,
 }
