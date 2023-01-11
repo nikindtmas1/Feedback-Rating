@@ -6,17 +6,26 @@ const { isGuest } = require('../middleware/authMidd');
 
 router.post('/register', async (req, res) => {
     const {username, password} = req.body;
-
-  await service.register({username, password});
+    try {
+        const {user, accessToken, refreshToken} = await service.register({username, password});
+        res.json({
+            _id: user._id,
+        username: user.username,
+        accessToken,
+        refreshToken,
+        })
+        
+    } catch (error) {
+        
+    }
 
    
-   res.json({ok : true})
 });
 
 router.post('/login',isGuest, async (req, res) => {
-    let {username, password} = req.body;
+    const {username, password} = req.body;
 
-   let {user, accessToken, refreshToken} = await service.login({username, password});
+   const {user, accessToken, refreshToken} = await service.login({username, password});
 
     res.json({
         _id: user._id,
