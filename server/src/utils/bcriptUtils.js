@@ -6,7 +6,7 @@ async function genHashPassword(password) {
 
    return bcript.genSalt(saltRound)
     .then((salt) => {
-         bcript.hash(currentPass, salt)
+        return bcript.hash(currentPass, salt)
     })
 }
 
