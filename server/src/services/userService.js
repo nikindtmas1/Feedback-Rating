@@ -36,9 +36,17 @@ exports.register = async ({username, password}) => {
     const user = await User.findByUsername(currUser);
 
     if(!user){
-        const hash = await bcriptUtils.genHashPassword(currPass);
-        
-        return hash;
+        try {
+            const hashPassword = await bcriptUtils.genHashPassword(currPass);
+            const username = currUser;
+            const password = hashPassword
+            const user = new User({username, password});
+            user.save();
+        } catch (error) {
+            res.json({type: 'error',
+            message: error.message})
+        }
+       
     }else{
         throw new Error('User name already exists!')
     }
