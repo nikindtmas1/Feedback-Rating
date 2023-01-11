@@ -7,9 +7,9 @@ const { isGuest } = require('../middleware/authMidd');
 router.post('/register', async (req, res) => {
     const {username, password} = req.body;
 
-   const hash = await service.register({username, password});
+  await service.register({username, password});
 
-   console.log(hash);
+   
    res.json({ok : true})
 });
 
