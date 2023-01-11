@@ -3,6 +3,7 @@ const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 
 const { createAccessToken, createRefreshToken } = require('../utils/jwtUtils');
+const bcriptUtils = require('../utils/bcriptUtils');
 
 exports.login = async ({username, password}) => {
     const currUser = username;
@@ -25,5 +26,21 @@ exports.login = async ({username, password}) => {
       
           return {user, accessToken, refreshToken};
     };
+
+};
+
+exports.register = async ({username, password}) => {
+    const currUser = username;
+    const currPass = password;
+
+    const user = await User.findByUsername(currUser);
+
+    if(!user){
+        const hash = await bcriptUtils.genHashPassword(currPass);
+        
+        return hash;
+    }else{
+        throw new Error('User name already exists!')
+    }
 
 };
