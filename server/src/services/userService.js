@@ -37,12 +37,7 @@ exports.register = async ({ username, password }) => {
     const username = currUser;
     const password = hashPassword;
     const user = new User({ username, password });
-    const accessToken = await createAccessToken(user);
-    const refreshToken = await createRefreshToken(user);
-
-    user.accessToken = accessToken;
-    user.refreshToken = refreshToken;
     await user.save();
-    return { user, accessToken, refreshToken };
+   
   }
 };
