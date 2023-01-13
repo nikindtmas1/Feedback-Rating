@@ -10,7 +10,7 @@ router.get('/', async (req, res) => {
     res.json(goshoFeedbacks);
 });
 
-router.get('/:id',isAuth, async (req, res) => {
+router.get('/:id', async (req, res) => {
     const result = await services.getOneFeedback(req.params.id);
     res.json(result);
 });
@@ -26,7 +26,7 @@ router.put('/:id', async (req, res) => {
     res.json({ ok: true })
 });
 
-router.delete('/:id', async (req, res) => {
+router.delete('/:id',isAuth, async (req, res) => {
     await services.deleteGoshoFeedback(req.params.id);
 
     res.json({ ok: true })
