@@ -21,12 +21,18 @@ function auth(req, res, next) {
 }
 
 function isAuth(req, res, next) {
-    // console.log(req.headers["Content-Type"]);
-    if(!req.user){
-        return res.status(401)
-    };
+    console.log(req.user);
+    // if(!req.user){
+    //     return res.status(401)
+    // };
 
-    next();
+    // next();
+
+    if (req.user) {
+        next()
+    } else {
+        res.status(401).json({message: 'You are not authorized'});
+    }
 };
 
 function isGuest(req, res, next) {
