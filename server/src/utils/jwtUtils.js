@@ -1,7 +1,7 @@
 const jwt = require('jsonwebtoken');
-const { development } = require('../config/config');
+// const { development } = require('../config/config');
 
-const secretAccess = development.secretStr;
+// const secretAccess = development.secretStr;
 
 async function createAccessToken(user) {
     let payload = {
@@ -13,7 +13,7 @@ async function createAccessToken(user) {
         expiresIn: '1m'
     };
 
-    let accessToken = await jwt.sign(payload, secretAccess,options);
+    let accessToken = await jwt.sign(payload, "mnogoqkaparola",options);
 
     return accessToken;
 };
