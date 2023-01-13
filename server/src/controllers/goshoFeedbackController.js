@@ -21,12 +21,12 @@ router.post('/', async (req, res) => {
     res.json({ ok: true })
 });
 
-router.put('/:id',isAuth, async (req, res) => {
+router.put('/:id', async (req, res) => {
     await services.updateGoshoFeedback(req.params.id, req.body);
     res.json({ ok: true })
 });
 
-router.delete('/:id',isAuth, async (req, res) => {
+router.delete('/:id', async (req, res) => {
     await services.deleteGoshoFeedback(req.params.id);
 
     res.json({ ok: true })
