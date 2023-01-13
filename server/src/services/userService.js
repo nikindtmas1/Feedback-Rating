@@ -1,13 +1,19 @@
 const User = require("../models/userLoginModel");
+const jwt = require('jsonwebtoken');
 
 const { createAccessToken, createRefreshToken } = require("../utils/jwtUtils");
 const { genHashPassword, verifyPass } = require("../utils/bcriptUtils");
+
+const { development } = require('../config/config');
+
+const secretAccess = development.secretStr;
 
 exports.login = async ({ username, password }) => {
   const currUser = username;
   const currPass = password;
 
   const user = await User.findByUsername(currUser);
+  // const user = await User.findOne({currUser, currPass});
 
   if (!user) throw new Error("Invalid username!");
   const valide = await verifyPass(currPass, user.password);
@@ -18,7 +24,7 @@ exports.login = async ({ username, password }) => {
     const accessToken = await createAccessToken(user);
     const refreshToken = await createRefreshToken(user);
 
-    user.accessToken = accessToken;
+    // user.accessToken = accessToken;
     user.refreshToken = refreshToken;
     await user.save();
 
@@ -43,17 +49,18 @@ exports.register = async ({ username, password }) => {
 };
 
 
-// exports.refresh = async (refreshToken) => {
-//   let { _id } = jwt.verify(refreshToken, 'MOGYSHTSECRET2');
+exports.refresh = async (refreshToken) => {
+  let { _id } = jwt.verify(refreshToken, 'mnogoqkaparola2');
 
-//   let user = await User.find({ _id, refreshToken });
+  let user = await User.find({ _id, refreshToken });
 
-//   if (user) {
-//       let accessToken = jwt.sign({ _id: user._id, username: user.username }, 'MOGYSHTSECRET', { expiresIn: '1m' });
-//       let refreshToken = jwt.sign({ _id: user._id }, 'MOGYSHTSECRET2', { expiresIn: '7d' });
+  if (user) {
+      let accessToken = jwt.sign({ _id: user._id, username: user.username }, secretAccess, { expiresIn: '1m' });
+      let refreshToken = jwt.sign({ _id: user._id }, 'mnogoqkaparola2', { expiresIn: '7d' });
 
-//       return { accessToken, refreshToken };
-//   } else {
-//       return null;
-//   }
-// }
+      return { accessToken, refreshToken };
+  } else {
+      return null;
+  }
+}
+
