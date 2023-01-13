@@ -36,17 +36,17 @@ router.post("/login", isGuest, async (req, res) => {
   });
 });
 
-// router.post('/refresh', async (req, res) => {
-//   console.log(req.body);
-//   let refreshToken = req.body.refreshToken;
+router.post('/refresh', async (req, res) => {
+  console.log(req.body);
+  let refreshToken = req.body.refreshToken;
 
-//   let { accessToken, refreshToken: newRefreshToken } = await service.refresh(refreshToken);
+  let { accessToken, refreshToken: newRefreshToken } = await service.refresh(refreshToken);
 
-//   res.json({
-//       accessToken,
-//       refreshToken: newRefreshToken,
-//   });
-// });
+  res.json({
+      accessToken,
+      refreshToken: newRefreshToken,
+  });
+});
 
 router.get("/logout", (req, res) => {
   res.json({ ok: true });
