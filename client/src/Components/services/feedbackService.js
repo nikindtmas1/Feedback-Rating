@@ -23,13 +23,43 @@ async function request(url, options) {
     alert(error.message);
     throw error;
   }
-};
+}
 
-function getOptions(method = "get", body) {
+async function getOptions(method = "get", body) {
   const options = {
     method,
     headers: {},
   };
+
+  // let token = sessionStorage.getItem("authToken");
+
+  // if (token != null) {
+  //   // Simulates that accessToken has expired
+  //   const isValid = false;
+  //   let refreshToken = sessionStorage.getItem("refreshToken");
+  //   console.log(refreshToken);
+  //   if (!isValid) {
+  //     let res = await fetch("http://localhost:5000/users/refresh", {
+  //       method: "POST",
+  //       headers: {
+  //         "Content-Type": "application/json",
+  //       },
+  //       body: JSON.stringify({
+  //         refreshToken,
+  //       }),
+  //     });
+  //     let result = await res.json();
+
+  //     console.log(result);
+
+  //     sessionStorage.setItem("authToken", result.accessToken);
+  //     sessionStorage.setItem("refreshToken", result.refreshToken);
+
+  //     token = result.accessToken;
+  //   }
+
+  //   options.headers["X-Authorization"] = token;
+  // }
 
   if (body) {
     options.headers["Content-Type"] = "application/json";
@@ -37,44 +67,43 @@ function getOptions(method = "get", body) {
   }
 
   return options;
-};
+}
 
 export async function get(url) {
-  return await request(url, getOptions());
-};
+  return await request(url, await getOptions());
+}
 
 export async function post(url, data) {
-    return await request(url, getOptions("post", data));
-};
+  return await request(url, await getOptions("post", data));
+}
 
 export async function put(url, data) {
-    return await request(url, getOptions("put", data));
-};
+  return await request(url, await getOptions("put", data));
+}
 
 export async function del(url) {
-  return await request(url, getOptions("delete"));
-};
-
+  return await request(url, await getOptions("delete"));
+}
 
 export async function login(username, password) {
-  const result = await post(settings.host + '/users/login', {
+  const result = await post(settings.host + "/users/login", {
     username,
-    password
+    password,
   });
 
-  sessionStorage.setItem('username', result.username);
-  sessionStorage.setItem('authToken', result.accessToken);
-  sessionStorage.setItem('refreshToken', result.refreshToken);
+  sessionStorage.setItem("username", result.username);
+  sessionStorage.setItem("authToken", result.accessToken);
+  sessionStorage.setItem("refreshToken", result.refreshToken);
 
   return result;
-};
+}
 
 export async function logout(token) {
-  const result = await get(settings.host + '/users/logout');
+  const result = await get(settings.host + "/users/logout");
 
-  sessionStorage.removeItem('username');
-  sessionStorage.removeItem('authToken');
-  sessionStorage.removeItem('refreshToken');
+  sessionStorage.removeItem("username");
+  sessionStorage.removeItem("authToken");
+  sessionStorage.removeItem("refreshToken");
 
   return result;
-};
+}
