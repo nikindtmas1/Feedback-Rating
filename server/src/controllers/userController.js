@@ -1,10 +1,11 @@
 const express = require("express");
 const router = express.Router();
-
-const service = require("../services/userService");
 const { isGuest } = require("../middleware/authMidd");
 
-router.post("/register", async (req, res) => {
+const service = require("../services/userService");
+
+
+router.post("/register",isGuest, async (req, res) => {
   const { username, password } = req.body;
   try {
     const { user, accessToken, refreshToken } = await service.register({
@@ -20,7 +21,7 @@ router.post("/register", async (req, res) => {
   } catch (error) {}
 });
 
-router.post("/login", isGuest, async (req, res) => {
+router.post("/login", async (req, res) => {
   const { username, password } = req.body;
 
   const { user, accessToken, refreshToken } = await service.login({
