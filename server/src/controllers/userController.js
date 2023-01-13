@@ -27,7 +27,7 @@ router.post("/login", isGuest, async (req, res) => {
     username,
     password,
   });
-
+  // req.user = accessToken;
   res.json({
     _id: user._id,
     username: user.username,
@@ -35,6 +35,18 @@ router.post("/login", isGuest, async (req, res) => {
     refreshToken,
   });
 });
+
+// router.post('/refresh', async (req, res) => {
+//   console.log(req.body);
+//   let refreshToken = req.body.refreshToken;
+
+//   let { accessToken, refreshToken: newRefreshToken } = await service.refresh(refreshToken);
+
+//   res.json({
+//       accessToken,
+//       refreshToken: newRefreshToken,
+//   });
+// });
 
 router.get("/logout", (req, res) => {
   res.json({ ok: true });
