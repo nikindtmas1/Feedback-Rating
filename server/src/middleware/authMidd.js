@@ -1,19 +1,18 @@
 const jwt = require('jsonwebtoken');
-const { development } = require('../config/config');
+// const { development } = require('../config/config');
 
-const secretAccess = development.secretStr;
+// const secretAccess = development.secretStr;
 
 function auth(req, res, next) {
-    const token = req.headers['X-Authorization'];
-
+    const token = req.headers['x-authorization'];
     if(token){
-        const decodetToken = jwt.verify(token, secretAccess)
+        const decodetToken = jwt.verify(token, "mnogoqkaparola")
         if(decodetToken){
             req.user = decodetToken;
-            res.status(300)
+        
             next();
         }else{
-            res.status(401)
+            res.status(401).json('You are not authorized');
         }
     }else{
         next();
@@ -21,13 +20,9 @@ function auth(req, res, next) {
 }
 
 function isAuth(req, res, next) {
-    console.log(req.user);
-    // if(!req.user){
-    //     return res.status(401)
-    // };
-
-    // next();
-
+   
+    // const token = req.headers[ 'x-authorization'];
+   
     if (req.user) {
         next()
     } else {
