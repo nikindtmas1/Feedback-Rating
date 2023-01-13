@@ -37,7 +37,7 @@ router.post("/login", isGuest, async (req, res) => {
 });
 
 router.post('/refresh', async (req, res) => {
-  console.log(req.body);
+  // console.log(req.body);
   let refreshToken = req.body.refreshToken;
 
   let { accessToken, refreshToken: newRefreshToken } = await service.refresh(refreshToken);
