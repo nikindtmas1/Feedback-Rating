@@ -4,6 +4,7 @@ module.exports = {
     dbAtlas:
       "mongodb+srv://niki:niki548444@cluster0.8me3yuw.mongodb.net/feedback_datas?retryWrites=true&w=majority",
     secretStr: "mnogoqkaparola",
+    secretStrTwo: "mymnogoqkaparolatwo",
   },
 
   production: {
