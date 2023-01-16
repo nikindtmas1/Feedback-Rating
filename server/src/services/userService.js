@@ -4,9 +4,10 @@ const jwt = require('jsonwebtoken');
 const { createAccessToken, createRefreshToken } = require("../utils/jwtUtils");
 const { genHashPassword, verifyPass } = require("../utils/bcriptUtils");
 
-// const { development } = require('../config/config');
+const { development } = require('../config/config');
 
-// const secretAcess = development.secretStr;
+const secretAccess = development.secretStr;
+const secretAccessTwo = development.secretStrTwo;
 
 exports.login = async ({ username, password }) => {
   const currUser = username;
@@ -50,13 +51,13 @@ exports.register = async ({ username, password }) => {
 
 
 exports.refresh = async (refreshToken) => {
-  let { _id } = jwt.verify(refreshToken, 'mymnogoqkaparolatwo');
+  let { _id } = jwt.verify(refreshToken, secretAccessTwo);
 
   let user = await User.find({ _id, refreshToken });
 
   if (user) {
-      let accessToken = jwt.sign({ _id: user._id, username: user.username }, "mnogoqkaparola", { expiresIn: '10s' });
-      let refreshToken = jwt.sign({ _id: user._id }, 'mymnogoqkaparolatwo', { expiresIn: '7d' });
+      let accessToken = jwt.sign({ _id: user._id, username: user.username }, secretAccess, { expiresIn: '1m' });
+      let refreshToken = jwt.sign({ _id: user._id }, secretAccessTwo, { expiresIn: '7d' });
 
       return { accessToken, refreshToken };
   } else {
