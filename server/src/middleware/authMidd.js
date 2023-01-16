@@ -1,12 +1,12 @@
 const jwt = require('jsonwebtoken');
-// const { development } = require('../config/config');
+const { development } = require('../config/config');
 
-// const secretAccess = development.secretStr;
+const secretAccess = development.secretStr;
 
 function auth(req, res, next) {
     const token = req.headers['x-authorization'];
     if(token){
-        const decodetToken = jwt.verify(token, "mnogoqkaparola")
+        const decodetToken = jwt.verify(token, secretAccess)
         if(decodetToken){
             req.user = decodetToken;
         
