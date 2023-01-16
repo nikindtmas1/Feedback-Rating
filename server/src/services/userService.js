@@ -50,13 +50,13 @@ exports.register = async ({ username, password }) => {
 
 
 exports.refresh = async (refreshToken) => {
-  let { _id } = jwt.verify(refreshToken, 'mnogoqkaparola2');
+  let { _id } = jwt.verify(refreshToken, 'mymnogoqkaparolatwo');
 
   let user = await User.find({ _id, refreshToken });
 
   if (user) {
-      let accessToken = jwt.sign({ _id: user._id, username: user.username }, "mnogoqkaparola", { expiresIn: '1m' });
-      let refreshToken = jwt.sign({ _id: user._id }, 'mnogoqkaparola2', { expiresIn: '7d' });
+      let accessToken = jwt.sign({ _id: user._id, username: user.username }, "mnogoqkaparola", { expiresIn: '10s' });
+      let refreshToken = jwt.sign({ _id: user._id }, 'mymnogoqkaparolatwo', { expiresIn: '7d' });
 
       return { accessToken, refreshToken };
   } else {
