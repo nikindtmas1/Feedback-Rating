@@ -10,7 +10,7 @@ async function createAccessToken(user) {
     };
 
     let options = {
-        expiresIn: '1m'
+        expiresIn: '10s'
     };
 
     let accessToken = await jwt.sign(payload, "mnogoqkaparola",options);
@@ -27,7 +27,7 @@ async function createRefreshToken(user) {
         expiresIn: '2d'
     };
 
-    let secretStrTwo = 'mnogoqkaparola2';
+    let secretStrTwo = 'mymnogoqkaparolatwo';
 
     let refreshToken = await jwt.sign(payload,secretStrTwo,options);
    
