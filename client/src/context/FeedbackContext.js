@@ -66,7 +66,8 @@ export const FeedbackProvider = ({ children }) => {
       editFeedbackService
       .editFeedbackById(id, peopleName, data)
       .then((result) => setFeedback(result))
-      .then((err) => alert(err.message));
+      .then(() => setFeedbackEdit({item: {}, edit: false}))
+      .then((err) => alert(err.message))
     }
   }
 
