@@ -28,11 +28,9 @@ export const FeedbackProvider = ({ children }) => {
   }, []);
 
   useEffect(() => {
-  
     window.localStorage.setItem('name', peopleName)
     window.localStorage.setItem('isAuth', isAuth)
-    window.localStorage.setItem('feedback',JSON.stringify(feedback))
-  },[isAuth, feedback, peopleName])
+  },[isAuth, peopleName])
 
   // const fetchFeedback = () => {
   //   services
