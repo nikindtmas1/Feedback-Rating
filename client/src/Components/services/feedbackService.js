@@ -50,8 +50,6 @@ async function getOptions(method = "get", body) {
       });
       let result = await res.json();
 
-      
-
       sessionStorage.setItem("authToken", result.accessToken);
       sessionStorage.setItem("refreshToken", result.refreshToken);
 
