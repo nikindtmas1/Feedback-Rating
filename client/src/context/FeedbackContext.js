@@ -1,6 +1,6 @@
 import { createContext, useEffect, useState } from "react";
 
-import * as services from "../Components/services/data";
+// import * as services from "../Components/services/data";
 import * as fetchService from "../Components/fetchFeedback/fetchFeedbacks";
 import * as addFeedbackService from "../Components/fetchFeedback/addFeedbacByName";
 import * as removeFeedbackService from "../Components/fetchFeedback/removeFeedbackByName";
@@ -18,23 +18,34 @@ export const FeedbackProvider = ({ children }) => {
   const [isAuth, setIsAuth] = useState(false);
 
   useEffect(() => {
-    setPeopleName("start");
-    fetchFeedback();
+    // setPeopleName("start");
+    // fetchFeedback();
+    window.localStorage.getItem('name') === null ?
+    feedbackByName('start') : 
+    feedbackByName(window.localStorage.getItem('name'))
+    window.localStorage.getItem('isAuth') === 'true' ?
+    setIsAuth(true) : setIsAuth(false)
   }, []);
 
-  const fetchFeedback = () => {
-    services
-      .getAll()
-      .then((result) => setFeedback(result))
-      .then(() => setIsLoading(false))
-      .then((err) => alert(err.message));
-  };
+  useEffect(() => {
+  
+    window.localStorage.setItem('name', peopleName)
+    window.localStorage.setItem('isAuth', isAuth)
+    window.localStorage.setItem('feedback',JSON.stringify(feedback))
+  },[isAuth, feedback, peopleName])
+
+  // const fetchFeedback = () => {
+  //   services
+  //     .getAll()
+  //     .then((result) => setFeedback(result))
+  //     .then(() => setIsLoading(false))
+  //     .then((err) => alert(err.message));
+  // };
 
   const feedbackByName = (name) => {
     fetchService
       .fetchByName(name)
-      .then((result) => setFeedback(result))
-      .then(() => setPeopleName(name))
+      .then((result) => setFeedback(result), setPeopleName(name), setIsLoading(false))
       .then((err) => alert(err.message));
   };
 
@@ -92,7 +103,7 @@ export const FeedbackProvider = ({ children }) => {
         removeFeedback,
         feedbackByName,
         peopleName,
-        fetchFeedback,
+        // fetchFeedback,
         user: userInfo,
         onLogin,
         onLogout,
