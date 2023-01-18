@@ -1,6 +1,5 @@
 import { createContext, useEffect, useState } from "react";
 
-// import * as services from "../Components/services/data";
 import * as fetchService from "../Components/fetchFeedback/fetchFeedbacks";
 import * as addFeedbackService from "../Components/fetchFeedback/addFeedbacByName";
 import * as removeFeedbackService from "../Components/fetchFeedback/removeFeedbackByName";
@@ -18,8 +17,6 @@ export const FeedbackProvider = ({ children }) => {
   const [isAuth, setIsAuth] = useState(false);
 
   useEffect(() => {
-    // setPeopleName("start");
-    // fetchFeedback();
     window.localStorage.getItem('name') === null ?
     feedbackByName('start') : 
     feedbackByName(window.localStorage.getItem('name'))
@@ -31,14 +28,6 @@ export const FeedbackProvider = ({ children }) => {
     window.localStorage.setItem('name', peopleName)
     window.localStorage.setItem('isAuth', isAuth)
   },[isAuth, peopleName])
-
-  // const fetchFeedback = () => {
-  //   services
-  //     .getAll()
-  //     .then((result) => setFeedback(result))
-  //     .then(() => setIsLoading(false))
-  //     .then((err) => alert(err.message));
-  // };
 
   const feedbackByName = (name) => {
     fetchService
@@ -101,7 +90,6 @@ export const FeedbackProvider = ({ children }) => {
         removeFeedback,
         feedbackByName,
         peopleName,
-        // fetchFeedback,
         user: userInfo,
         onLogin,
         onLogout,
