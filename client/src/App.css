@@ -308,7 +308,7 @@ input:focus {
 
 @media (max-width: 600px) {
   .rating li {
-    margin: 10px 3px;
+    margin: 5px 5px;
   }
 
   .rating {
@@ -320,6 +320,6 @@ input:focus {
   }
 
   .input-group input {
-    width: 80%;
+    width: 100%;
   }
 }
