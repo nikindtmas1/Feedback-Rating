@@ -16,7 +16,7 @@ const Login = () => {
         name="userLogin" 
         placeholder="User Name" 
         pattern="[a-z]+" 
-        title="Only lowercase letter characters please!" 
+        title="Only lowercase letters allowed!" 
         required />
       </div>
       <div className="input-group">
@@ -24,7 +24,7 @@ const Login = () => {
         name="password" 
         placeholder="Password"
         pattern="[a-z0-9]+"
-        title="Password is not corecr!"
+        title="Password is not correct!"
         size='20'
         required />
       </div>
