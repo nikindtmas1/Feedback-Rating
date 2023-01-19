@@ -35,7 +35,7 @@ const LoginPage = () => {
     <Card>
       <div className="text-container">
         <div className="text-content">
-          <form onSubmit={handleSubmit}>
+          <form onSubmit={handleSubmit} action='/' method='post'>
             <Login />
           </form>
           <Link onClick={onClick} to="/" style={{ textDecoration: "none" }}>
