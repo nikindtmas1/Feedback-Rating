@@ -17,6 +17,14 @@ const LoginPage = () => {
     let nameUser = formData.get("userLogin").trim();
     let password = formData.get("password").trim();
 
+    if(!nameUser.match(/^(([a-z]+)$)/)){
+      return alert('User name is not corect!');
+    };
+
+    if(!password.match(/([a-z0-9]+)/)){
+      return alert('Password is not corect!');
+    };
+
     service
       .login(nameUser, password)
       .then((logDate) => onLogin(logDate))
