@@ -44,7 +44,7 @@ export const FeedbackProvider = ({ children }) => {
   };
 
   const removeFeedback = (id) => {
-    if (window.confirm("Are you sure you want to delete?")) {
+    if (window.confirm("Are you sure you want to delete feedback?")) {
       removeFeedbackService
         .deleteFeedbackByName(id, peopleName, feedback)
         .then((result) => setFeedback(result))
