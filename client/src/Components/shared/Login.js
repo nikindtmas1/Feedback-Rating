@@ -12,10 +12,10 @@ const Login = () => {
         Login
       </h2>
       <div className="input-group">
-        <input type="text" name="userLogin" placeholder="User Name" />
+        <input type="text" name="userLogin" placeholder="User Name" required />
       </div>
       <div className="input-group">
-        <input type="password" name="password" placeholder="Password" />
+        <input type="password" name="password" placeholder="Password" required />
       </div>
       <div className="button-login">
         <Button type="submit" disabled="false" version="tertiary">
