@@ -12,10 +12,21 @@ const Login = () => {
         Login
       </h2>
       <div className="input-group">
-        <input type="text" name="userLogin" placeholder="User Name" required />
+        <input type="text" 
+        name="userLogin" 
+        placeholder="User Name" 
+        pattern="[a-z]+" 
+        title="Only lowercase letter characters please!" 
+        required />
       </div>
       <div className="input-group">
-        <input type="password" name="password" placeholder="Password" required />
+        <input type="password" 
+        name="password" 
+        placeholder="Password"
+        pattern="[a-z0-9]+"
+        title="Password is not corecr!"
+        size='20'
+        required />
       </div>
       <div className="button-login">
         <Button type="submit" disabled="false" version="tertiary">
