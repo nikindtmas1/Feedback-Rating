@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import { Link, useHistory } from "react-router-dom";
 import Card from "../shared/Card";
 import { FeedbackContext } from "../../context/FeedbackContext";
@@ -49,12 +49,6 @@ const LoginPage = () => {
         <div className="text-content">
           <form onSubmit={handleSubmit} action="/" method="post">
             <Login />
-
-          {/* <div className="button-login">      
-            <Button type="submit" isDisabled={btnDisabled} version="tertiary">
-              Submit
-            </Button>
-          </div> */}
           </form>
           <Link onClick={onClick} to="/" style={{ textDecoration: "none" }}>
             <Button version="secondary">Back</Button>
