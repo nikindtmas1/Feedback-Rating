@@ -303,14 +303,11 @@ input:focus {
   opacity: 1;
 }
 
-/* .text-login{
+.text-login{
   background-image: url('../public/images/view-1-1.jpg');
-  margin-top: -40px;
-  padding-top: 100px;
-  padding-bottom: 80px;
-  padding-left: 435px;
-  padding-right: 435px;
-} */
+  width: 100%;
+  height: auto;
+}
 
 .message {
   padding-top: 10px;
@@ -371,12 +368,4 @@ input:focus {
   .input-group input {
     width: 100%;
   }
-
-  /* .text-login{
-    display: flex;
-    width: 20px;
-    height: 100px;
-    margin: auto;
-    padding: auto;
-  } */
 }
