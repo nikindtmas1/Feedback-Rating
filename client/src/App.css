@@ -263,6 +263,44 @@ input:focus {
   opacity: 1;
 }
 
+.loginbutt {
+  color: #fff;
+  border: 0;
+  border-radius: 8px;
+  width: 220px;
+  height: 40px;
+  cursor: pointer;
+  margin: 4px;
+}
+
+.loginbutt-primary{
+  background-color: #202142;
+}
+
+.loginbutt-secondary {
+  background: #ff6a95;
+}
+
+.loginbutt-tertiary {
+  background-color: rgb(105, 179, 206);
+}
+
+.loginbutt:hover {
+  transform: scale(0.98);
+  opacity: 0.9;
+}
+
+.loginbutt:disabled {
+  background-color: #cccccc;
+  color: #333;
+  cursor: auto;
+}
+
+.loginbutt:disabled:hover {
+  transform: scale(1);
+  opacity: 1;
+}
+
 .message {
   padding-top: 10px;
   text-align: center;
