@@ -44,6 +44,7 @@ const LoginPage = () => {
 
 
   return (
+    <div className="text-login">
     <Card>
       <div className="text-container">
         <div className="text-content">
@@ -56,6 +57,7 @@ const LoginPage = () => {
         </div>
       </div>
     </Card>
+    </div>
   );
 };
 
