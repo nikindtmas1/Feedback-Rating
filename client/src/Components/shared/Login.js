@@ -11,7 +11,7 @@ useEffect(() => {
 
   if(loginUserName.length === 0 || userPass.length === 0){
     setBtnDisabled(true);
-  }else{
+  }else if(userPass.length >= 8){
     setBtnDisabled(false)
   };
 
