@@ -44,7 +44,7 @@ const LoginPage = () => {
 
 
   return (
-    <div className="App-body text-login">
+    <div className="app-body text-login">
     <Card>
       <div className="text-container">
         <div className="text-content">
