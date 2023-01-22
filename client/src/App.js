@@ -16,7 +16,7 @@ function App() {
           <Header />
         </header>
           {/* <Navbar /> */}
-        <body className="App-body">
+        <body className="app-body">
           <Route path="/" exact component={Dashboard} />
           <Route path="/login" component={LoginPage} />
           <Route path="/logout" component={Logout} />
