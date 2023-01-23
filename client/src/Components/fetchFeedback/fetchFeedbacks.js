@@ -3,11 +3,13 @@ import * as goshoService from "../services/goshoData";
 import * as toshoService from "../services/toshoData";
 import * as peshoService from "../services/peshoData";
 import * as tomiService from '../services/tomiData';
+import * as therFiveService from '../services/therapiestFiveData';
 
 export function fetchByName(name){
   return name === 'Gosho' ? goshoService.getAll()
   : name === 'Tosho' ? toshoService.getAll()
   : name === 'Pesho' ? peshoService.getAll()
   : name === 'Tomi' ? tomiService.getAll()
+  : name === 'TherapiestFive' ? therFiveService.getAll()
   :  service.getAll()
 }
