@@ -6,7 +6,6 @@ import Header from "./Components/Header";
 import LoginPage from "./Components/pages/LoginPage";
 import Dashboard from "./Components/pages/Dashboard";
 import Logout from "./Components/pages/Logout";
-//import Navbar from "./Components/Navbar";
 
 function App() {
   return (
@@ -15,7 +14,6 @@ function App() {
         <header >
           <Header />
         </header>
-          {/* <Navbar /> */}
         <body className="app-body">
           <Route path="/" exact component={Dashboard} />
           <Route path="/login" component={LoginPage} />
