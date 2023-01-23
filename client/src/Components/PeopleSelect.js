@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import { FeedbackContext } from "../context/FeedbackContext";
+import { therapiests } from "./employees/employees";
 
 const SelectPeople = () => {
   const { feedbackByName } = useContext(FeedbackContext);
@@ -20,23 +21,10 @@ const SelectPeople = () => {
           padding: "3px",
         }}
       >
-        <option value="start" style={{ textAlign: "center" }}>
-          Select Therapist
-        </option>
-        <option value="Gosho" style={{ textAlign: "center" }}>
-          Gosho
-        </option>
-        <option value="Tosho" style={{ textAlign: "center" }}>
-          Tosho
-        </option>
-        <option value="Pesho" style={{ textAlign: "center" }}>
-          Pesho
-        </option>
-        <option value="Tomi" style={{ textAlign: "center" }}>
-          Tomi
-        </option>
+        {therapiests.map((row) => (
+          <option value={row.name} style={{ textAlign: "center" }}>{row.title}</option>
+        ))}
       </select>
-      {/* <button style={{borderRadius: '5px'}} type="button" onClick={onClick}>Submit</button> */}
     </>
   );
 };
