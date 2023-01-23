@@ -4,4 +4,5 @@ export const therapiests = [
     {'name': 'Tosho', 'title': 'Tosho'},
     {'name': 'Pesho', 'title': 'Pesho'}, 
     {'name': 'Tomi', 'title': 'Tomi'},
+    {'name': 'TherapiestFive', 'title': 'Svetla'}
 ];
