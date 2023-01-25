@@ -1,9 +1,9 @@
 import React, { useContext } from "react";
 import { FeedbackContext } from "../context/FeedbackContext";
-import { therapiests } from "./employees/employees";
+// import { therapiests } from "./employees/employees";
 
 const SelectPeople = () => {
-  const { feedbackByName } = useContext(FeedbackContext);
+  const { feedbackByName, employees } = useContext(FeedbackContext);
 
   const onOptionChangeHandler = (e) => {
     let currentName = e.target.value;
@@ -21,7 +21,7 @@ const SelectPeople = () => {
           padding: "3px",
         }}
       >
-        {therapiests.map((row) => (
+        {employees.map((row) => (
           <option value={row.name} style={{ textAlign: "center" }}>{row.title}</option>
         ))}
       </select>
