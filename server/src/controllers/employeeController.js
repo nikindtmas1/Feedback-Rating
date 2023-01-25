@@ -8,4 +8,9 @@ router.get('/', async (req, res) => {
     res.json(employees);
 });
 
+router.delete('/:id', async (req, res) => {
+    await service.removeEmployee(req.params.id);
+    res.json({ ok: true });
+});
+
 module.exports = router;
