@@ -1,12 +1,15 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { Link } from "react-router-dom";
+
 import Button from "../shared/Button";
 import Card from "../shared/Card";
+import { FeedbackContext } from "../../context/FeedbackContext";
 
 import * as employeeService from "../services/employeeData";
 
 const EmployeesPage = () => {
-  const [employee, setEmployee] = useState([]);
+  const { employees } = useContext(FeedbackContext);
+  const [employee, setEmployee] = useState([{ name: "start" }]);
 
   useEffect(() => {
     employeeService.getAll().then((result) => setEmployee(result));
@@ -25,32 +28,29 @@ const EmployeesPage = () => {
               Change Therapiests
             </h3>
             <form>
-              <label for="fname">{" "}Number{" "}:{" "}</label>
-          
-              <input type="text" id="fname" name="fname" value={employee[0].title}/>
-            
-              
+              {/* <label for="fname">{" "}Number{" "}:{" "}</label> */}
               <div className="input-group">
-              <label for="lname">First name:</label>
+                <input
+                  style={{ width: "20px", backgroundColor: "aqua" }}
+                  type="text"
+                  id="fname"
+                  name="fname"
+                  value={1}
+                  readOnly
+                />
+                {/* <label for="lname">First name:</label> */}
 
-              <input type="text" id="lname" name="lname" />
+                <input
+                  type="text"
+                  id="lname"
+                  name="lname"
+                  value={employee[0].name}
+                ></input>
               </div>
             </form>
-            {/* <form>
-              
-            <div className="input-group">
-            <input type='text'>Name</input>
-            </div>
-            <div className="input-group">
-            <input type='text'>Title</input>
-
-            </div>
-          </form> */}
-            <Button version="secondary">
-              <Link to="/" style={{ textDecoration: "none" }}>
-                Back
-              </Link>
-            </Button>
+            <Link to="/" style={{ textDecoration: "none" }}>
+              <Button version="secondary">Back</Button>
+            </Link>
           </div>
         </div>
       </Card>
