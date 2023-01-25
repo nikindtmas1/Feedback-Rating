@@ -8,6 +8,11 @@ router.get('/', async (req, res) => {
     res.json(employees);
 });
 
+router.post('/', async (req, res) => {
+    await service.createEmployee({...req.body});
+    res.json({ ok: true });
+});
+
 router.delete('/:id', async (req, res) => {
     await service.removeEmployee(req.params.id);
     res.json({ ok: true });
