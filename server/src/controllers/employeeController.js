@@ -13,6 +13,11 @@ router.post('/', async (req, res) => {
     res.json({ ok: true });
 });
 
+router.put('/:id', async (req, res) => {
+    await service.updateEmployee(req.params.id, req.body);
+    res.json({ ok: true });
+});
+
 router.delete('/:id', async (req, res) => {
     await service.removeEmployee(req.params.id);
     res.json({ ok: true });
