@@ -21,6 +21,7 @@ const SelectPeople = () => {
           padding: "3px",
         }}
       >
+          <option style={{ textAlign: "center" }} value='start'>Select Therapist</option>
         {employees.map((row) => (
           <option value={row.name} style={{ textAlign: "center" }}>{row.title}</option>
         ))}
