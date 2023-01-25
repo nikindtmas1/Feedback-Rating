@@ -2,8 +2,14 @@ import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import Button from "../shared/Button";
 
+import * as employeeService from '../services/employeeData';
+
 const EmployeesPage = () => {
-  useEffect(() => {}, []);
+  useEffect(() => {
+    employeeService.getAll()
+    .then((result) =>  console.log(result))
+   
+  }, []);
 
   return (
     <div>
