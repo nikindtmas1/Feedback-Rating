@@ -5,12 +5,14 @@ import * as addFeedbackService from "../Components/fetchFeedback/addFeedbacByNam
 import * as removeFeedbackService from "../Components/fetchFeedback/removeFeedbackByName";
 import * as userServices from "../Components/services/authService";
 import * as editFeedbackService from '../Components/fetchFeedback/editFeedbackById';
+import * as employeesServices from '../Components/services/employeeData';
 
 export const FeedbackContext = createContext();
 
 export const FeedbackProvider = ({ children }) => {
   const [isLoadding, setIsLoading] = useState(true);
   const [feedback, setFeedback] = useState([]);
+  const [employees, setEmployees] = useState([]);
   const [feedbackEdit, setFeedbackEdit] = useState({item: {} ,edit:false});
   const [peopleName, setPeopleName] = useState("");
   const [userInfo, setUserInfo] = useState(userServices.userInfoDate);
@@ -27,6 +29,8 @@ export const FeedbackProvider = ({ children }) => {
   useEffect(() => {
     window.localStorage.setItem('name', peopleName)
     window.localStorage.setItem('isAuth', isAuth)
+    employeesServices.getAll()
+    .then((result) => setEmployees(result))
   },[isAuth, peopleName])
 
   const feedbackByName = (name) => {
@@ -96,7 +100,8 @@ export const FeedbackProvider = ({ children }) => {
         isAuth,
         editFeedback,
         updateFeedback,
-        feedbackEdit
+        feedbackEdit,
+        employees
       }}
     >
       {children}
