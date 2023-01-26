@@ -10,6 +10,6 @@ export function editFeedbackById(id, peopleName, data){
   : peopleName === 'Tosho' ? toshoServices.editToshoFeedback(id, data).then(() => toshoServices.getAll())
   : peopleName === 'Pesho' ? peshoServices.editPeshoFeedback(id, data).then(() => peshoServices.getAll())
   : peopleName === 'Tomi' ? tomiServices.editTomiFeedback(id, data).then(() => tomiServices.getAll())
-  : peopleName === 'Svetla' ? therFiveService.editTherFiveFeedback(id, data).then(() => therFiveService.getAll())
+  : peopleName === 'Five' ? therFiveService.editTherFiveFeedback(id, data).then(() => therFiveService.getAll())
   : null
 }
