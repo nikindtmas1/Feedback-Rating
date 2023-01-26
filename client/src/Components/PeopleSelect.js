@@ -7,8 +7,12 @@ const SelectPeople = () => {
 
   const onOptionChangeHandler = (e) => {
     let currentName = e.target.value;
-    feedbackByName(currentName);
+    // let text = e.target.options[e.target.selectedIndex].text
+    // console.log(text);
+    // addedName(text);
+    feedbackByName(currentName)
   };
+
 
   return (
     <>
