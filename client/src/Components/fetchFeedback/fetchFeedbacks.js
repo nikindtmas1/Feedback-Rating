@@ -10,6 +10,6 @@ export function fetchByName(name){
   : name === 'Tosho' ? toshoService.getAll()
   : name === 'Pesho' ? peshoService.getAll()
   : name === 'Tomi' ? tomiService.getAll()
-  : name === 'Svetla' ? therFiveService.getAll()
+  : name === 'Five' ? therFiveService.getAll()
   :  service.getAll()
 }
