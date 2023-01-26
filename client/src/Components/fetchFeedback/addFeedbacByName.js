@@ -11,6 +11,6 @@ export function addFeedbackByName(data){
   : name === 'Tosho' ? toshoService.createToshoFeedback(data).then(() => toshoService.getAll())
   : name === 'Pesho' ? peshoService.createPeshoFeedback(data).then(() => peshoService.getAll())
   : name === 'Tomi' ? tomiService.createTomiFeedback(data).then(() => tomiService.getAll())
-  : name === 'Svetla' ? therFiveService.createTherFiveFeedback(data).then(() => therFiveService.getAll())
+  : name === 'Five' ? therFiveService.createTherFiveFeedback(data).then(() => therFiveService.getAll())
   : null
 }
