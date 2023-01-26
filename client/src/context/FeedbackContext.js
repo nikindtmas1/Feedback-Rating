@@ -36,9 +36,13 @@ export const FeedbackProvider = ({ children }) => {
   const feedbackByName = (name) => {
     fetchService
       .fetchByName(name)
-      .then((result) => setFeedback(result), setPeopleName(name), setIsLoading(false))
+      .then((result) => setFeedback(result),setPeopleName(name), setIsLoading(false))
       .then((err) => alert(err.message));
   };
+
+  // const addedName = (name) => {
+  //   setPeopleName(name);
+  // }
 
   const addFeedback = (data) => {
     addFeedbackService
@@ -101,7 +105,8 @@ export const FeedbackProvider = ({ children }) => {
         editFeedback,
         updateFeedback,
         feedbackEdit,
-        employees
+        employees,
+        // addedName,
       }}
     >
       {children}
