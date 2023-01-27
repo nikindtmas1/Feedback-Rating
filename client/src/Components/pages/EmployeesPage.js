@@ -33,7 +33,7 @@ const EmployeesPage = () => {
                 <input
                    style={{ width: "20px", backgroundColor: "aqua" }}
                    type="text"
-                   id="inum"
+                   id={element._id}
                    name="inum"
                    value={index + 1}
                    readOnly
