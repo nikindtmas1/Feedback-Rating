@@ -4,12 +4,12 @@ import * as peshoService from '../services/peshoData';
 import * as tomiService from '../services/tomiData';
 import * as therFiveService from '../services/therapiestFiveData';
 
-export function deleteFeedbackByName(id, peopleName, feedback){
-   return peopleName === 'Gosho' ?
+export function deleteFeedbackByName(id, therName, feedback){
+   return therName === 'Gosho' ?
    goshoService.deleteGoshoFeedback(id).then(() => feedback.filter((item) => item._id !== id))
-   : peopleName === 'Tosho' ? toshoService.deleteToshoFeedback(id).then(() => feedback.filter((item) => item._id !== id))
-   : peopleName === 'Pesho' ? peshoService.deletePeshoFeedback(id).then(() => feedback.filter((item) => item._id !== id))
-   : peopleName === 'Tomi' ? tomiService.deleteTomiFeedback(id).then(() => feedback.filter((item) => item._id !== id))
-   : peopleName === 'Five' ? therFiveService.deleteTherFeveFeedback(id).then(() => feedback.filter((item) => item._id !== id))
+   : therName === 'Tosho' ? toshoService.deleteToshoFeedback(id).then(() => feedback.filter((item) => item._id !== id))
+   : therName === 'Pesho' ? peshoService.deletePeshoFeedback(id).then(() => feedback.filter((item) => item._id !== id))
+   : therName === 'Tomi' ? tomiService.deleteTomiFeedback(id).then(() => feedback.filter((item) => item._id !== id))
+   : therName === 'Five' ? therFiveService.deleteTherFeveFeedback(id).then(() => feedback.filter((item) => item._id !== id))
    : null
 }
