@@ -8,7 +8,7 @@ import SelectPeople from "./PeopleSelect";
 
 
 const FeedbackForm = () => {
-  const { addFeedback, peopleName, feedbackEdit, updateFeedback, isAuth } = useContext(FeedbackContext);
+  const { addFeedback, therName, peopleName, feedbackEdit, updateFeedback, isAuth } = useContext(FeedbackContext);
 
   const [text, setText] = useState("");
   const [userName, setUserName] = useState("");
@@ -69,7 +69,7 @@ const FeedbackForm = () => {
       userName,
     };
 
-    if(peopleName === 'start'){ 
+    if(therName === 'start'){ 
       setText('');
       setUserName('');
       setRating(10);
