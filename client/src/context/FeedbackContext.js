@@ -24,6 +24,7 @@ export const FeedbackProvider = ({ children }) => {
     feedbackByName(window.localStorage.getItem('name'))
     window.localStorage.getItem('isAuth') === 'true' ?
     setIsAuth(true) : setIsAuth(false)
+    // employees.map((item) => console.log(item._id))
   }, []);
 
   useEffect(() => {
@@ -36,13 +37,13 @@ export const FeedbackProvider = ({ children }) => {
   const feedbackByName = (name) => {
     fetchService
       .fetchByName(name)
-      .then((result) => setFeedback(result),setPeopleName(name), setIsLoading(false))
+      .then((result) => setFeedback(result), setIsLoading(false))
       .then((err) => alert(err.message));
   };
 
-  // const addedName = (name) => {
-  //   setPeopleName(name);
-  // }
+  const addedName = (name) => {
+    setPeopleName(name);
+  }
 
   const addFeedback = (data) => {
     addFeedbackService
@@ -106,7 +107,7 @@ export const FeedbackProvider = ({ children }) => {
         updateFeedback,
         feedbackEdit,
         employees,
-        // addedName,
+        addedName,
       }}
     >
       {children}
