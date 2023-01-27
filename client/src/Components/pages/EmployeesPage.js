@@ -32,9 +32,7 @@ const EmployeesPage = () => {
       {"name": "Four","title": fourdeTherName}, 
       {"name": "Five","title": fiftTherName}
     ]
-    employeeService.createEmplyees(data)
-    .then(() => employeeService.getAll())
-    .then((result) => setEmployee(result))
+   console.log(data);
   };
 
   return (
