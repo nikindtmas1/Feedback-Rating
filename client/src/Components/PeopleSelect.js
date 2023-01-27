@@ -3,13 +3,12 @@ import { FeedbackContext } from "../context/FeedbackContext";
 // import { therapiests } from "./employees/employees";
 
 const SelectPeople = () => {
-  const { feedbackByName, employees } = useContext(FeedbackContext);
+  const { feedbackByName, employees, addedName } = useContext(FeedbackContext);
 
   const onOptionChangeHandler = (e) => {
     let currentName = e.target.value;
-    // let text = e.target.options[e.target.selectedIndex].text
-    // console.log(text);
-    // addedName(text);
+    let text = e.target.options[e.target.selectedIndex].text
+    addedName(text);
     feedbackByName(currentName)
   };
 
