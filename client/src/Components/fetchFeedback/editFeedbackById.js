@@ -9,7 +9,7 @@ export function editFeedbackById(id, therName, data){
   goshoServices.editGoshoFeedback(id, data).then(() => goshoServices.getAll())
   : therName === 'Tosho' ? toshoServices.editToshoFeedback(id, data).then(() => toshoServices.getAll())
   : therName === 'Pesho' ? peshoServices.editPeshoFeedback(id, data).then(() => peshoServices.getAll())
-  : therName === 'Tomi' ? tomiServices.editTomiFeedback(id, data).then(() => tomiServices.getAll())
+  : therName === 'Four' ? tomiServices.editTomiFeedback(id, data).then(() => tomiServices.getAll())
   : therName === 'Five' ? therFiveService.editTherFiveFeedback(id, data).then(() => therFiveService.getAll())
   : null
 }
