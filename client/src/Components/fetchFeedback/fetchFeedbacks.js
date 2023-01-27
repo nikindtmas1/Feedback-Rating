@@ -6,7 +6,7 @@ import * as tomiService from '../services/tomiData';
 import * as therFiveService from '../services/therapiestFiveData';
 
 export function fetchByName(name){
-  return name === 'Gosho' ? goshoService.getAll()
+  return name === 'One' ? goshoService.getAll()
   : name === 'Two' ? toshoService.getAll()
   : name === 'Three' ? peshoService.getAll()
   : name === 'Four' ? tomiService.getAll()
