@@ -9,7 +9,7 @@ export function addFeedbackByName(data, therName){
   const name = therName;
   return name === 'Gosho' ? 
   goshoService.createGoshoFeedback(data).then(() => goshoService.getAll())
-  : name === 'Tosho' ? toshoService.createToshoFeedback(data).then(() => toshoService.getAll())
+  : name === 'Two' ? toshoService.createToshoFeedback(data).then(() => toshoService.getAll())
   : name === 'Three' ? peshoService.createPeshoFeedback(data).then(() => peshoService.getAll())
   : name === 'Four' ? tomiService.createTomiFeedback(data).then(() => tomiService.getAll())
   : name === 'Five' ? therFiveService.createTherFiveFeedback(data).then(() => therFiveService.getAll())
