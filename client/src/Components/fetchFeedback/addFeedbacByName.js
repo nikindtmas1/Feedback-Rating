@@ -7,7 +7,7 @@ import * as therFiveService from '../services/therapiestFiveData';
 export function addFeedbackByName(data, therName){
 
   const name = therName;
-  return name === 'Gosho' ? 
+  return name === 'One' ? 
   goshoService.createGoshoFeedback(data).then(() => goshoService.getAll())
   : name === 'Two' ? toshoService.createToshoFeedback(data).then(() => toshoService.getAll())
   : name === 'Three' ? peshoService.createPeshoFeedback(data).then(() => peshoService.getAll())
