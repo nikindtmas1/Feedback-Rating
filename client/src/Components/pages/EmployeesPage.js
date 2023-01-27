@@ -15,6 +15,19 @@ const EmployeesPage = () => {
     employeeService.getAll().then((result) => setEmployee(result));
   }, []);
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    const formData = new FormData(e.currentTarget);
+    const fTherName = formData.get('One');
+    const secTherName = formData.get('Two');
+    const threrdTherName = formData.get('Three');
+    const fourdeTherName = formData.get('Four');
+    const fiftTherName = formData.get('Five');
+
+    console.log(fTherName, secTherName, threrdTherName, fourdeTherName, fiftTherName);
+  };
+
   return (
     <div className="app-body text-login">
       <Card>
@@ -27,7 +40,7 @@ const EmployeesPage = () => {
             >
               Change Therapiests
             </h3>
-            <form>
+            <form onSubmit={handleSubmit}>
               {Array.from(employee, (element, index) => (
                 <div className="input-group">
                 <input
@@ -41,11 +54,12 @@ const EmployeesPage = () => {
                  <input 
                   type="text"
                   id="fname"
-                  name="fname"
+                  name={element.name}
                   value={element.title}
                  />
               </div>
               ))}
+              <Button type='submit'>Submit</Button>
             </form>
             <Link to="/" style={{ textDecoration: "none" }}>
               <Button version="secondary">Back</Button>
