@@ -10,8 +10,8 @@ export function addFeedbackByName(data, therName){
   return name === 'Gosho' ? 
   goshoService.createGoshoFeedback(data).then(() => goshoService.getAll())
   : name === 'Tosho' ? toshoService.createToshoFeedback(data).then(() => toshoService.getAll())
-  : name === 'Pesho' ? peshoService.createPeshoFeedback(data).then(() => peshoService.getAll())
-  : name === 'Tomi' ? tomiService.createTomiFeedback(data).then(() => tomiService.getAll())
+  : name === 'Three' ? peshoService.createPeshoFeedback(data).then(() => peshoService.getAll())
+  : name === 'Four' ? tomiService.createTomiFeedback(data).then(() => tomiService.getAll())
   : name === 'Five' ? therFiveService.createTherFiveFeedback(data).then(() => therFiveService.getAll())
   : null
 }
