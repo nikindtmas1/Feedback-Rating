@@ -8,7 +8,7 @@ import * as therFiveService from '../services/therapiestFiveData';
 export function fetchByName(name){
   return name === 'Gosho' ? goshoService.getAll()
   : name === 'Tosho' ? toshoService.getAll()
-  : name === 'Pesho' ? peshoService.getAll()
+  : name === 'Three' ? peshoService.getAll()
   : name === 'Four' ? tomiService.getAll()
   : name === 'Five' ? therFiveService.getAll()
   :  service.getAll()
