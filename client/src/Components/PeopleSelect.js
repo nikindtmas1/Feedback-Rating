@@ -9,7 +9,7 @@ const SelectPeople = () => {
     let currentName = e.target.value;
     let text = e.target.options[e.target.selectedIndex].text
     addedName(text);
-    feedbackByName(currentName)
+    feedbackByName(currentName);
   };
 
 
