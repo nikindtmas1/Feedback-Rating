@@ -5,7 +5,7 @@ import * as tomiService from '../services/tomiData';
 import * as therFiveService from '../services/therapiestFiveData';
 
 export function deleteFeedbackByName(id, therName, feedback){
-   return therName === 'Gosho' ?
+   return therName === 'One' ?
    goshoService.deleteGoshoFeedback(id).then(() => feedback.filter((item) => item._id !== id))
    : therName === 'Two' ? toshoService.deleteToshoFeedback(id).then(() => feedback.filter((item) => item._id !== id))
    : therName === 'Three' ? peshoService.deletePeshoFeedback(id).then(() => feedback.filter((item) => item._id !== id))
