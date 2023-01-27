@@ -25,15 +25,14 @@ export const FeedbackProvider = ({ children }) => {
     feedbackByName(window.localStorage.getItem('name'))
     window.localStorage.getItem('isAuth') === 'true' ?
     setIsAuth(true) : setIsAuth(false)
-    // employees.map((item) => console.log(item._id))
   }, []);
 
   useEffect(() => {
-    window.localStorage.setItem('name', peopleName)
+    window.localStorage.setItem('name', therName)
     window.localStorage.setItem('isAuth', isAuth)
     employeesServices.getAll()
     .then((result) => setEmployees(result))
-  },[isAuth, peopleName])
+  },[isAuth, therName])
 
   const feedbackByName = (name) => {
     fetchService
