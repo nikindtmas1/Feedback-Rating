@@ -25,7 +25,16 @@ const EmployeesPage = () => {
     const fourdeTherName = formData.get('Four');
     const fiftTherName = formData.get('Five');
 
-    console.log(fTherName, secTherName, threrdTherName, fourdeTherName, fiftTherName);
+    const data = [
+      {"name": "One","title": fTherName}, 
+      {"name": "Two","title": secTherName}, 
+      {"name": "Three","title": threrdTherName}, 
+      {"name": "Four","title": fourdeTherName}, 
+      {"name": "Five","title": fiftTherName}
+    ]
+    employeeService.createEmplyees(data)
+    .then(() => employeeService.getAll())
+    .then((result) => setEmployee(result))
   };
 
   return (
@@ -40,7 +49,7 @@ const EmployeesPage = () => {
             >
               Change Therapiests
             </h3>
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit} action='/' method="put">
               {Array.from(employee, (element, index) => (
                 <div className="input-group">
                 <input
@@ -55,7 +64,9 @@ const EmployeesPage = () => {
                   type="text"
                   id="fname"
                   name={element.name}
-                  value={element.title}
+                  // value={element.title}
+                  placeholder={element.title}
+                  required='true'
                  />
               </div>
               ))}
