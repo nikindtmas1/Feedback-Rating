@@ -5,7 +5,7 @@ import * as tomiServices from '../services/tomiData';
 import * as therFiveService from '../services/therapiestFiveData';
 
 export function editFeedbackById(id, therName, data){
-  return therName === 'Gosho' ?
+  return therName === 'One' ?
   goshoServices.editGoshoFeedback(id, data).then(() => goshoServices.getAll())
   : therName === 'Two' ? toshoServices.editToshoFeedback(id, data).then(() => toshoServices.getAll())
   : therName === 'Three' ? peshoServices.editPeshoFeedback(id, data).then(() => peshoServices.getAll())
