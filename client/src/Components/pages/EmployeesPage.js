@@ -1,14 +1,14 @@
-import React, { useEffect, useState, useContext } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 import Button from "../shared/Button";
 import Card from "../shared/Card";
-import { FeedbackContext } from "../../context/FeedbackContext";
+// import { FeedbackContext } from "../../context/FeedbackContext";
 
 import * as employeeService from "../services/employeeData";
 
 const EmployeesPage = () => {
-  const { employees } = useContext(FeedbackContext);
+  // const { employees } = useContext(FeedbackContext);
   const [employee, setEmployee] = useState([{ name: "start" }]);
 
   useEffect(() => {
