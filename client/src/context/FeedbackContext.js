@@ -15,6 +15,7 @@ export const FeedbackProvider = ({ children }) => {
   const [employees, setEmployees] = useState([]);
   const [feedbackEdit, setFeedbackEdit] = useState({item: {} ,edit:false});
   const [peopleName, setPeopleName] = useState("");
+  const [therName, setTherName] = useState("");
   const [userInfo, setUserInfo] = useState(userServices.userInfoDate);
   const [isAuth, setIsAuth] = useState(false);
 
@@ -37,7 +38,7 @@ export const FeedbackProvider = ({ children }) => {
   const feedbackByName = (name) => {
     fetchService
       .fetchByName(name)
-      .then((result) => setFeedback(result), setIsLoading(false))
+      .then((result) => setFeedback(result), setTherName(name), setIsLoading(false))
       .then((err) => alert(err.message));
   };
 
@@ -47,7 +48,7 @@ export const FeedbackProvider = ({ children }) => {
 
   const addFeedback = (data) => {
     addFeedbackService
-      .addFeedbackByName(data)
+      .addFeedbackByName(data, therName)
       .then((result) => setFeedback(result))
       .then((err) => alert(err.message));
   };
@@ -55,7 +56,7 @@ export const FeedbackProvider = ({ children }) => {
   const removeFeedback = (id) => {
     if (window.confirm("Are you sure you want to delete feedback?")) {
       removeFeedbackService
-        .deleteFeedbackByName(id, peopleName, feedback)
+        .deleteFeedbackByName(id, therName, feedback)
         .then((result) => setFeedback(result))
         .then((err) => alert(err.message));
     }
@@ -71,7 +72,7 @@ export const FeedbackProvider = ({ children }) => {
   const updateFeedback = (id, data) => {
     if(window.confirm("Are you sure you want to edit feedback?")){
       editFeedbackService
-      .editFeedbackById(id, peopleName, data)
+      .editFeedbackById(id, therName, data)
       .then((result) => setFeedback(result))
       .then(() => setFeedbackEdit({item: {}, edit: false}))
       .then((err) => alert(err.message))
@@ -99,6 +100,7 @@ export const FeedbackProvider = ({ children }) => {
         removeFeedback,
         feedbackByName,
         peopleName,
+        therName,
         user: userInfo,
         onLogin,
         onLogout,
