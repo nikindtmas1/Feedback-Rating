@@ -19,6 +19,7 @@ const Navbar = () => {
       }}
     >
       {isAuth ? (
+        <>
         <Link
           to="/logout"
           style={{
@@ -35,6 +36,21 @@ const Navbar = () => {
         >
           Logout
         </Link>
+        <Link to='/employees' style={{
+            // display: "inline",
+            // display: 'inline-block',
+            textDecoration: "none",
+            backgroundColor: "#ff6a95",
+            borderRadius: "10px",
+            paddingLeft: '7px',
+            paddingRight: '7px',
+            fontSize: '20px',
+            marginLeft: '10px'
+            // padding: "3px",
+          }}>
+          Employees
+        </Link>
+        </>
       ) : null}
     </div>
   );
