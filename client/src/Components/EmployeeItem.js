@@ -4,7 +4,7 @@ import { FaTimes, FaEdit } from 'react-icons/fa';
 import Card from './shared/Card';
 
 const EmployeeItem = ({item}) => {
-    const { isAuth } = useContext(FeedbackContext);
+    const { isAuth, editEmployee } = useContext(FeedbackContext);
 
   return (
     <Card>
@@ -13,7 +13,7 @@ const EmployeeItem = ({item}) => {
                 <button type='button' className='close'>
                     <FaTimes color='red'/>
                 </button>
-                <button type='button' className='edit'>
+                <button type='button' className='edit' onClick={() => editEmployee(item)}>
                     <FaEdit color='purple'/>
                 </button>
             </div>
