@@ -14,6 +14,7 @@ export const FeedbackProvider = ({ children }) => {
   const [feedback, setFeedback] = useState([]);
   const [employees, setEmployees] = useState([]);
   const [feedbackEdit, setFeedbackEdit] = useState({item: {} ,edit:false});
+  const [employeeEdit, setEmployeeEdit] = useState({item: {} ,edit:false});
   const [peopleName, setPeopleName] = useState("");
   const [therName, setTherName] = useState("");
   const [userInfo, setUserInfo] = useState(userServices.userInfoDate);
@@ -78,6 +79,15 @@ export const FeedbackProvider = ({ children }) => {
     }
   }
 
+  const editEmployee = (item) => {
+      setEmployeeEdit(
+        {
+          item: item,
+          edit: true
+        }
+      )
+  };
+
   const onLogin = (logDate) => {
     let result = userServices.logInIvent(logDate);
     setUserInfo(result);
@@ -107,6 +117,8 @@ export const FeedbackProvider = ({ children }) => {
         editFeedback,
         updateFeedback,
         feedbackEdit,
+        editEmployee,
+        employeeEdit,
         employees,
         addedName,
       }}
