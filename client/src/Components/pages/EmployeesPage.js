@@ -28,8 +28,16 @@ const EmployeesPage = () => {
 
     const formData = new FormData(e.currentTarget);
     const newName = formData.get('userName');
-    console.log(newName);
-   
+    const data = {
+      name: employeeEdit.item.name,
+      title: newName
+    };
+    
+    if(employeeEdit.edit === true){
+      employeeService.editEmployee(employeeEdit.item._id, data);
+      setBtnDisabled(true);
+      setUserName('');
+    }
 
     
   };
