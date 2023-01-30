@@ -1,14 +1,17 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { Link } from "react-router-dom";
+import { AnimatePresence, motion } from "framer-motion";
+import EmployeeItem from "../EmployeeItem";
 
 import Button from "../shared/Button";
 import Card from "../shared/Card";
-// import { FeedbackContext } from "../../context/FeedbackContext";
+import { FeedbackContext } from "../../context/FeedbackContext";
 
 import * as employeeService from "../services/employeeData";
 
 const EmployeesPage = () => {
-  // const { employees } = useContext(FeedbackContext);
+  const { employees } = useContext(FeedbackContext);
+  console.log(employees);
   const [employee, setEmployee] = useState([{ name: "start" }]);
 
   useEffect(() => {
@@ -37,7 +40,8 @@ const EmployeesPage = () => {
 
   return (
     <div className="app-body text-login">
-      <Card>
+      
+      {/* <Card>
         <div className="text-container">
           <div className="text-content">
             <h3
@@ -75,7 +79,14 @@ const EmployeesPage = () => {
             </Link>
           </div>
         </div>
-      </Card>
+      </Card> */}
+      <AnimatePresence>
+      {employees.map((item) => (
+        <motion.div key={item.id} initial={{ opacity : 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
+          <EmployeeItem key={item.id} item={item}/>
+        </motion.div>
+      ))};
+      </AnimatePresence>
     </div>
   );
 };
