@@ -9,9 +9,9 @@ const EmployeeItem = ({item}) => {
   return (
     <Card>
 
-        <input type="checkbox" />
         {isAuth ? (
             <div style={{width: '280px'}}>
+                <input style={{padding: '2px'}} type="checkbox" />
                 <button type='button' className='close'>
                     <FaTimes color='red'/>
                 </button>
