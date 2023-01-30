@@ -10,76 +10,74 @@ import { FeedbackContext } from "../../context/FeedbackContext";
 import * as employeeService from "../services/employeeData";
 
 const EmployeesPage = () => {
-  const { employees } = useContext(FeedbackContext);
-  console.log(employees);
-  const [employee, setEmployee] = useState([{ name: "start" }]);
+  const { employees, employeeEdit } = useContext(FeedbackContext);
+
+  const [userName, setUserName] = useState('');
+  const [message, setMessage] = useState("");
+  const [btnDisabled, setBtnDisabled] = useState(true);
 
   useEffect(() => {
-    employeeService.getAll().then((result) => setEmployee(result));
-  }, []);
+    if(employeeEdit.edit === true){
+      setBtnDisabled(false);
+      setUserName(employeeEdit.item.title);
+    }
+  }, [employeeEdit]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
     const formData = new FormData(e.currentTarget);
-    const fTherName = formData.get('One');
-    const secTherName = formData.get('Two');
-    const threrdTherName = formData.get('Three');
-    const fourdeTherName = formData.get('Four');
-    const fiftTherName = formData.get('Five');
+    const newName = formData.get('userName');
+    console.log(newName);
+   
 
-    const data = [
-      {"name": "One","title": fTherName}, 
-      {"name": "Two","title": secTherName}, 
-      {"name": "Three","title": threrdTherName}, 
-      {"name": "Four","title": fourdeTherName}, 
-      {"name": "Five","title": fiftTherName}
-    ]
-   console.log(data);
+    
   };
 
+  const handleUserChange = (e) => {
+    setUserName(e.target.value);
+  };
+  
   return (
     <div className="app-body text-login">
-      
-      {/* <Card>
-        <div className="text-container">
-          <div className="text-content">
-            <h3
+      <Card>
+      <div className="text-container">
+        <div className="text-content">
+           <h3
               style={{
                 color: "rgb(45, 179, 206)",
               }}
             >
               Change Therapiests
             </h3>
-            <form onSubmit={handleSubmit} action='/' method="put">
-              {Array.from(employee, (element, index) => (
-                <div className="input-group">
-                <input
-                   style={{ width: "20px", backgroundColor: "aqua" }}
-                   type="text"
-                   id={element._id}
-                   name="inum"
-                   value={index + 1}
-                   readOnly
-                 />
-                 <input 
-                  type="text"
-                  id="fname"
-                  name={element.name}
-                  // value={element.title}
-                  placeholder={element.title}
-                  required='true'
-                 />
-              </div>
-              ))}
-              <Button type='submit'>Submit</Button>
-            </form>
-            <Link to="/" style={{ textDecoration: "none" }}>
-              <Button version="secondary">Back</Button>
-            </Link>
-          </div>
+          <form onSubmit={handleSubmit}>
+            <div className="input-group">
+              <input
+                type="text"
+                name="userName"
+                // placeholder="Write name pleas!"
+                value={userName}
+                onChange={handleUserChange}
+              />
+            </div>
+            <div className="input-group">
+              <Button type="submit" isDisabled={btnDisabled}>
+                Send
+              </Button>
+              <Button type="submit" isDisabled={false} version="tertiary">
+                <Link to='/'>
+                  Back
+                </Link>
+              </Button>
+            </div>
+
+            {message && <div className="message">{message}</div>}
+          </form>
         </div>
-      </Card> */}
+      </div>
+    </Card>
+    
+
       <AnimatePresence>
       {employees.map((item) => (
         <motion.div key={item.id} initial={{ opacity : 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
