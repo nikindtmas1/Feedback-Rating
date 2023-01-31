@@ -10,7 +10,7 @@ import { FeedbackContext } from "../../context/FeedbackContext";
 import * as employeeService from "../services/employeeData";
 
 const EmployeesPage = () => {
-  const { employees, employeeEdit } = useContext(FeedbackContext);
+  const { isAuth, employees, employeeEdit } = useContext(FeedbackContext);
 
   const [userName, setUserName] = useState("");
   const [isChecked, setIsChecked] = useState(false);
@@ -54,6 +54,8 @@ const EmployeesPage = () => {
   };
 
   return (
+    isAuth ? 
+    
     <div className="app-body text-login">
       <Card>
         <div className="text-container">
@@ -112,7 +114,8 @@ const EmployeesPage = () => {
         ))}
         ;
       </AnimatePresence>
-    </div>
+    </div>  : <div>You are not loged in!</div>
+    
   );
 };
 
