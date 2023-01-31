@@ -16,6 +16,7 @@ const EmployeesPage = () => {
   const [isChecked, setIsChecked] = useState(false);
   const [message, setMessage] = useState("");
   const [btnDisabled, setBtnDisabled] = useState(true);
+  const [newEmployees, setNewEmployees] = useState(employees)
 
   useEffect(() => {
     if (employeeEdit.edit === true) {
@@ -43,10 +44,13 @@ const EmployeesPage = () => {
     };
 
     if (employeeEdit.edit === true) {
-      employeeService.editEmployee(employeeEdit.item._id, data);
+      employeeService.editEmployee(employeeEdit.item._id, data)
+      .then(() => employeeService.getAll())
+      .then((result) => setNewEmployees(result))
       setBtnDisabled(true);
       setUserName("");
       setIsChecked(false);
+      setMessage("");
     }
   };
 
@@ -107,7 +111,7 @@ const EmployeesPage = () => {
       </Card>
 
       <AnimatePresence>
-        {employees.map((item) => (
+        {newEmployees.map((item) => (
           <motion.div
             key={item.id}
             initial={{ opacity: 0 }}
