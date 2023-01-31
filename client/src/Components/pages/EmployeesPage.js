@@ -103,7 +103,7 @@ const EmployeesPage = () => {
                 </Button>
                 <Link to="/">
                   <Button type="submit" isDisabled={false} version="tertiary">
-                    Back
+                    Home Page
                   </Button>
                 </Link>
               </div>
