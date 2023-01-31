@@ -37,6 +37,11 @@ const EmployeesPage = () => {
       check: isChecked,
     };
 
+    if(!newName.match(/^[A-Z]/)){
+        setMessage("Name must start with uppercase letter")
+        return alert("Uppercase letter please!")
+    };
+
     if (employeeEdit.edit === true) {
       employeeService.editEmployee(employeeEdit.item._id, data);
       setBtnDisabled(true);
@@ -114,7 +119,7 @@ const EmployeesPage = () => {
         ))}
         ;
       </AnimatePresence>
-    </div>  : <div>You are not loged in!</div>
+    </div>  : <div><h3>You are not loged in!</h3></div>
     
   );
 };
