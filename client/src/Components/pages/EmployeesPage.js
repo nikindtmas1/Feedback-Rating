@@ -13,6 +13,7 @@ const EmployeesPage = () => {
   const { employees, employeeEdit } = useContext(FeedbackContext);
 
   const [userName, setUserName] = useState('');
+  const [isChecked, setIsChecked] = useState(false);
   const [message, setMessage] = useState("");
   const [btnDisabled, setBtnDisabled] = useState(true);
 
@@ -20,6 +21,7 @@ const EmployeesPage = () => {
     if(employeeEdit.edit === true){
       setBtnDisabled(false);
       setUserName(employeeEdit.item.title);
+      setIsChecked(employeeEdit.item.check);
     }
   }, [employeeEdit]);
 
@@ -28,15 +30,18 @@ const EmployeesPage = () => {
 
     const formData = new FormData(e.currentTarget);
     const newName = formData.get('userName');
+
     const data = {
       name: employeeEdit.item.name,
-      title: newName
+      title: newName,
+      check: isChecked
     };
     
     if(employeeEdit.edit === true){
       employeeService.editEmployee(employeeEdit.item._id, data);
       setBtnDisabled(true);
       setUserName('');
+      setIsChecked(false);
     }
 
     
@@ -44,6 +49,10 @@ const EmployeesPage = () => {
 
   const handleUserChange = (e) => {
     setUserName(e.target.value);
+  };
+
+  const onCheckClick = (e) => {
+    isChecked === true ? setIsChecked(false) : setIsChecked(true)
   };
   
   return (
@@ -60,6 +69,7 @@ const EmployeesPage = () => {
             </h3>
           <form onSubmit={handleSubmit}>
             <div className="input-group">
+              <input type="checkbox" name="check" value={isChecked} checked={isChecked} onClick={onCheckClick} />
               <input
                 type="text"
                 name="userName"
