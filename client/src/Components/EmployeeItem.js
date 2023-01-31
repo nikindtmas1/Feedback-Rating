@@ -13,9 +13,9 @@ const EmployeeItem = ({item}) => {
         {isAuth ? (
             <div style={{width: '280px'}}>
                 <input style={{padding: '2px'}} type="checkbox" checked={item.check}  />
-                <button type='button' className='close'>
+                {/* <button type='button' className='close'>
                     <FaTimes color='red'/>
-                </button>
+                </button> */}
                 <button type='button' className='edit' onClick={() => editEmployee(item)}>
                     <FaEdit color='purple'/>
                 </button>
