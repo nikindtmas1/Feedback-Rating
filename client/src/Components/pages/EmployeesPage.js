@@ -19,6 +19,10 @@ const EmployeesPage = () => {
   const [newEmployees, setNewEmployees] = useState(employees)
 
   useEffect(() => {
+    setNewEmployees(employees)
+  },[employees]);
+
+  useEffect(() => {
     if (employeeEdit.edit === true) {
       setBtnDisabled(false);
       setUserName(employeeEdit.item.title);
