@@ -26,7 +26,9 @@ const SelectPeople = () => {
       >
           <option style={{ textAlign: "center" }} value='start'>Select Therapist</option>
         {employees.map((row) => (
+          row.check === true ?
           <option value={row.name} style={{ textAlign: "center" }}>{row.title}</option>
+          : null
         ))}
       </select>
     </>
