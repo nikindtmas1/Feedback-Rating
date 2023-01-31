@@ -12,13 +12,13 @@ import * as employeeService from "../services/employeeData";
 const EmployeesPage = () => {
   const { employees, employeeEdit } = useContext(FeedbackContext);
 
-  const [userName, setUserName] = useState('');
+  const [userName, setUserName] = useState("");
   const [isChecked, setIsChecked] = useState(false);
   const [message, setMessage] = useState("");
   const [btnDisabled, setBtnDisabled] = useState(true);
 
   useEffect(() => {
-    if(employeeEdit.edit === true){
+    if (employeeEdit.edit === true) {
       setBtnDisabled(false);
       setUserName(employeeEdit.item.title);
       setIsChecked(employeeEdit.item.check);
@@ -29,22 +29,20 @@ const EmployeesPage = () => {
     e.preventDefault();
 
     const formData = new FormData(e.currentTarget);
-    const newName = formData.get('userName');
+    const newName = formData.get("userName");
 
     const data = {
       name: employeeEdit.item.name,
       title: newName,
-      check: isChecked
+      check: isChecked,
     };
-    
-    if(employeeEdit.edit === true){
+
+    if (employeeEdit.edit === true) {
       employeeService.editEmployee(employeeEdit.item._id, data);
       setBtnDisabled(true);
-      setUserName('');
+      setUserName("");
       setIsChecked(false);
     }
-
-    
   };
 
   const handleUserChange = (e) => {
@@ -52,56 +50,67 @@ const EmployeesPage = () => {
   };
 
   const onCheckClick = (e) => {
-    isChecked === true ? setIsChecked(false) : setIsChecked(true)
+    isChecked === true ? setIsChecked(false) : setIsChecked(true);
   };
-  
+
   return (
     <div className="app-body text-login">
       <Card>
-      <div className="text-container">
-        <div className="text-content">
-           <h3
+        <div className="text-container">
+          <div className="text-content">
+            <h3
               style={{
                 color: "rgb(45, 179, 206)",
               }}
             >
               Change Therapiests
             </h3>
-          <form onSubmit={handleSubmit}>
-            <div className="input-group">
-              <input type="checkbox" name="check" value={isChecked} checked={isChecked} onClick={onCheckClick} />
-              <input
-                type="text"
-                name="userName"
-                // placeholder="Write name pleas!"
-                value={userName}
-                onChange={handleUserChange}
-              />
-            </div>
-            <div className="input-group">
-              <Button type="submit" isDisabled={btnDisabled}>
-                Send
-              </Button>
-              <Button type="submit" isDisabled={false} version="tertiary">
-                <Link to='/'>
-                  Back
+            <form onSubmit={handleSubmit}>
+              <div className="input-group">
+                <input
+                  type="checkbox"
+                  name="check"
+                  value={isChecked}
+                  checked={isChecked}
+                  onClick={onCheckClick}
+                />
+                <input
+                  type="text"
+                  name="userName"
+                  // placeholder="Write name pleas!"
+                  value={userName}
+                  onChange={handleUserChange}
+                />
+              </div>
+              <div className="input-group">
+                <Button type="submit" isDisabled={btnDisabled}>
+                  Send
+                </Button>
+                <Link to="/">
+                  <Button type="submit" isDisabled={false} version="tertiary">
+                    Back
+                  </Button>
                 </Link>
-              </Button>
-            </div>
+              </div>
 
-            {message && <div className="message">{message}</div>}
-          </form>
+              {message && <div className="message">{message}</div>}
+            </form>
+          </div>
         </div>
-      </div>
-    </Card>
-    
+      </Card>
 
       <AnimatePresence>
-      {employees.map((item) => (
-        <motion.div key={item.id} initial={{ opacity : 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
-          <EmployeeItem key={item.id} item={item}/>
-        </motion.div>
-      ))};
+        {employees.map((item) => (
+          <motion.div
+            key={item.id}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+          >
+            <EmployeeItem key={item.id} item={item} />
+          </motion.div>
+        ))}
+        ;
       </AnimatePresence>
     </div>
   );
