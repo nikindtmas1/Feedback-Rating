@@ -23,30 +23,24 @@ const Navbar = () => {
         <Link
           to="/logout"
           style={{
-            // display: "inline",
-            // display: 'inline-block',
             textDecoration: "none",
-            backgroundColor: "#ff6a95",
+            backgroundColor: "#cccccc",
             borderRadius: "10px",
             paddingLeft: '7px',
             paddingRight: '7px',
             fontSize: '20px'
-            // padding: "3px",
           }}
         >
           Logout
         </Link>
         <Link to='/employees' style={{
-            // display: "inline",
-            // display: 'inline-block',
             textDecoration: "none",
-            backgroundColor: "#ff6a95",
+            backgroundColor: "#cccccc",
             borderRadius: "10px",
             paddingLeft: '7px',
             paddingRight: '7px',
             fontSize: '20px',
             marginLeft: '10px'
-            // padding: "3px",
           }}>
           Employees
         </Link>
