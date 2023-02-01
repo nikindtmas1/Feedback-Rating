@@ -2,6 +2,7 @@ import React, { useEffect, useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
 import EmployeeItem from "../EmployeeItem";
+import Alert from "../shared/Alert";
 
 import Button from "../shared/Button";
 import Card from "../shared/Card";
@@ -16,7 +17,8 @@ const EmployeesPage = () => {
   const [isChecked, setIsChecked] = useState(false);
   const [message, setMessage] = useState("");
   const [btnDisabled, setBtnDisabled] = useState(true);
-  const [newEmployees, setNewEmployees] = useState(employees)
+  const [newEmployees, setNewEmployees] = useState(employees);
+  const [isAlert, setIsAlert] = useState(false);
 
   useEffect(() => {
     setNewEmployees(employees)
@@ -43,11 +45,12 @@ const EmployeesPage = () => {
     };
 
     if(!newName.match(/^[A-Z]/)){
-        setMessage("Name must start with uppercase letter")
-        return alert("Uppercase letter please!")
+        setMessage("Name must start with uppercase letter");
+        return alert("Uppercase letter please!");
     };
 
     if (employeeEdit.edit === true) {
+      setIsAlert(true);
       employeeService.editEmployee(employeeEdit.item._id, data)
       .then(() => employeeService.getAll())
       .then((result) => setNewEmployees(result))
@@ -56,10 +59,13 @@ const EmployeesPage = () => {
       setIsChecked(false);
       setMessage("");
     }
+
+    
   };
 
   const handleUserChange = (e) => {
     setUserName(e.target.value);
+    setIsAlert(false);
   };
 
   const onCheckClick = (e) => {
@@ -72,6 +78,11 @@ const EmployeesPage = () => {
     <div className="app-body text-login">
       <Card>
         <div className="text-container">
+          {isAlert ? <Alert type="success">
+        <p>Success Edit Name</p>
+      </Alert>
+        : null
+          }
           <div className="text-content">
             <h3
               style={{
