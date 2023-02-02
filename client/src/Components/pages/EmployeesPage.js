@@ -14,7 +14,7 @@ const EmployeesPage = () => {
   const { isAuth, employees, employeeEdit } = useContext(FeedbackContext);
 
   const history = useHistory();
-  
+
   const [userName, setUserName] = useState("");
   const [isChecked, setIsChecked] = useState(false);
   const [message, setMessage] = useState("");
@@ -72,6 +72,7 @@ const EmployeesPage = () => {
 
   const onCheckClick = (e) => {
     isChecked === true ? setIsChecked(false) : setIsChecked(true);
+    setIsAlert(false);
   };
 
   const onClick = (e) => {
@@ -85,7 +86,7 @@ const EmployeesPage = () => {
       <Card>
         <div className="text-container">
           {isAlert ? <Alert type="success">
-        <p>Success Edit Name</p>
+        <p>Success Edit</p>
       </Alert>
         : null
           }
