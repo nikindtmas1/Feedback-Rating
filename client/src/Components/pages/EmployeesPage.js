@@ -56,6 +56,7 @@ const EmployeesPage = () => {
       employeeService.editEmployee(employeeEdit.item._id, data)
       .then(() => employeeService.getAll())
       .then((result) => setNewEmployees(result))
+      .catch(error => console.log(error))
       setBtnDisabled(true);
       setUserName("");
       setIsChecked(false);
