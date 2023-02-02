@@ -21,10 +21,11 @@ const EmployeesPage = () => {
   const [btnDisabled, setBtnDisabled] = useState(true);
   const [newEmployees, setNewEmployees] = useState(employees);
   const [isAlert, setIsAlert] = useState(false);
+  const [isError, setIsError] = useState(false);
 
   useEffect(() => {
-    setNewEmployees(employees)
-  },[employees]);
+    setNewEmployees(employees);
+  }, [employees]);
 
   useEffect(() => {
     if (employeeEdit.edit === true) {
@@ -46,24 +47,23 @@ const EmployeesPage = () => {
       check: isChecked,
     };
 
-    if(!newName.match(/^[A-Z]/)){
-        setMessage("Name must start with uppercase letter");
-        return alert("Uppercase letter please!");
-    };
+    if (!newName.match(/^[A-Z]/)) {
+      setMessage("Name must start with uppercase letter");
+      return alert("Uppercase letter please!");
+    }
 
     if (employeeEdit.edit === true) {
       setIsAlert(true);
-      employeeService.editEmployee(employeeEdit.item._id, data)
-      .then(() => employeeService.getAll())
-      .then((result) => setNewEmployees(result))
-      .catch(error => console.log(error))
+      employeeService
+        .editEmployee(employeeEdit.item._id, data)
+        .then(() => employeeService.getAll())
+        .then((result) => setNewEmployees(result))
+        .catch((error) => console.log(error), setIsError(true));
       setBtnDisabled(true);
       setUserName("");
       setIsChecked(false);
       setMessage("");
     }
-
-    
   };
 
   const handleUserChange = (e) => {
@@ -80,17 +80,20 @@ const EmployeesPage = () => {
     e.preventDefault();
     history.push("/");
   };
-  return (
-    isAuth ? 
-    
+  return isAuth ? (
     <div className="app-body text-login">
       <Card>
         <div className="text-container">
-          {isAlert ? <Alert type="success">
-        <p>Success Edit</p>
-      </Alert>
-        : null
-          }
+          {isAlert ? (
+            <Alert type="success">
+              <p>Success Edit</p>
+            </Alert>
+          ) : null}
+          {isError ? (
+            <Alert type="error">
+              <p>Error to fetch</p>
+            </Alert>
+          ) : null}
           <div className="text-content">
             <h3
               style={{
@@ -146,14 +149,16 @@ const EmployeesPage = () => {
         ))}
         ;
       </AnimatePresence>
-    </div>  : 
+    </div>
+  ) : (
     <div>
-      <div><h3>You are not logged in!</h3></div>
-      <Link onClick={onClick} to="/" style={{ textDecoration: "none" }}>
-            <Button version="secondary">Back</Button>
-          </Link>
+      <div>
+        <h3>You are not logged in!</h3>
       </div>
-    
+      <Link onClick={onClick} to="/" style={{ textDecoration: "none" }}>
+        <Button version="secondary">Back</Button>
+      </Link>
+    </div>
   );
 };
 
