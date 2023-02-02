@@ -1,15 +1,17 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 import Card from "../shared/Card";
 import { FeedbackContext } from "../../context/FeedbackContext";
 import Login from "../shared/Login";
 import Button from "../shared/ButtonLogin";
+import Alert from "../shared/Alert";
 import * as service from "../services/data";
 
 const LoginPage = () => {
   const history = useHistory();
   const { feedbackByName, onLogin, isAuth } = useContext(FeedbackContext);
   const peopleName = "start";
+  const [isError, setIsError] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -26,12 +28,14 @@ const LoginPage = () => {
     }
    
     
-
-    service
+   
+      service
       .login(nameUser, password)
       .then((logDate) => onLogin(logDate))
       .then(() => feedbackByName(peopleName))
-      .then(() => history.push("/"));
+      .then(() => history.push("/"))
+      .catch(error => console.log(error),setIsError(true) )
+    
   };
 
   const onClick = (e) => {
@@ -46,6 +50,13 @@ const LoginPage = () => {
   return (
     !isAuth ? 
     <div className="app-body text-login">
+      {isError 
+      ?  <Alert type="error">
+          <p>Error to fetch</p>
+        </Alert>
+      : null
+      }
+     
     <Card>
       <div className="text-container">
         <div className="text-content">
