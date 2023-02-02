@@ -1,5 +1,5 @@
 import "./App.css";
-import { Route } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 
 import { FeedbackProvider } from "./context/FeedbackContext";
 import Header from "./Components/Header";
@@ -16,10 +16,12 @@ function App() {
           <Header />
         </header>
         <body className="app-body">
-          <Route path="/" exact component={Dashboard} />
-          <Route path="/login" component={LoginPage} />
-          <Route path="/logout" component={Logout} />
-          <Route path="/employees" component={EmployeesPage} />
+          <Switch>
+            <Route path="/" exact component={Dashboard} />
+            <Route path="/logout" component={Logout} />
+            <Route path="/employees" component={EmployeesPage} />
+            <Route path="/login" component={LoginPage} />  
+          </Switch>
         </body>
       </div>
     </FeedbackProvider>
