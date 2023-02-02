@@ -21,7 +21,7 @@ function App() {
         <body className="app-body">
           <Switch>
             <Route path="/" exact component={Dashboard} />
-            <Route path="/logout" component={Logout} />
+            <UserRoute path='/logout' children={<Logout />} />
             <UserRoute path='/employees' children={<EmployeesPage />} />
             <GuestRoute path='/login' children={<LoginPage />} />
           </Switch>
