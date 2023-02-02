@@ -8,6 +8,8 @@ import Dashboard from "./Components/pages/Dashboard";
 import Logout from "./Components/pages/Logout";
 import EmployeesPage from "./Components/pages/EmployeesPage";
 
+import GuestRoute from "./Components/GuestRoute";
+
 function App() {
   return (
     <FeedbackProvider>
@@ -20,7 +22,8 @@ function App() {
             <Route path="/" exact component={Dashboard} />
             <Route path="/logout" component={Logout} />
             <Route path="/employees" component={EmployeesPage} />
-            <Route path="/login" component={LoginPage} />  
+            <GuestRoute path='/login' children={<LoginPage />} />
+            {/* <Route path="/login" component={LoginPage} />   */}
           </Switch>
         </body>
       </div>
