@@ -8,7 +8,7 @@ import * as service from "../services/data";
 
 const LoginPage = () => {
   const history = useHistory();
-  const { feedbackByName, onLogin } = useContext(FeedbackContext);
+  const { feedbackByName, onLogin, isAuth } = useContext(FeedbackContext);
   const peopleName = "start";
 
   const handleSubmit = (e) => {
@@ -44,6 +44,7 @@ const LoginPage = () => {
 
 
   return (
+    !isAuth ? 
     <div className="app-body text-login">
     <Card>
       <div className="text-container">
@@ -57,6 +58,12 @@ const LoginPage = () => {
         </div>
       </div>
     </Card>
+    </div>
+    : <div>
+      <div><h3>You are logged in !</h3></div>
+      <Link onClick={onClick} to="/" style={{ textDecoration: "none" }}>
+            <Button version="secondary">Back</Button>
+          </Link>
     </div>
   );
 };
