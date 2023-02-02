@@ -9,6 +9,7 @@ import Logout from "./Components/pages/Logout";
 import EmployeesPage from "./Components/pages/EmployeesPage";
 
 import GuestRoute from "./Components/GuestRoute";
+import UserRoute from "./Components/UserRoute";
 
 function App() {
   return (
@@ -21,9 +22,8 @@ function App() {
           <Switch>
             <Route path="/" exact component={Dashboard} />
             <Route path="/logout" component={Logout} />
-            <Route path="/employees" component={EmployeesPage} />
+            <UserRoute path='/employees' children={<EmployeesPage />} />
             <GuestRoute path='/login' children={<LoginPage />} />
-            {/* <Route path="/login" component={LoginPage} />   */}
           </Switch>
         </body>
       </div>
