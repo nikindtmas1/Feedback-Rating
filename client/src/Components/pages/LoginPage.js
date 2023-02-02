@@ -34,7 +34,7 @@ const LoginPage = () => {
       .then((logDate) => onLogin(logDate))
       .then(() => feedbackByName(peopleName))
       .then(() => history.push("/"))
-      .catch(error => console.log(error),setIsError(true) )
+      .catch(error => console.log(error),setIsError(true))
     
   };
 
