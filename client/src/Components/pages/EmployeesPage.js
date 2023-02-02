@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
 import EmployeeItem from "../EmployeeItem";
 import Alert from "../shared/Alert";
@@ -13,6 +13,8 @@ import * as employeeService from "../services/employeeData";
 const EmployeesPage = () => {
   const { isAuth, employees, employeeEdit } = useContext(FeedbackContext);
 
+  const history = useHistory();
+  
   const [userName, setUserName] = useState("");
   const [isChecked, setIsChecked] = useState(false);
   const [message, setMessage] = useState("");
@@ -72,6 +74,10 @@ const EmployeesPage = () => {
     isChecked === true ? setIsChecked(false) : setIsChecked(true);
   };
 
+  const onClick = (e) => {
+    e.preventDefault();
+    history.push("/");
+  };
   return (
     isAuth ? 
     
@@ -138,7 +144,13 @@ const EmployeesPage = () => {
         ))}
         ;
       </AnimatePresence>
-    </div>  : <div><h3>You are not loged in!</h3></div>
+    </div>  : 
+    <div>
+      <div><h3>You are not logged in!</h3></div>
+      <Link onClick={onClick} to="/" style={{ textDecoration: "none" }}>
+            <Button version="secondary">Back</Button>
+          </Link>
+      </div>
     
   );
 };
