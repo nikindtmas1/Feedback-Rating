@@ -213,8 +213,11 @@ input:focus {
 }
 
 .photo {
+  position: absolute;
+  top: 0px;
+  left: 70px;
   padding: 10px;
-  border-radius: 50px;
+  border-radius: 40px;
   background-color: #ff6a95;
 }
 
