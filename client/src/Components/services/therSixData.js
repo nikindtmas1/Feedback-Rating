@@ -13,3 +13,7 @@ export async function getAll() {
 export async function createTherSixFeedback(data) {
  return await services.post(host + '/thersixfeedbacks', data);  
 };
+
+export async function editTherSixFeedback(id, data) {
+    return await services.put(host + `/thersixfeedbacks/${id}`, data);
+};
