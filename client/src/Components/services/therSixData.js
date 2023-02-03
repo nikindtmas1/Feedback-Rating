@@ -17,3 +17,7 @@ export async function createTherSixFeedback(data) {
 export async function editTherSixFeedback(id, data) {
     return await services.put(host + `/thersixfeedbacks/${id}`, data);
 };
+
+export async function deleteTherSixFeedback(id) {
+    return await services.del(host + `/thersixfeedbacks/${id}`);
+};
