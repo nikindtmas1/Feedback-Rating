@@ -25,6 +25,7 @@ const FeedbackItem = ({ item }) => {
       ) : null}
       <div className="text-display">{item.text}</div>
       <div className="name-text">{item.peopleName}</div>
+      {/* <div className="photo">{item.rating}</div> */}
       <div className="name-user">{item.userName}</div>
     </Card>
   );
