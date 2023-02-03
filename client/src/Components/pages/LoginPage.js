@@ -34,8 +34,9 @@ const LoginPage = () => {
       .then((logDate) => onLogin(logDate))
       .then(() => feedbackByName(peopleName))
       .then(() => history.push("/"))
-      .catch(error => console.log(error),setIsError(true))
+      .catch(error => console.log(error), setIsError(true))
     
+      setIsError(false)
   };
 
   const onClick = (e) => {
@@ -50,7 +51,7 @@ const LoginPage = () => {
   return (
     !isAuth ? 
     <div className="app-body text-login">
-      {isError 
+      {isError === true
       ?  <Alert type="error">
           <p>Error to fetch</p>
         </Alert>
