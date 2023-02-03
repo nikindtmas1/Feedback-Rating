@@ -39,7 +39,7 @@ export const FeedbackProvider = ({ children }) => {
     fetchService
       .fetchByName(name)
       .then((result) => setFeedback(result), setTherName(name), setIsLoading(false))
-      .then((err) => alert(err.message));
+      .catch((err) => alert(err.message));
   };
 
   const addedName = (name) => {
@@ -50,7 +50,7 @@ export const FeedbackProvider = ({ children }) => {
     addFeedbackService
       .addFeedbackByName(data, therName)
       .then((result) => setFeedback(result))
-      .then((err) => alert(err.message));
+      .catch((err) => alert(err.message));
   };
 
   const removeFeedback = (id) => {
@@ -58,7 +58,7 @@ export const FeedbackProvider = ({ children }) => {
       removeFeedbackService
         .deleteFeedbackByName(id, therName, feedback)
         .then((result) => setFeedback(result))
-        .then((err) => alert(err.message));
+        .catch((err) => alert(err.message));
     }
   };
 
@@ -75,7 +75,7 @@ export const FeedbackProvider = ({ children }) => {
       .editFeedbackById(id, therName, data)
       .then((result) => setFeedback(result))
       .then(() => setFeedbackEdit({item: {}, edit: false}))
-      .then((err) => alert(err.message))
+      .catch((err) => alert(err.message))
     }
   }
 
