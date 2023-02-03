@@ -14,4 +14,9 @@ router.post('/', async (req, res) => {
     res.json({ ok: true });
 });
 
+router.put('/:id', async (req, res) => {
+    await services.updateTherSixFeedback(req.params.id, req.body)
+    res.json({ ok: true });
+});
+
 module.exports = router;
