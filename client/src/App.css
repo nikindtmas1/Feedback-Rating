@@ -212,6 +212,12 @@ input:focus {
   left: -10px;
 }
 
+.photo {
+  padding: 10px;
+  border-radius: 50px;
+  background-color: #ff6a95;
+}
+
 .close,
 .edit {
   position: absolute;
