@@ -64,6 +64,8 @@ const EmployeesPage = () => {
       setIsChecked(false);
       setMessage("");
     }
+
+    setIsError(false);
   };
 
   const handleUserChange = (e) => {
