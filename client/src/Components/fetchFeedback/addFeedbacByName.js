@@ -4,6 +4,7 @@ import * as peshoService from "../services/peshoData";
 import * as tomiService from '../services/tomiData';
 import * as therFiveService from '../services/therapiestFiveData';
 import * as therSixService from '../services/therSixData';
+import * as therSevService from '../services/therSeventhData';
 
 export function addFeedbackByName(data, therName){
 
@@ -15,5 +16,6 @@ export function addFeedbackByName(data, therName){
   : name === 'Four' ? tomiService.createTomiFeedback(data).then(() => tomiService.getAll())
   : name === 'Five' ? therFiveService.createTherFiveFeedback(data).then(() => therFiveService.getAll())
   : name === 'Six' ? therSixService.createTherSixFeedback(data).then(() => therSixService.getAll())
+  : name === 'Seven' ? therSevService.createTherSevFeed(data).then(() => therSevService.getAll())
   : null
 }
