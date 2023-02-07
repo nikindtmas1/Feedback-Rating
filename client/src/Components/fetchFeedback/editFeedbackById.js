@@ -4,6 +4,7 @@ import * as peshoServices from '../services/peshoData';
 import * as tomiServices from '../services/tomiData';
 import * as therFiveService from '../services/therapiestFiveData';
 import * as therSixService from '../services/therSixData';
+import * as therSevService from '../services/therSeventhData';
 
 export function editFeedbackById(id, therName, data){
   return therName === 'One' ?
@@ -13,5 +14,6 @@ export function editFeedbackById(id, therName, data){
   : therName === 'Four' ? tomiServices.editTomiFeedback(id, data).then(() => tomiServices.getAll())
   : therName === 'Five' ? therFiveService.editTherFiveFeedback(id, data).then(() => therFiveService.getAll())
   : therName === 'Six' ? therSixService.editTherSixFeedback(id, data).then(() => therSixService.getAll())
+  : therName === 'Seven' ? therSevService.editTherSevFeed(id, data).then(() => therSevService.getAll())
   : null
 }
