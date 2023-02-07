@@ -4,6 +4,7 @@ import * as peshoService from '../services/peshoData';
 import * as tomiService from '../services/tomiData';
 import * as therFiveService from '../services/therapiestFiveData';
 import * as therSixService from '../services/therSixData';
+import * as therSevService from '../services/therSeventhData';
 
 export function deleteFeedbackByName(id, therName, feedback){
    return therName === 'One' ?
@@ -13,5 +14,6 @@ export function deleteFeedbackByName(id, therName, feedback){
    : therName === 'Four' ? tomiService.deleteTomiFeedback(id).then(() => feedback.filter((item) => item._id !== id))
    : therName === 'Five' ? therFiveService.deleteTherFeveFeedback(id).then(() => feedback.filter((item) => item._id !== id))
    : therName === 'Six' ? therSixService.deleteTherSixFeedback(id).then(() => feedback.filter((item) => item._id !== id))
+   : therName === 'Seven' ? therSevService.deleteTherSevFeed(id).then(() => feedback.filter((item) => item._id !== id))
    : null
 }
