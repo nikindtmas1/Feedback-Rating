@@ -15,3 +15,7 @@ export async function createTherSevFeed(data) {
     await service.post(host + '/therseventhfeedbacks', data);
 };
 
+export async function updateTherSevFeed(id, data) {
+    await service.put(host + `/therseventhfeedbacks/${id}`, data);
+};
+
