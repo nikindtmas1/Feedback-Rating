@@ -9,3 +9,9 @@ export async function getAll() {
     const result = Object.values(seventTherFeed);
     return result;
 };
+
+
+export async function createTherSevFeed(data) {
+    await service.post(host + '/therseventhfeedbacks', data);
+};
+
