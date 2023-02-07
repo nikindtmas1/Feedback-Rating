@@ -19,3 +19,7 @@ export async function updateTherSevFeed(id, data) {
     await service.put(host + `/therseventhfeedbacks/${id}`, data);
 };
 
+export async function deleteTherSevFeed(id) {
+    await service.del(host + `/therseventhfeedbacks/${id}`);
+};
+
