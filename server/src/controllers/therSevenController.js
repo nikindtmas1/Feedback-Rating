@@ -8,5 +8,9 @@ router.get('/', async (req, res) => {
     res.json(respons);
 });
 
+router.post('/', async (req, res) => {
+    await services.createTherSevenFeedback({...req.body});
+    res.json({ ok: true });
+});
 
 module.exports = router;
