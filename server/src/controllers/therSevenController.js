@@ -7,3 +7,6 @@ router.get('/', async (req, res) => {
     const respons = await services.getAllTherSevenFeedback();
     res.json(respons);
 });
+
+
+module.exports = router;
