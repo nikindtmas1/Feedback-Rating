@@ -18,3 +18,6 @@ export async function editTherEightFeedback(id, data) {
     return await services.put(host + `/thereightfeedbacks/${id}`, data);
 };
 
+export async function deleteTherEightFeedback(id) {
+    return await services.del(host + `/thereightfeedbacks/${id}`);
+};
