@@ -13,3 +13,8 @@ export async function getAll() {
 export async function createTherEightFeedback(data) {
    return await services.post(host + '/thereightfeedbacks', data);
 };
+
+export async function editTherEightFeedback(id, data) {
+    return await services.put(host + `/thereightfeedbacks/${id}`, data);
+};
+
