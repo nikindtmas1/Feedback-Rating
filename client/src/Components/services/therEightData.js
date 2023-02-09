@@ -10,3 +10,6 @@ export async function getAll() {
     return respons;
 };
 
+export async function createTherEightFeedback(data) {
+   return await services.post(host + '/thereightfeedbacks', data);
+};
