@@ -6,6 +6,7 @@ import * as tomiService from '../services/tomiData';
 import * as therFiveService from '../services/therapiestFiveData';
 import * as therSixService from '../services/therSixData';
 import * as therSevService from '../services/therSeventhData';
+import * as therEightService from '../services/therEightData';
 
 export function fetchByName(name){
   return name === 'One' ? goshoService.getAll()
@@ -15,5 +16,6 @@ export function fetchByName(name){
   : name === 'Five' ? therFiveService.getAll()
   : name === 'Six' ? therSixService.getAll()
   : name === 'Seven' ? therSevService.getAll()
+  : name === 'Eight' ? therEightService.getAll()
   :  service.getAll()
-}
+};
