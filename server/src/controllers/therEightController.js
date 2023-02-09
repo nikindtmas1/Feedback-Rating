@@ -17,3 +17,10 @@ router.put('/:id', async (req, res) => {
     await services.updateTherEightFeedback(req.params.id, req.body);
     res.json({ ok: true });
 });
+
+router.delete('/:id', async (req, res) => {
+    await services.deleteTherEightFeedback(req.params.id);
+    res.json({ ok: true });
+});
+
+module.exports = router;
