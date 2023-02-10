@@ -11,3 +11,7 @@ export async function getAll() {
     const result = Object.values(therNineFeedbacks);
     return result;
 };
+
+export async function createTherNineFeedback(data) {
+    await services.post(host + '/therninefeedbacks', data);
+};
