@@ -15,3 +15,7 @@ export async function getAll() {
 export async function createTherNineFeedback(data) {
     await services.post(host + '/therninefeedbacks', data);
 };
+
+export async function editTherNineFeedback(id, data) {
+    await services.put(host + `/therninefeedbacks/${id}`, data);
+};
