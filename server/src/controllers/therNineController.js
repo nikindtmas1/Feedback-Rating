@@ -7,3 +7,8 @@ router.get('/', async (req, res) => {
     const response = await therNineService.getAllTherNienFeedbacks();
     res.json(response);
 });
+
+router.post('/', async (req, res) => {
+    await therNineService.createTherNineFeedback({...req.body});
+    res.json({ ok: true });
+});
