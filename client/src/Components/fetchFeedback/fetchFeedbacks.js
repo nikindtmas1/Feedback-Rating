@@ -1,23 +1,17 @@
 import * as service from "../services/data";
-import * as goshoService from "../services/goshoData";
-import * as toshoService from "../services/toshoData";
-import * as peshoService from "../services/peshoData";
-import * as tomiService from '../services/tomiData';
-import * as therFiveService from '../services/therapiestFiveData';
-import * as therSixService from '../services/therSixData';
-import * as therSevService from '../services/therSeventhData';
-import * as therEightService from '../services/therEightData';
-import * as therNineService from '../services/therNineData';
+
+import { allServicesData } from "../services/allTherServices";
 
 export function fetchByName(name){
-  return name === 'One' ? goshoService.getAll()
-  : name === 'Two' ? toshoService.getAll()
-  : name === 'Three' ? peshoService.getAll()
-  : name === 'Four' ? tomiService.getAll()
-  : name === 'Five' ? therFiveService.getAll()
-  : name === 'Six' ? therSixService.getAll()
-  : name === 'Seven' ? therSevService.getAll()
-  : name === 'Eight' ? therEightService.getAll()
-  : name === 'Nine' ? therNineService.getAll()
+  return name === 'One' ? allServicesData.goshoDataServices.getAll()
+  : name === 'Two' ? allServicesData.toshoDataServices.getAll()
+  : name === 'Three' ? allServicesData.peshoDataServices.getAll()
+  : name === 'Four' ? allServicesData.tomiDataServices.getAll()
+  : name === 'Five' ? allServicesData.therFiveServices.getAll()
+  : name === 'Six' ? allServicesData.therSixServices.getAll()
+  : name === 'Seven' ? allServicesData.therSevenServices.getAll()
+  : name === 'Eight' ? allServicesData.therEightServices.getAll()
+  : name === 'Nine' ? allServicesData.therNineServices.getAll()
+  : name === 'Ten' ? allServicesData.therTenServices.getAll()
   :  service.getAll()
 };
