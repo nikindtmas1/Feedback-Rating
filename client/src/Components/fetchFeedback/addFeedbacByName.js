@@ -8,12 +8,13 @@ import * as therSevService from '../services/therSeventhData';
 import * as therEightService from '../services/therEightData';
 import * as therNineService from '../services/therNineData';
 import * as therTenService from '../services/therTenData';
+import { allServicesData } from "../services/allTherServices";
 
 export function addFeedbackByName(data, therName){
 
   const name = therName;
   return name === 'One' ? 
-  goshoService.createGoshoFeedback(data).then(() => goshoService.getAll())
+  allServicesData.goshoDataServices.createGoshoFeedback(data).then(() => goshoService.getAll())
   : name === 'Two' ? toshoService.createToshoFeedback(data).then(() => toshoService.getAll())
   : name === 'Three' ? peshoService.createPeshoFeedback(data).then(() => peshoService.getAll())
   : name === 'Four' ? tomiService.createTomiFeedback(data).then(() => tomiService.getAll())
