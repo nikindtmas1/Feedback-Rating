@@ -7,6 +7,7 @@ import * as therSixService from '../services/therSixData';
 import * as therSevService from '../services/therSeventhData';
 import * as therEightService from '../services/therEightData';
 import * as therNineService from '../services/therNineData';
+import * as therTenService from '../services/therTenData';
 
 export function addFeedbackByName(data, therName){
 
@@ -21,5 +22,6 @@ export function addFeedbackByName(data, therName){
   : name === 'Seven' ? therSevService.createTherSevFeed(data).then(() => therSevService.getAll())
   : name === 'Eight' ? therEightService.createTherEightFeedback(data).then(() => therEightService.getAll())
   : name === 'Nine' ? therNineService.createTherNineFeedback(data).then(() => therNineService.getAll())
+  : name === 'Ten' ? therTenService.createTherTenFeedback(data).then(() => therTenService.getAll())
   : null
 };
