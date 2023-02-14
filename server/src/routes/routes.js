@@ -12,6 +12,7 @@ const therSixController = require('../controllers/therSixController');
 const therSevenController = require('../controllers/therSevenController');
 const therEightController = require('../controllers/therEightController');
 const therNineController = require('../controllers/therNineController');
+const therTenController = require('../controllers/therTenController');
 
 
 router.use('/feedbacks', feedbackController);
@@ -24,6 +25,7 @@ router.use('/thersixfeedbacks', therSixController);
 router.use('/therseventhfeedbacks', therSevenController);
 router.use('/thereightfeedbacks', therEightController);
 router.use('/therninefeedbacks', therNineController);
+router.use('/thertenfeedbacks', therTenController);
 router.use('/employees', employeeController);
 router.use('/users', userController);
 
