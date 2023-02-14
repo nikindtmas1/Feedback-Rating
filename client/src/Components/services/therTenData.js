@@ -14,3 +14,7 @@ export async function getAll() {
 export async function createTherTenFeedback(data) {
    return await service.post(host + '/thertenfeedbacks', data);
 };
+
+export async function updateTherTenFeedback(id, data) {
+    return await service.put(host + `/thertenfeedbacks/${id}`, data);
+};
