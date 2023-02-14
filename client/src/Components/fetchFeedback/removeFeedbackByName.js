@@ -1,23 +1,16 @@
-import * as goshoService from '../services/goshoData';
-import * as toshoService from '../services/toshoData';
-import * as peshoService from '../services/peshoData';
-import * as tomiService from '../services/tomiData';
-import * as therFiveService from '../services/therapiestFiveData';
-import * as therSixService from '../services/therSixData';
-import * as therSevService from '../services/therSeventhData';
-import * as therEightService from '../services/therEightData';
-import * as therNineService from '../services/therNineData';
+import { allServicesData } from '../services/allTherServices';
 
 export function deleteFeedbackByName(id, therName, feedback){
    return therName === 'One' ?
-   goshoService.deleteGoshoFeedback(id).then(() => feedback.filter((item) => item._id !== id))
-   : therName === 'Two' ? toshoService.deleteToshoFeedback(id).then(() => feedback.filter((item) => item._id !== id))
-   : therName === 'Three' ? peshoService.deletePeshoFeedback(id).then(() => feedback.filter((item) => item._id !== id))
-   : therName === 'Four' ? tomiService.deleteTomiFeedback(id).then(() => feedback.filter((item) => item._id !== id))
-   : therName === 'Five' ? therFiveService.deleteTherFeveFeedback(id).then(() => feedback.filter((item) => item._id !== id))
-   : therName === 'Six' ? therSixService.deleteTherSixFeedback(id).then(() => feedback.filter((item) => item._id !== id))
-   : therName === 'Seven' ? therSevService.deleteTherSevFeed(id).then(() => feedback.filter((item) => item._id !== id))
-   : therName === 'Eight' ? therEightService.deleteTherEightFeedback(id).then(() => feedback.filter((item) => item._id !== id))
-   : therName === 'Nine' ? therNineService.deleteTherNineFeedback(id).then(() => feedback.filter((item) => item._id !== id))
+   allServicesData.goshoDataServices.deleteGoshoFeedback(id).then(() => feedback.filter((item) => item._id !== id))
+   : therName === 'Two' ? allServicesData.toshoDataServices.deleteToshoFeedback(id).then(() => feedback.filter((item) => item._id !== id))
+   : therName === 'Three' ? allServicesData.peshoDataServices.deletePeshoFeedback(id).then(() => feedback.filter((item) => item._id !== id))
+   : therName === 'Four' ? allServicesData.tomiDataServices.deleteTomiFeedback(id).then(() => feedback.filter((item) => item._id !== id))
+   : therName === 'Five' ? allServicesData.therFiveServices.deleteTherFeveFeedback(id).then(() => feedback.filter((item) => item._id !== id))
+   : therName === 'Six' ? allServicesData.therSixServices.deleteTherSixFeedback(id).then(() => feedback.filter((item) => item._id !== id))
+   : therName === 'Seven' ? allServicesData.therSevenServices.deleteTherSevFeed(id).then(() => feedback.filter((item) => item._id !== id))
+   : therName === 'Eight' ? allServicesData.therEightServices.deleteTherEightFeedback(id).then(() => feedback.filter((item) => item._id !== id))
+   : therName === 'Nine' ? allServicesData.therNineServices.deleteTherNineFeedback(id).then(() => feedback.filter((item) => item._id !== id))
+   : therName === 'Ten' ? allServicesData.therTenServices.deleteTherTenFeedback(id).then(() => feedback.filter((item) => item._id !== id))
    : null
 }
