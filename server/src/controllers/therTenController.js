@@ -17,3 +17,10 @@ router.put('/:id', async (req, res) => {
     await service.updateTherTenFeedback(req.params.id, req.body);
     res.json({ ok: true });
 });
+
+router.delete('/:id', async (req, res) => {
+    await service.deleteTherTenFeedback(req.params.id);
+    res.json({ ok: true });
+});
+
+module.exports = router;
