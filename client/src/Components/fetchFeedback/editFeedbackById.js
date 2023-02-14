@@ -1,23 +1,16 @@
-import * as goshoServices from '../services/goshoData';
-import * as toshoServices from '../services/toshoData';
-import * as peshoServices from '../services/peshoData';
-import * as tomiServices from '../services/tomiData';
-import * as therFiveService from '../services/therapiestFiveData';
-import * as therSixService from '../services/therSixData';
-import * as therSevService from '../services/therSeventhData';
-import * as therEightService from '../services/therEightData';
-import * as therNineService from '../services/therNineData';
+import { allServicesData } from '../services/allTherServices';
 
 export function editFeedbackById(id, therName, data){
   return therName === 'One' ?
-  goshoServices.editGoshoFeedback(id, data).then(() => goshoServices.getAll())
-  : therName === 'Two' ? toshoServices.editToshoFeedback(id, data).then(() => toshoServices.getAll())
-  : therName === 'Three' ? peshoServices.editPeshoFeedback(id, data).then(() => peshoServices.getAll())
-  : therName === 'Four' ? tomiServices.editTomiFeedback(id, data).then(() => tomiServices.getAll())
-  : therName === 'Five' ? therFiveService.editTherFiveFeedback(id, data).then(() => therFiveService.getAll())
-  : therName === 'Six' ? therSixService.editTherSixFeedback(id, data).then(() => therSixService.getAll())
-  : therName === 'Seven' ? therSevService.editTherSevFeed(id, data).then(() => therSevService.getAll())
-  : therName === 'Eight' ? therEightService.editTherEightFeedback(id, data).then(() => therEightService.getAll())
-  : therName === 'Nine' ? therNineService.editTherNineFeedback(id, data).then(() => therNineService.getAll())
+  allServicesData.goshoDataServices.editGoshoFeedback(id, data).then(() => allServicesData.goshoDataServices.getAll())
+  : therName === 'Two' ? allServicesData.toshoDataServices.editToshoFeedback(id, data).then(() => allServicesData.toshoDataServices.getAll())
+  : therName === 'Three' ? allServicesData.peshoDataServices.editPeshoFeedback(id, data).then(() => allServicesData.peshoDataServices.getAll())
+  : therName === 'Four' ? allServicesData.tomiDataServices.editTomiFeedback(id, data).then(() => allServicesData.tomiDataServices.getAll())
+  : therName === 'Five' ? allServicesData.therFiveServices.editTherFiveFeedback(id, data).then(() => allServicesData.therFiveServices.getAll())
+  : therName === 'Six' ? allServicesData.therSixServices.editTherSixFeedback(id, data).then(() => allServicesData.therSixServices.getAll())
+  : therName === 'Seven' ? allServicesData.therSevenServices.editTherSevFeed(id, data).then(() => allServicesData.therSevenServices.getAll())
+  : therName === 'Eight' ? allServicesData.therEightServices.editTherEightFeedback(id, data).then(() => allServicesData.therEightServices.getAll())
+  : therName === 'Nine' ? allServicesData.therNineServices.editTherNineFeedback(id, data).then(() => allServicesData.therNineServices.getAll())
+  : therName === 'Ten' ? allServicesData.therTenServices.editTherTenFeedback(id, data).then(() => allServicesData.therTenServices.getAll())
   : null
 };
