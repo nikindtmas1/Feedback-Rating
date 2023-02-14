@@ -18,3 +18,7 @@ export async function createTherTenFeedback(data) {
 export async function updateTherTenFeedback(id, data) {
     return await service.put(host + `/thertenfeedbacks/${id}`, data);
 };
+
+export async function deleteTherTenFeedback(id) {
+    return await service.del(host + `/thertenfeedbacks/${id}`);
+};
