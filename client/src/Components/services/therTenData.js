@@ -10,3 +10,7 @@ export async function getAll() {
     const result = Object.values(therTenFeedbacks);
     return result;
 };
+
+export async function createTherTenFeedback(data) {
+   return await service.post(host + '/thertenfeedbacks', data);
+};
