@@ -39,7 +39,7 @@ async function getOptions(method = "get", body) {
     let refreshToken = sessionStorage.getItem("refreshToken");
     // console.log(refreshToken);
     if (!isValid) {
-      let res = await fetch("http://localhost:5000/users/refresh", {
+      let res = await fetch(settings.host + "/users/refresh", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
