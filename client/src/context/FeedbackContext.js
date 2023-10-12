@@ -63,11 +63,12 @@ export const FeedbackProvider = ({ children }) => {
   };
 
   const editFeedback = (item) => {
+    window.scrollTo(0, 0);
       setFeedbackEdit({
         item: item,
         edit: true
       })
-      .then(() => window.scrollTo(0, 0));
+      
   };
 
   const updateFeedback = (id, data) => {
