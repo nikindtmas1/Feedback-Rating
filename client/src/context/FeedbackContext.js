@@ -66,7 +66,8 @@ export const FeedbackProvider = ({ children }) => {
       setFeedbackEdit({
         item: item,
         edit: true
-      });
+      })
+      .then(() => window.scrollTo(0, 0));
   };
 
   const updateFeedback = (id, data) => {
