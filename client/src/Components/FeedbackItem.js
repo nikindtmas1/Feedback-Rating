@@ -18,7 +18,10 @@ const FeedbackItem = ({ item }) => {
           >
             <FaTimes color="red" />
           </button>
-          <button type="button" onClick={() => editFeedback(item)} className="edit">
+          <button type="button" onClick={
+            () => editFeedback(item)
+            .then(() => window.scrollTo(0, 0))
+            } className="edit">
             <FaEdit color="purple" />
           </button>
         </>
