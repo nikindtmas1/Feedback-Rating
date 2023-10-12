@@ -20,7 +20,7 @@ const FeedbackItem = ({ item }) => {
           </button>
           <button type="button" onClick={
             () => editFeedback(item)
-            .then(() => window.scrollTo(0, 0))
+            .then(window.scrollTo(0, 0))
             } className="edit">
             <FaEdit color="purple" />
           </button>
