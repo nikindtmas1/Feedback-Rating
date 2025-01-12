@@ -13,7 +13,7 @@ const Header = () => {
       textAlign: "center",
       padding: "4px",
        }}
-       >Health & Relax Center <Navbar /></h2>
+       >Wellness Center <Navbar /></h2>
        
     </div>
   );
